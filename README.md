@@ -1,4 +1,4 @@
-# Game
+# Dino Dynasty: A Race Before Time
 [![License: MIT](https://img.shields.io/badge/License-MIT-violet.svg)](https://opensource.org/licenses/MIT)
 [![License](https://img.shields.io/badge/License-Apache%202.0-red.svg)](https://opensource.org/licenses/Apache-2.0)
 [![visual_studio_code](https://aleen42.github.io/badges/src/visual_studio_code.svg)](https://code.visualstudio.com) 
@@ -8,7 +8,7 @@
 
 [Description](#Description)
 
-[User Story]()
+[User Story](Dino Dynasty)
 
 [Acceptance Criteria](#AcceptanceCriteria)
 
@@ -62,9 +62,11 @@ THEN I will be given the results of my score and compare with other players at t
 
 # Technologies📲®
 * Express
+* Mongoose (secondary data)
+* MYSQL (primary data)
+* Webpack
 * REACT
 * Node
-* nodemon
 * Phaser 3 (API)
 * Tiled App (Level Design)
 * Bootstrap 3 & 4
@@ -73,33 +75,33 @@ THEN I will be given the results of my score and compare with other players at t
 * JavaScript
 
 
-
 # Questions❓❔
 * Feel free to message Troy at troyberentsen94@gmail.com and or use the contacts resource on our projects page to send us your thoughs, ideas, and what your looking to create!  
 
 # Link📶🤳
 Try the game here ==> [Game]
+
 # Screenshots📸
 ![Game]
 
 # Contributors🙌👨‍💻
 
 <a href="https://github.com/tmbx9482">
-         <img alt="Troy Berentsen" src="team/Troy.png"
+         <img alt="Troy Berentsen" src="Team/Troy.png"
          width="100" height="100" style="border-radius:50%;">
       </a>
 
 <a href="https://github.com/KilometersDodecahedron">
-         <img alt="Miles Cohn" src="team/Miles.png"
+         <img alt="Miles Cohn" src="Team/Miles.png"
          width="100" height="100" style="border-radius:50%;">
       </a>
 
 <a href="https://github.com/chrissy613">
-         <img alt="Chris Crook" src="team/Chris.png"
+         <img alt="Chris Crook" src="Team/Chris.png"
          width="100" height="100" style="border-radius:50%;">
       </a>
 
 <a href="https://github.com/Carlosbenitez">
-         <img alt="Carlos Benitez" src="team/Carlos.png"
+         <img alt="Carlos Benitez" src="Team/Carlos.png"
          width="100" height="100" style="border-radius:50%;">
       </a>
