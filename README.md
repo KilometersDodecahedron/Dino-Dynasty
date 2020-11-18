@@ -1,6 +1,6 @@
 # Dino Dynasty: A Race Before Time🦕🏁
-[![License: MIT](https://img.shields.io/badge/License-MIT-violet.svg)](https://opensource.org/licenses/MIT)
-[![License](https://img.shields.io/badge/License-Apache%202.0-red.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/License-Apache%202.0-gold.svg)](https://opensource.org/licenses/Apache-2.0)
 [![visual_studio_code](https://aleen42.github.io/badges/src/visual_studio_code.svg)](https://code.visualstudio.com) 
 ![npm](https://aleen42.github.io/badges/src/npm.svg)
 
