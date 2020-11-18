@@ -8,7 +8,7 @@
 
 [Description](#Description)
 
-[User Story](Dino Dynasty)
+[User Story](DinoDynasty)
 
 [Acceptance Criteria](#AcceptanceCriteria)
 
