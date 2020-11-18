@@ -1,4 +1,4 @@
-# Dino Dynasty: A Race Before Time
+# Dino Dynasty: A Race Before Time🦕🏁
 [![License: MIT](https://img.shields.io/badge/License-MIT-violet.svg)](https://opensource.org/licenses/MIT)
 [![License](https://img.shields.io/badge/License-Apache%202.0-red.svg)](https://opensource.org/licenses/Apache-2.0)
 [![visual_studio_code](https://aleen42.github.io/badges/src/visual_studio_code.svg)](https://code.visualstudio.com) 
@@ -8,7 +8,7 @@
 
 [Description](#Description)
 
-[User Story](DinoDynasty)
+[User Story](#DinoDynasty)
 
 [Acceptance Criteria](#AcceptanceCriteria)
 
@@ -26,11 +26,13 @@
 
 [Contributors](#Contributors)
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Description📋🕵️‍♂️
+Throughout many lost lands of the world, everyone always wonder how the world would be like if the Mesozoic era never happpen. Well, while traveling through tropical forests with many species, mysteries castles with dark entities and being the player of a 2D side scrolling adverture game with your favorite dinosaur. Dino Dynasty is here to show you what went on for thousands and thousands of years before extinction. If Dinosaur's had survived all the changes on Earth, and now, leaving their home; will they continue to resolute or follow fate as metors are incoming to earth before time runs out. 
 
-# Description📋
-
-# User Story📙🎬
-
+# User Story📙🤳
+A race before time! 
+![Dino](https://user-images.githubusercontent.com/62157127/99466928-44c3e500-290b-11eb-87f0-66e290fde13d.gif)
 
 # Acceptance Criteria✅
 
@@ -43,24 +45,29 @@ THEN I will be generating time by collecting timewatches in the game.
 
 GIVEN artwork sprites
 WHEN I explore the mapp, I will travel from point A to B.
+WHEN I come in contact with power up, DINO changes persona.
 THEN I will be given the results of my score and compare with other players at the end of the mapp.
 
 ```
 
-# Installation💻
+# Installation💻🛠
+
+```
+npm install
+npm install mongoose
+npm install express
+npm install webpack -g
 
 ```
 
-```
-
-# Tests🔬⚖
+# Tests⚗⚖
 
 ```
-
+run node server.js
 ```
 
 
-# Technologies📲®
+# Technologies🔭📱
 * Express
 * Mongoose (secondary data)
 * MYSQL (primary data)
@@ -78,7 +85,7 @@ THEN I will be given the results of my score and compare with other players at t
 # Questions❓❔
 * Feel free to message Troy at troyberentsen94@gmail.com and or use the contacts resource on our projects page to send us your thoughs, ideas, and what your looking to create!  
 
-# Link📶🤳
+# Link📶🤝
 Try the game here ==> [Game]
 
 # Screenshots📸
