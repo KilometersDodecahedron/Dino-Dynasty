@@ -57,6 +57,7 @@ npm install
 npm install mongoose
 npm install express
 npm install webpack -g
+npm install nodewebkit
 
 ```
 
@@ -72,6 +73,7 @@ run node server.js
 * Mongoose (secondary data)
 * MYSQL (primary data)
 * Webpack
+* Webkit
 * REACT
 * Node
 * Phaser 3 (API)
@@ -94,7 +96,7 @@ Try the game here ==> [Game]
 # Contributors🙌👨‍💻
 
 <a href="https://github.com/tmbx9482">
-         <img alt="Troy Berentsen" src="Team/Troy.png"
+         <img alt="Troy Berentsen" src="..src/Team/Troy.png"
          width="100" height="100" style="border-radius:50%;">
       </a>
 
