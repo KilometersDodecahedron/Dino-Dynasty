@@ -29,7 +29,7 @@ export default class TriclopsEnemy extends Caveman{
     callbackFunction(){
         this.setCollideWorldBounds(true);
         this.flipX = true;
-        this.anims.play("triclops-walk", true)
+        this.anims.play("triclops-idle", true)
         this.resizeHitbox();
     }
 

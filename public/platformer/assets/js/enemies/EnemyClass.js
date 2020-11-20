@@ -24,6 +24,14 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite{
         }
     }
 
+    isPlayerToTheLeftOfEnemy(){
+        if(this.scene.player.x < this.x){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     takeFireballDamage(){
         this.health--;
 

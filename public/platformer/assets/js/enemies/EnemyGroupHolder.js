@@ -1,6 +1,7 @@
 import BatEnemy from "../enemies/BatEnemy.js"
 import HumpbackEnemy from "../enemies/HumpbackEnemy.js"
 import TriclopsEnemy from "../enemies/TriclopsEnemy.js"
+import BigmouthEnemy from "../enemies/BigmouthEnemy.js"
 
 const createEnemyGroups = (scene) => {
     let enemyGroups = {};
@@ -44,6 +45,16 @@ const createEnemyGroups = (scene) => {
     scene.enemyGroupsArray.push(triclops)
     scene.solidEnemies.push(triclops)
     enemyGroups.triclops = triclops;
+
+    const bigmouth = scene.physics.add.group({
+        classType: BigmouthEnemy,
+        createCallback: (gameObject) => {
+            gameObject.callbackFunction();
+        }
+    })
+    scene.enemyGroupsArray.push(bigmouth)
+    scene.solidEnemies.push(bigmouth)
+    enemyGroups.bigmouth = bigmouth;
 
     return enemyGroups;
 }

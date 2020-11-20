@@ -108,7 +108,8 @@ export default class Game extends Phaser.Scene {
         this.enemies.batsHorizontal.get(150, 425, "bat-1")
         this.enemies.batsVertical.get(300, 435, "bat-1")
         this.enemies.humpback.get(200, 300, "humpback")
-        this.enemies.triclops.get(240, 450, "triclops")
+        this.enemies.triclops.get(790, 450, "triclops")
+        this.enemies.bigmouth.get(550, 250, "bigmouth")
 
         this.cameras.main.startFollow(this.player)
         this.cameras.main.setZoom(2.5);
@@ -170,5 +171,9 @@ export default class Game extends Phaser.Scene {
             enemy.collidedWithEnemyFunction(player);
             player.takeDamage();
         }
+    }
+
+    handlePlayerHazardCollision(player, hazard){
+        player.takeDamage();
     }
 }
