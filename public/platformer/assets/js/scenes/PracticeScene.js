@@ -5,6 +5,7 @@ import { createEnemyAnims } from "../anims/enemyAnims.js"
 import "../player/PlayerClass.js"
 
 import FireBall from "../player/FireBall.js"
+
 import BluePickup from "../collectables/BlueColorPickup.js"
 import RedPickup from "../collectables/RedColorPickup.js"
 import YellowPickup from "../collectables/YellowColorPickup.js"
