@@ -96,21 +96,21 @@ Try the game here ==> [Game]
 # Contributors🙌👨‍💻
 
 <a href="https://github.com/tmbx9482">
-         <img alt="Troy Berentsen" src="..src/Team/Troy.png"
+         <img alt="Troy Berentsen" src="./src/Team/Troy.png"
          width="100" height="100" style="border-radius:50%;">
       </a>
 
 <a href="https://github.com/KilometersDodecahedron">
-         <img alt="Miles Cohn" src="Team/Miles.png"
+         <img alt="Miles Cohn" src="./src/Team/Miles.png"
          width="100" height="100" style="border-radius:50%;">
       </a>
 
 <a href="https://github.com/chrissy613">
-         <img alt="Chris Crook" src="Team/Chris.png"
+         <img alt="Chris Crook" src="./src/Team/Chris.png"
          width="100" height="100" style="border-radius:50%;">
       </a>
 
 <a href="https://github.com/Carlosbenitez">
-         <img alt="Carlos Benitez" src="Team/Carlos.png"
+         <img alt="Carlos Benitez" src="./src/Team/Carlos.png"
          width="100" height="100" style="border-radius:50%;">
       </a>
