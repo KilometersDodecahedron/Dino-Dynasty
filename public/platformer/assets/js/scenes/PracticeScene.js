@@ -47,21 +47,32 @@ export default class Game extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, this.worldBoundsX, this.worldBoundsY, true, true, true, true)
         
         const map = this.make.tilemap({key: "level1"})
-        //"Sand tiles" comes from the json file
-        const tileset1 = map.addTilesetImage("grass", "grass")
-        const tileset2 = map.addTilesetImage("platform-long", "platform-long")
-        const tileset3 = map.addTilesetImage("small-platform", "small-platform")
-        const tileset4 = map.addTilesetImage("small-platformGOLD", "small-platformGOLD")
-        const tileset5 = map.addTilesetImage("block", "block")
-        const tileset6 = map.addTilesetImage("block-big", "block-big")
-        const tileset7 = map.addTilesetImage("platform-long", "platform-long")
+        //assets from preloader
+        const grassTileset = map.addTilesetImage("grass", "grass")
+        const platformLongTileset = map.addTilesetImage("platform-long", "platform-long")
+        const blockGoldTileset = map.addTilesetImage("small-platformGOLD", "small-platformGOLD")
+        const blockTileset = map.addTilesetImage("block", "block")
+        const blockBigTileset = map.addTilesetImage("block-big", "block-big")
+        const treeTileset = map.addTilesetImage("tree", "tree")
         const backgroundTileset = map.addTilesetImage("background", "background")
-        
+
+        //creates background
         map.createStaticLayer('Background', backgroundTileset)
-        this.staticGround.push(map.createDynamicLayer("Ground", [ tileset1, tileset2, tileset3, tileset4, tileset5, tileset6, tileset7])); 
+
+        //creates ground and platforms
+        console.log(grassTileset);
+        this.staticGround.push(map.createDynamicLayer("Ground", grassTileset))
+        this.staticGround.push(map.createDynamicLayer("PlatformLong", platformLongTileset))
+        this.staticGround.push(map.createDynamicLayer("BlockGold", blockGoldTileset))
+        this.staticGround.push(map.createDynamicLayer("Block", blockTileset))
+        this.staticGround.push(map.createDynamicLayer("BigBlock", blockBigTileset))
+        this.staticGround.push(map.createDynamicLayer("Tree", treeTileset))
+
+        //sets collision
         this.staticGround.forEach(ground => {
             ground.setCollisionByProperty({ground: true})
         })
+        
 
         this.fireBalls = this.physics.add.group({
             classType: FireBall,
@@ -70,7 +81,7 @@ export default class Game extends Phaser.Scene {
             }
         })
 
-        this.player = this.add.player(this.scene, 100, 400, "dino-green");
+        this.player = this.add.player(this.scene, 100, 200, "dino-green");
         this.player.callbackFunction(this.fireBalls);
 
         this.cameras.main.startFollow(this.player)
