@@ -4,6 +4,8 @@ export default class TriclopsEnemy extends Caveman{
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
 
+        this.pointValue = 20;
+
         this.health = 1;
         this.moveSpeed = 130;
 
@@ -23,7 +25,12 @@ export default class TriclopsEnemy extends Caveman{
     preUpdate(time, deltaTime){
         super.preUpdate(time, deltaTime);
 
-        this.runAroundAndBounceOffWalls();
+        if(!this.hasBeenSpotted){
+            this.checkIfOnScreen();
+        }else{
+            this.anims.play("triclops-walk", true)
+            this.runAroundAndBounceOffWalls();
+        }    
     }
 
     callbackFunction(){

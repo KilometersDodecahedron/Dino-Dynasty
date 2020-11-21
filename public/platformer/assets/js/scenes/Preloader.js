@@ -36,6 +36,9 @@ export default class Preloader extends Phaser.Scene {
         this.load.atlas("humpback", "../platformer/assets/img/enemies/humpback.png", "../platformer/assets/json/enemies/humpback.json");
         this.load.atlas("mustache", "../platformer/assets/img/enemies/mustache.png", "../platformer/assets/json/enemies/mustache.json");
         this.load.atlas("triclops", "../platformer/assets/img/enemies/triclops.png", "../platformer/assets/json/enemies/triclops.json");
+
+        //hazards & enemy attacks
+        this.load.image("cow-skull", "../platformer/assets/img/enemies/weapons/cow-skull.png")
     }
 
     create(){

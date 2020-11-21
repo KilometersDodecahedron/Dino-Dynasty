@@ -1,7 +1,10 @@
+import { sceneEvents, eventNames } from "../events/events.js"
+
 export default class Enemy extends Phaser.Physics.Arcade.Sprite{
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
 
+        this.pointValue = 10;
         this.moveSpeed = 100;
         //most enemies die in 1 hit
         this.health = 1;

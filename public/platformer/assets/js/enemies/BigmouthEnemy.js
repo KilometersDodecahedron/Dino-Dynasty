@@ -4,12 +4,17 @@ export default class BigmouthEnemy extends Caveman{
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
 
+        this.pointValue = 30;
+
         this.health = 3;
 
         this.lungeDistance = 100;
+        this.lungeDistanceShort = 80;
         this.lungeHeight = -180;
+        this.lungeHeightShort = -120;
+        this.shortLunge = false;
 
-        this.lungeInterval = 2000;
+        this.lungeInterval = 1250;
         this.curentLungeInterval = 0;
 
         //set true when the player sees it, then it starts moving
@@ -45,13 +50,7 @@ export default class BigmouthEnemy extends Caveman{
         this.resizeHitbox();
 
         this.checkIfOnScreen()
-    }
-
-    checkIfOnScreen(){
-        if(this.scene.cameras.main.worldView.contains(this.x, this.y)){
-            this.hasBeenSpotted = true;
-        }
-    }
+    } 
 
     manageJumpingAround(deltaTime){
         if(this.body.blocked.down){
@@ -61,12 +60,28 @@ export default class BigmouthEnemy extends Caveman{
 
             if(this.curentLungeInterval >= this.lungeInterval && !this.scene.player.isDead){
                 this.curentLungeInterval = 0;
+                
+                let distance = 0;
+                let height = 0;
+
+                if(this.shortLunge){
+                    distance = this.lungeDistanceShort;
+                    height = this.lungeHeightShort;
+                    this.shortLunge = false;
+                }else{
+                    distance = this.lungeDistance;
+                    height = this.lungeHeight;
+                    this.shortLunge = true;
+                }
+
                 if(this.isPlayerToTheLeftOfEnemy()){
+
+
                     this.flipX = true;
-                    this.setVelocity(-this.lungeDistance, this.lungeHeight)
+                    this.setVelocity(-distance, height)
                 }else{
                     this.flipX = false;
-                    this.setVelocity(this.lungeDistance, this.lungeHeight)
+                    this.setVelocity(distance, height)
                 }
             }
         }else{

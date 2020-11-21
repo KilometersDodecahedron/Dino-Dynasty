@@ -17,11 +17,15 @@ export default class Caveman extends Enemy{
         this.falseSizeY = 28
         this.falseOffsetX = 5;
         this.falseOffsetY = 5;
+
+        //set true when the player sees it, then it starts moving
+        this.hasBeenSpotted = false;
     }
 
     callbackFunction(){
         this.setCollideWorldBounds(true);
         this.flipX = true;
+        this.resizeHitbox();
     }
 
     resizeHitbox(){
@@ -31,6 +35,12 @@ export default class Caveman extends Enemy{
         }else{
             this.body.setSize(this.falseSizeX, this.falseSizeY)
                 .setOffset(this.falseOffsetX, this.falseOffsetY);
+        }
+    }
+
+    checkIfOnScreen(){
+        if(this.scene.cameras.main.worldView.contains(this.x, this.y)){
+            this.hasBeenSpotted = true;
         }
     }
 }

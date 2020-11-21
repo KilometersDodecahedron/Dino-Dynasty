@@ -4,6 +4,8 @@ export default class BatEnemy extends Enemy{
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
 
+        this.pointValue = 10;
+
         this.moveSpeed = 75;
         this.moveDuration = 1500;
         this.currentMoveDuration = 0;
