@@ -4,6 +4,8 @@ export default class HumpbackEnemy extends Caveman{
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
 
+        this.pointValue = 20;
+
         this.shortJump = -150;
         this.highJump = -220;
 
