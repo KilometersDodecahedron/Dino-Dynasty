@@ -21,8 +21,8 @@ export default class Game extends Phaser.Scene {
         this.genericParticles;
         //the ground layer that doesn't move
         this.staticGround = [];
-        this.worldBoundsX = 800;
-        this.worldBoundsY = 560;
+        this.worldBoundsX = 3840;
+        this.worldBoundsY = 320;
 
         //stores bluePickup, redPickup, yellowPickup
         //set with createColorPickups
@@ -46,11 +46,19 @@ export default class Game extends Phaser.Scene {
         //set the boundaries of the world, to make them different from the canvas
         this.physics.world.setBounds(0, 0, this.worldBoundsX, this.worldBoundsY, true, true, true, true)
         
-        const map = this.make.tilemap({key: "practice-level"})
+        const map = this.make.tilemap({key: "level1"})
         //"Sand tiles" comes from the json file
-        const tileset = map.addTilesetImage("Sand tiles", "sand-tiles")
+        const tileset1 = map.addTilesetImage("grass", "grass")
+        const tileset2 = map.addTilesetImage("platform-long", "platform-long")
+        const tileset3 = map.addTilesetImage("small-platform", "small-platform")
+        const tileset4 = map.addTilesetImage("small-platformGOLD", "small-platformGOLD")
+        const tileset5 = map.addTilesetImage("block", "block")
+        const tileset6 = map.addTilesetImage("block-big", "block-big")
+        const tileset7 = map.addTilesetImage("platform-long", "platform-long")
+        const backgroundTileset = map.addTilesetImage("background", "background")
         
-        this.staticGround.push(map.createDynamicLayer("Ground", tileset)); 
+        map.createStaticLayer('Background', backgroundTileset)
+        this.staticGround.push(map.createDynamicLayer("Ground", [ tileset1, tileset2, tileset3, tileset4, tileset5, tileset6, tileset7])); 
         this.staticGround.forEach(ground => {
             ground.setCollisionByProperty({ground: true})
         })
