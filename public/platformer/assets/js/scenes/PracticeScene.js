@@ -59,12 +59,41 @@ export default class Game extends Phaser.Scene {
         map.createStaticLayer('Background', backgroundTileset)
 
         //creates ground and platforms
-        console.log(grassTileset);
         this.staticGround.push(map.createDynamicLayer("Ground", grassTileset))
         this.staticGround.push(map.createDynamicLayer("Platform", platformSmallTileset))
         this.staticGround.push(map.createDynamicLayer("BlockGold", blockGoldTileset))
         this.staticGround.push(map.createDynamicLayer("Block", blockTileset))
         this.staticGround.push(map.createDynamicLayer("Tree", treeTileset))
+
+        ///////////////////
+        ///////////////////
+        //COMMENT OUT BELOW
+        //LINES 79 TO 96
+        //AND THEN COMMENT OUT
+        //LINES 134 TO 147
+        //TO PLAY LEVEL 2
+        //WITHOUT MONSTERS
+        ///////////////////
+        ///////////////////
+
+        // const map = this.make.tilemap({key: "level2"})
+        // //assets from preloader
+        // const darkGrassTileset = map.addTilesetImage("darkgrass", "darkgrass")
+        // const platformSmallTileset = map.addTilesetImage("small-platform", "small-platform")
+        // const blockGoldTileset = map.addTilesetImage("small-platformGOLD", "small-platformGOLD")
+        // const darkBlockTileset = map.addTilesetImage("darkblock", "darkblock")
+        // const treeTileset = map.addTilesetImage("tree", "tree")
+        // const forestBackgroundTileset = map.addTilesetImage("forestbackground", "forestbackground")
+
+        // //creates background
+        // map.createStaticLayer('Background', forestBackgroundTileset)
+
+        // //creates ground and platforms
+        // this.staticGround.push(map.createDynamicLayer("Ground", darkGrassTileset))
+        // this.staticGround.push(map.createDynamicLayer("Platform", platformSmallTileset))
+        // this.staticGround.push(map.createDynamicLayer("BlockGold", blockGoldTileset))
+        // this.staticGround.push(map.createDynamicLayer("Block", darkBlockTileset))
+        // this.staticGround.push(map.createDynamicLayer("Tree", treeTileset))
 
         //sets collision
         this.staticGround.forEach(ground => {

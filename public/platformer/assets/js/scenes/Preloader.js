@@ -18,7 +18,6 @@ export default class Preloader extends Phaser.Scene {
         this.load.image("block", "../platformer/assets/img/tilesets/block.png")
         this.load.image("bush", "../platformer/assets/img/tilesets/bush.png")
         this.load.image("darkblock", "../platformer/assets/img/tilesets/darkblock.png")
-        this.load.image("darkblock-big", "../platformer/assets/img/tilesets/darkblock-big.png")
         this.load.image("darkgrass", "../platformer/assets/img/tilesets/darkgrass.png")
         this.load.image("dungeon", "../platformer/assets/img/tilesets/dungeon.png")
         this.load.image("forestbackground", "../platformer/assets/img/tilesets/forestbackground.png")
