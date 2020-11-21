@@ -49,10 +49,9 @@ export default class Game extends Phaser.Scene {
         const map = this.make.tilemap({key: "level1"})
         //assets from preloader
         const grassTileset = map.addTilesetImage("grass", "grass")
-        const platformLongTileset = map.addTilesetImage("platform-long", "platform-long")
+        const platformSmallTileset = map.addTilesetImage("small-platform", "small-platform")
         const blockGoldTileset = map.addTilesetImage("small-platformGOLD", "small-platformGOLD")
         const blockTileset = map.addTilesetImage("block", "block")
-        const blockBigTileset = map.addTilesetImage("block-big", "block-big")
         const treeTileset = map.addTilesetImage("tree", "tree")
         const backgroundTileset = map.addTilesetImage("background", "background")
 
@@ -62,10 +61,9 @@ export default class Game extends Phaser.Scene {
         //creates ground and platforms
         console.log(grassTileset);
         this.staticGround.push(map.createDynamicLayer("Ground", grassTileset))
-        this.staticGround.push(map.createDynamicLayer("PlatformLong", platformLongTileset))
+        this.staticGround.push(map.createDynamicLayer("Platform", platformSmallTileset))
         this.staticGround.push(map.createDynamicLayer("BlockGold", blockGoldTileset))
         this.staticGround.push(map.createDynamicLayer("Block", blockTileset))
-        this.staticGround.push(map.createDynamicLayer("BigBlock", blockBigTileset))
         this.staticGround.push(map.createDynamicLayer("Tree", treeTileset))
 
         //sets collision
@@ -93,22 +91,31 @@ export default class Game extends Phaser.Scene {
         //store color pickups here
         this.colorPickups = createColorPickups(this);
 
-        this.colorPickups.bluePickup.get(150, 450, "Pickup")
+        this.colorPickups.bluePickup.get(20, 275, "Pickup")
 
-        this.colorPickups.yellowPickup.get(250, 450, "Pickup")
+        this.colorPickups.yellowPickup.get(50, 275, "Pickup")
 
-        this.colorPickups.redPickup.get(350, 450, "Pickup")
+        this.colorPickups.redPickup.get(80, 275, "Pickup")
 
         //spawn enemies
-        this.enemies.batsHorizontal.get(150, 425, "bat-1")
-        this.enemies.batsVertical.get(300, 435, "bat-1")
-        this.enemies.batsSedentary.get(250, 425, "bat-1")
+        // this.enemies.batsHorizontal.get(150, 425, "bat-1")
+        // this.enemies.batsVertical.get(300, 435, "bat-1")
+        // this.enemies.batsSedentary.get(250, 425, "bat-1")
         //this.enemies.humpback.get(200, 300, "humpback")
-        this.enemies.triclops.get(790, 450, "triclops")
-        this.enemies.bigmouth.get(550, 250, "bigmouth")
-        this.enemies.mustache.get(300, 450, "mustache")
-
-        this.enemies.weapons.cowSkull.get(250, 425, "cow-skull")
+        this.enemies.triclops.get(600, 275, "triclops")
+        this.enemies.triclops.get(1600, 275, "triclops")
+        this.enemies.triclops.get(2200, 275, "triclops")
+        this.enemies.triclops.get(2500, 275, "triclops")
+        this.enemies.triclops.get(2800, 275, "triclops")
+        this.enemies.triclops.get(3420, 75, "triclops")
+        this.enemies.bigmouth.get(450, 275, "bigmouth")
+        this.enemies.bigmouth.get(1400, 175, "bigmouth")
+        this.enemies.bigmouth.get(2088, 105, "bigmouth")
+        this.enemies.bigmouth.get(2840, 105, "bigmouth")
+        this.enemies.mustache.get(900, 275, "mustache")
+            this.enemies.weapons.cowSkull.get(900, 300, "cow-skull")
+        this.enemies.mustache.get(2950, 105, "mustache")
+        this.enemies.mustache.get(2625, 105, "mustache")
 
         this.cameras.main.startFollow(this.player)
         this.cameras.main.setZoom(2.5);
