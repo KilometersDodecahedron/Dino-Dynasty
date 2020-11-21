@@ -65,16 +65,17 @@ export default class Game extends Phaser.Scene {
         this.staticGround.push(map.createDynamicLayer("Block", blockTileset))
         this.staticGround.push(map.createDynamicLayer("Tree", treeTileset))
 
-        ///////////////////
-        ///////////////////
-        //COMMENT OUT BELOW
-        //LINES 79 TO 96
-        //AND THEN COMMENT OUT
-        //LINES 134 TO 147
-        //TO PLAY LEVEL 2
-        //WITHOUT MONSTERS
-        ///////////////////
-        ///////////////////
+        /////////////////////////////////////////////
+        /////////////////////////////////////////////
+        //1. COMMENT OUT ABOVE
+        //   LINES 49 TO 66 (LEVEL 1)
+        //2. COMMENT OUT BELOW
+        //   LINES 80 TO 97 (LEVEL 2)
+        //3. COMMENT OUT FURTHER DOWN
+        //   LINES 135 TO 148 (CONTROLS ENEMY SPAWNS)
+        //   TO PLAY LEVEL 2
+        /////////////////////////////////////////////
+        /////////////////////////////////////////////
 
         // const map = this.make.tilemap({key: "level2"})
         // //assets from preloader
