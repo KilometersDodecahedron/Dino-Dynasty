@@ -10,6 +10,10 @@ import FireBall from "../player/FireBall.js";
 
 import { createEnemyGroups } from "../enemies/EnemyGroupHolder.js"
 import { createColorPickups } from "../collectables/ColorPickupHolder.js"
+import { createBlockGroups } from "../platforms/BlocksGroupHolder.js"
+
+import { createCollisionEffects } from "../utils/CollisionEffectsHolder.js"
+import { createCollision } from "../utils/CollisionHolder.js"
 
 export default class Game extends Phaser.Scene {
     constructor() {
@@ -30,6 +34,11 @@ export default class Game extends Phaser.Scene {
 
         //enemy groups are stored here as object properties
         this.enemies;
+
+        //store the destroyable blocks, set from createBlockGroups
+        this.blocks;
+
+        this.collisionEffects;
     }
 
     preload() {
@@ -41,6 +50,9 @@ export default class Game extends Phaser.Scene {
         createPlayerAnims(this.anims);
         createEnemyAnims(this.anims);
 
+        //what to do when object collide is stored here
+        this.collisionEffects = createCollisionEffects();
+
         this.genericParticles = this.add.particles("particles");
         
         //set the boundaries of the world, to make them different from the canvas
@@ -51,6 +63,7 @@ export default class Game extends Phaser.Scene {
         const tileset = map.addTilesetImage("Sand tiles", "sand-tiles")
         
         this.staticGround.push(map.createDynamicLayer("Ground", tileset)); 
+        
         this.staticGround.forEach(ground => {
             ground.setCollisionByProperty({ground: true})
         })
@@ -73,6 +86,7 @@ export default class Game extends Phaser.Scene {
         this.enemies = createEnemyGroups(this);
         //store color pickups here
         this.colorPickups = createColorPickups(this);
+        this.blocks = createBlockGroups(this);
 
         this.colorPickups.bluePickup.get(150, 450, "Pickup")
 
@@ -82,46 +96,20 @@ export default class Game extends Phaser.Scene {
 
         //spawn enemies
         this.enemies.batsHorizontal.get(150, 425, "bat-1")
-        this.enemies.batsVertical.get(300, 435, "bat-1")
+        //this.enemies.batsVertical.get(300, 435, "bat-1")
         this.enemies.batsSedentary.get(250, 425, "bat-1")
-        //this.enemies.humpback.get(200, 300, "humpback")
-        this.enemies.triclops.get(790, 450, "triclops")
-        this.enemies.bigmouth.get(550, 250, "bigmouth")
-        this.enemies.mustache.get(300, 450, "mustache")
-
-        this.enemies.weapons.cowSkull.get(250, 425, "cow-skull")
+        //this.enemies.humpback.get(300, 300, "humpback")
+        // this.enemies.triclops.get(790, 450, "triclops")
+        // this.enemies.bigmouth.get(300, 250, "bigmouth")
+        //this.enemies.mustache.get(300, 400, "mustache")
+        this.blocks.floatingBlocks.get(300, 420, "block")
+        this.blocks.floatingBlocks.get(230, 475, "block")
 
         this.cameras.main.startFollow(this.player)
         this.cameras.main.setZoom(2.5);
         this.cameras.main.setBounds(0, 0, this.worldBoundsX, this.worldBoundsY);
-        
-        //TODO store this in a different script
-        this.staticGround.forEach(ground => {
-            this.physics.add.collider(ground, this.player)
-            this.physics.add.collider(ground, this.fireBalls, this.handleProjectileWallCollision, undefined, this)
 
-            //have enemies collide with the ground
-            this.enemies.solidEnemies.forEach(enemy => {
-                this.physics.add.collider(ground, enemy)
-            });
-        })
-
-        //collectables
-        this.colorPickups.colorPickupsArray.forEach(pickup => {
-            this.physics.add.overlap(pickup, this.player, this.handleColorChangePickup, undefined, this)
-        });
-
-        this.enemies.collisionArray.forEach(enemy => {
-            //enemies and player
-            this.physics.add.overlap(this.player, enemy, this.handleEnemyPlayerCollision, undefined, this)
-            //enemies and fireball
-            this.physics.add.overlap(this.fireBalls, enemy, this.handleProjectileEnemyCollision, undefined, this)
-        })
-
-        //enemy projectiles
-        this.enemies.collisionProjectilesArray.forEach(projectile => {
-            this.physics.add.overlap(this.player, projectile, this.handlePlayerProjectileCollisions, undefined, this)
-        })
+        createCollision(this);
     }
 
     update(){
@@ -130,42 +118,5 @@ export default class Game extends Phaser.Scene {
             this.player.managePlayerAnimations();
             this.player.managePlayerAttacking();
         }
-    }
-
-    handleProjectileWallCollision(projectile, wall){
-        projectile.destroy();
-    }
-
-    handleProjectileEnemyCollision(projectile, enemy){
-        projectile.destroy();
-        enemy.takeFireballDamage();
-    }
-
-    handleColorChangePickup(player, color){
-        player.changeColor(color.color);
-        color.collect();
-    }
-
-    handleEnemyPlayerCollision(player, enemy){
-        //jump on enemy
-        if(enemy.body.touching.up && player.body.touching.down && !player.inTakenDamageState){
-            player.jumpOffEnemy();
-            player.hasDoubleJumped = false;
-            enemy.takeDamageJump();
-        }
-        //take damage from enemy
-        else{
-            enemy.collidedWithEnemyFunction(player);
-            player.takeDamage();
-        }
-    }
-
-    handlePlayerHazardCollision(player, hazard){
-        player.takeDamage();
-    }
-
-    handlePlayerProjectileCollisions(player, projectile){
-        player.takeDamage();
-        projectile.destroyProjectile();
     }
 }

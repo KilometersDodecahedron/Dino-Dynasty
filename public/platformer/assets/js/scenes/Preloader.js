@@ -14,11 +14,17 @@ export default class Preloader extends Phaser.Scene {
         this.load.tilemapTiledJSON("practice-level", "../platformer/assets/json/tilesets/platformer-02.json")
         this.load.tilemapTiledJSON("small-level", "../platformer/assets/json/tilesets/platformer-01.json")
 
+        //blocks and platforms
+        this.load.image("block", "../platformer/assets/img/platforms/block.png");
+
         //player
         this.load.atlas("dino-green", "../platformer/assets/img/player/dino-green.png", "../platformer/assets/json/player/dino-green.json")
         this.load.atlas("dino-blue", "../platformer/assets/img/player/dino-blue.png", "../platformer/assets/json/player/dino-blue.json")
         this.load.atlas("dino-red", "../platformer/assets/img/player/dino-red.png", "../platformer/assets/json/player/dino-red.json")
         this.load.atlas("dino-yellow", "../platformer/assets/img/player/dino-yellow.png", "../platformer/assets/json/player/dino-yellow.json")
+
+        //attacks
+        this.load.atlas("fire-ball", "../platformer/assets/img/player/attacks/fire-ball.png", "../platformer/assets/json/player/attacks/fire-ball.json")
 
         //effects
         this.load.image("black-circle", "../platformer/assets/img/effects/black-circle.png")
@@ -39,6 +45,12 @@ export default class Preloader extends Phaser.Scene {
 
         //hazards & enemy attacks
         this.load.image("cow-skull", "../platformer/assets/img/enemies/weapons/cow-skull.png")
+
+        //ui
+        this.load.image("dino-green-ui", "../platformer/assets/img/player/individual/dino-green-idle-1")
+        this.load.image("dino-blue-ui", "../platformer/assets/img/player/individual/dino-blue-idle-1")
+        this.load.image("dino-red-ui", "../platformer/assets/img/player/individual/dino-green-red-1")
+        this.load.image("dino-yellow-ui", "../platformer/assets/img/player/individual/dino-green-yellow-1")
     }
 
     create(){
