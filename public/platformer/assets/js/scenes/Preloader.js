@@ -14,6 +14,24 @@ export default class Preloader extends Phaser.Scene {
         this.load.tilemapTiledJSON("practice-level", "../platformer/assets/json/tilesets/platformer-02.json")
         this.load.tilemapTiledJSON("small-level", "../platformer/assets/json/tilesets/platformer-01.json")
 
+        this.load.image("background", "../platformer/assets/img/tilesets/background.png")
+        this.load.image("block", "../platformer/assets/img/tilesets/block.png")
+        this.load.image("bush", "../platformer/assets/img/tilesets/bush.png")
+        this.load.image("darkblock", "../platformer/assets/img/tilesets/darkblock.png")
+        this.load.image("darkgrass", "../platformer/assets/img/tilesets/darkgrass.png")
+        this.load.image("dungeon", "../platformer/assets/img/tilesets/dungeon.png")
+        this.load.image("forestbackground", "../platformer/assets/img/tilesets/forestbackground.png")
+        this.load.image("grass", "../platformer/assets/img/tilesets/grass.png")
+        this.load.image("platform-long", "../platformer/assets/img/tilesets/platform-long.png")
+        this.load.image("small-platform", "../platformer/assets/img/tilesets/small-platform.png")
+        this.load.image("sand", "../platformer/assets/img/tilesets/sand.png")
+        this.load.image("small-platformGOLD", "../platformer/assets/img/tilesets/small-platformGOLD.png")
+        // this.load.image("spikes", "../platformer/assets/img/tilesets/spikes.png")
+        // this.load.image("spikes-top", "../platformer/assets/img/tilesets/spikes-top.png")
+        this.load.image("tree", "../platformer/assets/img/tilesets/tree.png")
+        this.load.tilemapTiledJSON("level1", "../platformer/assets/json/tilesets/level1.json")
+        this.load.tilemapTiledJSON("level2", "../platformer/assets/json/tilesets/level2.json")
+
         //blocks and platforms
         this.load.image("block", "../platformer/assets/img/platforms/block.png");
 
