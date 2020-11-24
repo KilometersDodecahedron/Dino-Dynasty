@@ -10,6 +10,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         this.playerJumpHeight = -230;
         this.playerRunSpeed = 150;
         this.hitKnockback = 100;
+        this.onBlock = false;
 
         this.hasDoubleJumped = false;
         this.playerDoubleJumpHeight = -175;
@@ -18,7 +19,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         this.fireBallTimer = 0;
 
         //swap between green, blue, red, and yellow
-        this.currentColor = "green"
+        this.currentColor = "blue"
 
         this.respawnPositionX = 0;
         this.respawnPositionY = 0;
@@ -44,6 +45,10 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
     preUpdate(time, deltaTime){
         super.preUpdate(time, deltaTime);
 
+        if(this.onBlock){
+            this.onBlock = false;
+        }
+        
         if(this.fireBallTimer > 0){
             this.fireBallTimer -= deltaTime;
         }
@@ -128,7 +133,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
 
         if(this.scene.cursors.left.isDown){
             //check if running or walking
-            if(this.body.blocked.down && this.scene.cursors.space.isDown && this.currentColor === "yellow"){
+            if(this.body.blocked.down && this.scene.cursors.space.isDown && this.currentColor === "yellow" ||
+            this.onBlock && this.scene.cursors.space.isDown && this.currentColor === "yellow"){
                 this.setVelocityX(-this.playerRunSpeed);
             }else{
                 this.setVelocityX(-this.playerWalkSpeed);
@@ -136,7 +142,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         }
         else if(this.scene.cursors.right.isDown){
             //check if running or walking
-            if(this.body.blocked.down && this.scene.cursors.space.isDown && this.currentColor === "yellow"){
+            if(this.body.blocked.down && this.scene.cursors.space.isDown && this.currentColor === "yellow" || 
+            this.onBlock && this.scene.cursors.space.isDown && this.currentColor === "yellow"){
                 this.setVelocityX(this.playerRunSpeed);
             }else{
                 this.setVelocityX(this.playerWalkSpeed);
@@ -146,13 +153,14 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         }
 
         //jump
-        if(this.scene.cursors.up.isDown && this.body.blocked.down){
+        if(this.scene.cursors.up.isDown && this.body.blocked.down ||
+            this.scene.cursors.up.isDown && this.onBlock){
             this.jump();
         }
 
         //manage double jump if blue
         if(this.currentColor === "blue"){
-            if(this.body.blocked.down){
+            if(this.body.blocked.down || this.onBlock){
                 this.hasDoubleJumped = false;
             }
             //keep from double jumping on the ground or before descending
@@ -192,7 +200,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
     }
 
     shootFireball(){
-        const fireBall = this.fireBalls.get(this.x, this.y, "black-circle")
+        const fireBall = this.fireBalls.get(this.x, this.y, "fire-ball")
         this.fireBallTimer = fireBall.duration;
     }
 
@@ -201,7 +209,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
             return;
         }
 
-        if(this.body.blocked.down){
+        if(this.body.blocked.down || this.onBlock){
             if(this.scene.cursors.left.isDown){
                 this.flipX = true;
                 //check if running or walking

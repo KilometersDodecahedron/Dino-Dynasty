@@ -19,7 +19,7 @@ export default class HumpbackEnemy extends Caveman{
     preUpdate(time, deltaTime){
         super.preUpdate(time, deltaTime);
 
-        if(this.body.blocked.down){
+        if(this.body.blocked.down || this.body.touching.down){
             this.anims.play("humpback-idle", true)
             this.currentJumpUnterval += deltaTime;
 
