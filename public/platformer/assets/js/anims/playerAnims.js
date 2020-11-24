@@ -158,6 +158,13 @@ const createPlayerAnims = (anims) => {
         frameRate: 12,
         repeat: -1
     });
+
+    anims.create({
+        key: "fire-ball",
+        frames: anims.generateFrameNames("fire-ball", {start: 1, end: 5, prefix: "FB00", suffix: ".png"}),
+        frameRate: 24,
+        repeat: -1
+    })
 }
 
 export {

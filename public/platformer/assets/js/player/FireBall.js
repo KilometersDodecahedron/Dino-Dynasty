@@ -5,12 +5,6 @@ export default class FireBall extends Phaser.Physics.Arcade.Sprite{
         this.distance = 300;
         this.moveRight = true;
         this.duration = 350;
-        this.particleEmitter;
-    }
-
-    preDestroy(){
-        this.particleEmitter.remove();
-        console.log("DEAD")
     }
 
     preUpdate(time, deltaTime){
@@ -24,28 +18,21 @@ export default class FireBall extends Phaser.Physics.Arcade.Sprite{
     }
 
     callbackFunction(){
+        this.setScale(0.8, 0.8);
+        this.setCircle(9);
+        this.body.setOffset(36, 6)
+
         //go in direction player is facing
+        //also resize hitbox so collision is on the ball
         if(this.scene.player.flipX){
             this.distance = -this.distance;
+            this.flipX = true;
+            this.body.setOffset(11, 6)
         }
 
-        this.alpha = 0;
         this.setVelocity(this.distance, 0)
-        this.setScale(0.08, 0.08);
-        this.setCircle(64);
+        this.anims.play("fire-ball", true)
         this.body.setAllowGravity(false)
         this.body.onCollide = true;
-
-        console.log(this.scene.genericParticles)
-        this.particleEmitter = this.scene.genericParticles.createEmitter({
-            speed: 0,
-            scale: { start: 0.42, end: 0 },
-            tint: [0xFF0000],
-            lifespan: 50,
-            quantity: 10,
-            blendMode: 'ADD'
-        });
-
-        this.particleEmitter.startFollow(this)
     }
 }

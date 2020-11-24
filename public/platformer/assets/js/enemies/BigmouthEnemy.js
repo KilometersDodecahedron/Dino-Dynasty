@@ -53,7 +53,7 @@ export default class BigmouthEnemy extends Caveman{
     } 
 
     manageJumpingAround(deltaTime){
-        if(this.body.blocked.down){
+        if(this.body.blocked.down || this.body.touching.down){
             this.setVelocity(0, 0)
             this.anims.play("bigmouth-idle", true)
             this.curentLungeInterval += deltaTime;
