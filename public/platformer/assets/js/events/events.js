@@ -2,7 +2,9 @@ const sceneEvents = new Phaser.Events.EventEmitter();
 
 //stores the strings to access events
 const eventNames = {
-    playerDied: "playerDied"
+    playerDied: "playerDied",
+    livesChanged: "livesChange",
+    colorChanged: "livesChange"
 }
 
 export {

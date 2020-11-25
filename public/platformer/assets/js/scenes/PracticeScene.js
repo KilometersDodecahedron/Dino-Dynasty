@@ -47,6 +47,7 @@ export default class Game extends Phaser.Scene {
     }
 
     create(){
+        this.scene.run("game-ui");
         createPlayerAnims(this.anims);
         createEnemyAnims(this.anims);
 

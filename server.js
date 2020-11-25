@@ -11,19 +11,16 @@ const app = express();
 //MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 
 // MONGOOSE CONNECTION
 // Secondary Data
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/", {
-    useNewUrlParser: true,
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gamesite_DB", {
+    useNewUrlParser: true, 
     useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
 });
-
-if (process.env.NODE_ENV === "gaming production") {
-    app.use(express.static(""));
-} else {
-    app.use(express.static("public"));
-}
 
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "./"));
