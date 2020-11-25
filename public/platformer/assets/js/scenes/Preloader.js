@@ -71,10 +71,10 @@ export default class Preloader extends Phaser.Scene {
         this.load.image("cow-skull", "../platformer/assets/img/enemies/weapons/cow-skull.png")
 
         //ui
-        this.load.image("dino-green-ui", "../platformer/assets/img/player/individual/dino-green-idle-1")
-        this.load.image("dino-blue-ui", "../platformer/assets/img/player/individual/dino-blue-idle-1")
-        this.load.image("dino-red-ui", "../platformer/assets/img/player/individual/dino-green-red-1")
-        this.load.image("dino-yellow-ui", "../platformer/assets/img/player/individual/dino-green-yellow-1")
+        this.load.image("dino-green-ui", "../platformer/assets/img/player/individual/dino-green-idle-1.png")
+        this.load.image("dino-blue-ui", "../platformer/assets/img/player/individual/dino-blue-idle-1.png")
+        this.load.image("dino-red-ui", "../platformer/assets/img/player/individual/dino-green-red-1.png")
+        this.load.image("dino-yellow-ui", "../platformer/assets/img/player/individual/dino-green-yellow-1.png")
     }
 
     create() {

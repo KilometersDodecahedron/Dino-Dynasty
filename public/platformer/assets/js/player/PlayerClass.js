@@ -19,7 +19,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         this.fireBallTimer = 0;
 
         //swap between green, blue, red, and yellow
-        this.currentColor = "blue"
+        this.currentColor = "green"
 
         this.respawnPositionX = 0;
         this.respawnPositionY = 0;
@@ -70,7 +70,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
 
     changeColor(newColor){
         this.currentColor = newColor;
-        console.log(this.x)
+        sceneEvents.emit(eventNames.colorChanged, newColor, this);
     }
 
     //run at start, and when hitting check point
@@ -85,7 +85,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         }
 
         if(this.currentColor != "green"){
-            this.currentColor = "green";
+            this.changeColor("green")
             this.anims.play(`dino-${this.currentColor}-hurt`, true)
             this.currentInvulnerableAfterHitDuration = 0;
             this.isInvulnerable = true;

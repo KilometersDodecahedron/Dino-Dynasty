@@ -19,6 +19,7 @@ const config = {
 
     scene: [
         Preloader,
+        GameUI,
         Game
     ]
 }
