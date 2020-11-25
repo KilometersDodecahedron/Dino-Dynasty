@@ -5,7 +5,7 @@ export default class Preloader extends Phaser.Scene {
     }
 
     //calls in the platformer/assets
-    preload(){
+    preload() {
         //test
         this.load.image("test", "../platformer/assets/img/player/individual/dino-blue-hurt-1.png")
 
@@ -13,6 +13,12 @@ export default class Preloader extends Phaser.Scene {
         this.load.image("sand-tiles", "../platformer/assets/img/tilesets/Sand Tiles.png")
         this.load.tilemapTiledJSON("practice-level", "../platformer/assets/json/tilesets/platformer-02.json")
         this.load.tilemapTiledJSON("small-level", "../platformer/assets/json/tilesets/platformer-01.json")
+
+
+        //dungeon level
+        this.load.image("dungeon-tiles", "../platformer/assets/img/tilesets/dungeonTiles.png")
+        this.load.image("dungeon-background", "../platformer/assets/img/tilesets/dungeonBackground.png")
+        this.load.tilemapTiledJSON("dungeon-level", "../platformer/assets/json/tilesets/dungeonMap.json")
 
         this.load.image("background", "../platformer/assets/img/tilesets/background.png")
         this.load.image("block", "../platformer/assets/img/tilesets/block.png")
@@ -71,7 +77,7 @@ export default class Preloader extends Phaser.Scene {
         this.load.image("dino-yellow-ui", "../platformer/assets/img/player/individual/dino-green-yellow-1")
     }
 
-    create(){
+    create() {
         //TODO have it load the main menu
         this.scene.start("game")
     }
