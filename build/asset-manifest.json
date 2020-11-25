@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Dino-Dynasty/static/css/main.d39a05ee.chunk.css",
+    "main.js": "/Dino-Dynasty/static/js/main.41a386af.chunk.js",
+    "main.js.map": "/Dino-Dynasty/static/js/main.41a386af.chunk.js.map",
+    "runtime-main.js": "/Dino-Dynasty/static/js/runtime-main.cd8af20a.js",
+    "runtime-main.js.map": "/Dino-Dynasty/static/js/runtime-main.cd8af20a.js.map",
+    "static/js/2.c7491ea8.chunk.js": "/Dino-Dynasty/static/js/2.c7491ea8.chunk.js",
+    "static/js/2.c7491ea8.chunk.js.map": "/Dino-Dynasty/static/js/2.c7491ea8.chunk.js.map",
+    "static/js/3.95e48671.chunk.js": "/Dino-Dynasty/static/js/3.95e48671.chunk.js",
+    "static/js/3.95e48671.chunk.js.map": "/Dino-Dynasty/static/js/3.95e48671.chunk.js.map",
+    "index.html": "/Dino-Dynasty/index.html",
+    "static/css/main.d39a05ee.chunk.css.map": "/Dino-Dynasty/static/css/main.d39a05ee.chunk.css.map",
+    "static/js/2.c7491ea8.chunk.js.LICENSE.txt": "/Dino-Dynasty/static/js/2.c7491ea8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cd8af20a.js",
+    "static/js/2.c7491ea8.chunk.js",
+    "static/css/main.d39a05ee.chunk.css",
+    "static/js/main.41a386af.chunk.js"
+  ]
+}

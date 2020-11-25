@@ -1,0 +1,498 @@
+{
+	"frames": [
+		{
+			"filename": "dino-yellow-hurt-1.png",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-hurt-2.png",
+			"frame": {
+				"x": 24,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-hurt-3.png",
+			"frame": {
+				"x": 48,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-idle-1.png",
+			"frame": {
+				"x": 72,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-idle-2.png",
+			"frame": {
+				"x": 0,
+				"y": 23,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-idle-3.png",
+			"frame": {
+				"x": 24,
+				"y": 23,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-idle-4.png",
+			"frame": {
+				"x": 48,
+				"y": 23,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-jump-1.png",
+			"frame": {
+				"x": 72,
+				"y": 23,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-jump-2.png",
+			"frame": {
+				"x": 0,
+				"y": 46,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-run-1.png",
+			"frame": {
+				"x": 24,
+				"y": 46,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-run-2.png",
+			"frame": {
+				"x": 48,
+				"y": 46,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-run-3.png",
+			"frame": {
+				"x": 72,
+				"y": 46,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-run-4.png",
+			"frame": {
+				"x": 0,
+				"y": 69,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-run-5.png",
+			"frame": {
+				"x": 24,
+				"y": 69,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-run-6.png",
+			"frame": {
+				"x": 48,
+				"y": 69,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-run-7.png",
+			"frame": {
+				"x": 72,
+				"y": 69,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-walk-1.png",
+			"frame": {
+				"x": 96,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-walk-2.png",
+			"frame": {
+				"x": 96,
+				"y": 23,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-walk-3.png",
+			"frame": {
+				"x": 96,
+				"y": 46,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-walk-4.png",
+			"frame": {
+				"x": 96,
+				"y": 69,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-walk-5.png",
+			"frame": {
+				"x": 0,
+				"y": 92,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-walk-6.png",
+			"frame": {
+				"x": 24,
+				"y": 92,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		},
+		{
+			"filename": "dino-yellow-walk-7.png",
+			"frame": {
+				"x": 48,
+				"y": 92,
+				"w": 24,
+				"h": 23
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+				"h": 23
+			},
+			"sourceSize": {
+				"w": 24,
+				"h": 23
+			}
+		}
+	],
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 120,
+			"h": 115
+		},
+		"scale": "1"
+	}
+}
