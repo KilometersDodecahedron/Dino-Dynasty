@@ -4,7 +4,9 @@ const sceneEvents = new Phaser.Events.EventEmitter();
 const eventNames = {
     playerDied: "playerDied",
     livesChanged: "livesChange",
-    colorChanged: "livesChange"
+    colorChanged: "livesChange",
+    checkpointReached: "checkpointReached",
+    coinCollected: "coinCollected"
 }
 
 export {

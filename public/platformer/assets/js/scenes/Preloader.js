@@ -58,6 +58,17 @@ export default class Preloader extends Phaser.Scene {
         this.load.image("coin-blue", "../platformer/assets/img/collectables/bluepotion.png")
         this.load.image("coin-red", "../platformer/assets/img/collectables/redpotion.png")
         this.load.image("coin-yellow", "../platformer/assets/img/collectables/yellowpotion.png")
+        this.load.atlas("coin-anim-frames", "../platformer/assets/img/collectables/coin-frames.png", "../platformer/assets/json/collectables/coin-frames.json")
+        this.load.image("coin-one", "../platformer/assets/img/collectables/coin-one.png")
+        this.load.image("coin-five", "../platformer/assets/img/collectables/coin-five.png")
+        this.load.image("coin-ten", "../platformer/assets/img/collectables/coin-ten.png")
+
+        //interactables
+        this.load.image("checkpoint-flag-white", "../platformer/assets/img/interactables/checkpoint-flag-white.png")
+        this.load.image("checkpoint-flag-green", "../platformer/assets/img/interactables/checkpoint-flag-green.png")
+        this.load.image("checkpoint-flag-blue", "../platformer/assets/img/interactables/checkpoint-flag-blue.png")
+        this.load.image("checkpoint-flag-red", "../platformer/assets/img/interactables/checkpoint-flag-red.png")
+        this.load.image("checkpoint-flag-yellow", "../platformer/assets/img/interactables/checkpoint-flag-yellow.png")
 
         //enemies
         this.load.image("bat-1", "../platformer/assets/img/enemies/bat-1.png");
@@ -73,8 +84,8 @@ export default class Preloader extends Phaser.Scene {
         //ui
         this.load.image("dino-green-ui", "../platformer/assets/img/player/individual/dino-green-idle-1.png")
         this.load.image("dino-blue-ui", "../platformer/assets/img/player/individual/dino-blue-idle-1.png")
-        this.load.image("dino-red-ui", "../platformer/assets/img/player/individual/dino-green-red-1.png")
-        this.load.image("dino-yellow-ui", "../platformer/assets/img/player/individual/dino-green-yellow-1.png")
+        this.load.image("dino-red-ui", "../platformer/assets/img/player/individual/dino-red-idle-1.png")
+        this.load.image("dino-yellow-ui", "../platformer/assets/img/player/individual/dino-yellow-idle-1.png")
     }
 
     create() {

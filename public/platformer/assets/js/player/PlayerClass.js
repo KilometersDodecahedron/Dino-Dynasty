@@ -45,9 +45,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
     preUpdate(time, deltaTime){
         super.preUpdate(time, deltaTime);
 
-        if(this.onBlock){
-            this.onBlock = false;
-        }
+        // if(this.onBlock){
+        //     this.onBlock = false;
+        // }
         
         if(this.fireBallTimer > 0){
             this.fireBallTimer -= deltaTime;
