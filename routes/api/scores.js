@@ -15,7 +15,7 @@ router.route("/dino")
 
 // Matches with "/api/scores/:id"
 router
-  .route("/:id")
+  .route("/method/:id")
   //you can pass the user name into the "id" here without causing issues
   .get(gameController.findScoreByName)
   .put(gameController.updatScore)
