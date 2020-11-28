@@ -122,6 +122,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
     respawnAtCheckpoint = () =>{
         this.isDead = false;
         this.body.setEnable(true);
+        this.setVelocity(0, 0);
         this.alpha = 1;
         this.setPosition(this.respawnPositionX, this.respawnPositionY)
     }

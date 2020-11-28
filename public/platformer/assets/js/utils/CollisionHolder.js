@@ -12,6 +12,10 @@ const createCollision = (scene) => {
         scene.interactables.groudedCollisionArray.forEach(groundedInteractable => {
             scene.physics.add.collider(ground, groundedInteractable)
         });
+
+        scene.enemies.hazards.collisionHazardArray.forEach(hazard => {
+            scene.physics.add.collider(ground, hazard)
+        });
     })
 
     //collide with block
@@ -41,6 +45,10 @@ const createCollision = (scene) => {
     scene.enemies.collisionProjectilesArray.forEach(projectile => {
         scene.physics.add.overlap(scene.player, projectile, scene.collisionEffects.handlePlayerProjectileCollisions, undefined, scene)
     })
+
+    scene.enemies.hazards.collisionHazardArray.forEach(hazard => {
+        scene.physics.add.overlap(scene.player, hazard, scene.collisionEffects.handlePlayerHazardCollision, undefined, scene);
+    });
     
     //checkpoints
     scene.physics.add.overlap(scene.interactables.checkpoints, scene.player, scene.collisionEffects.handlePlayerCheckpointCollision, undefined, scene)

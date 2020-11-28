@@ -6,6 +6,8 @@ import MustacheEnemy from "../enemies/MustacheEnemy.js"
 
 import CowSkullProjectile from "../enemies/weapons/CowSkullProjectile.js"
 
+import IndestructibleHazard from "../enemies/hazards/IndestructibleHazardClass.js"
+
 const createEnemyGroups = (scene) => {
     let enemyGroups = {
         //collision with player, projectiles, etc
@@ -14,7 +16,11 @@ const createEnemyGroups = (scene) => {
         solidEnemies: [],
         //weapons used by enemies go here
         weapons: {},
-        collisionProjectilesArray: []
+        collisionProjectilesArray: [],
+        //hazards
+        hazards: {
+            collisionHazardArray: []
+        },
     };
 
     const batsHorizontal = scene.physics.add.group({
@@ -98,6 +104,35 @@ const createEnemyGroups = (scene) => {
     });
     enemyGroups.collisionProjectilesArray.push(cowSkull);
     enemyGroups.weapons.cowSkull = cowSkull;
+
+    ////Hazards////
+    const groundHazard = scene.physics.add.group({
+        classType: IndestructibleHazard,
+        // createCallback: (gameObject) => {
+        //     gameObject.callbackFunction();
+        // }
+    });
+    enemyGroups.hazards.collisionHazardArray.push(groundHazard)
+    enemyGroups.hazards.groundHazard = groundHazard;
+
+    const ceilingHazard = scene.physics.add.group({
+        classType: IndestructibleHazard,
+        createCallback: (gameObject) => {
+            gameObject.setGravityY(-1000);
+            gameObject.flipY = true;
+        }
+    });
+    enemyGroups.hazards.collisionHazardArray.push(ceilingHazard)
+    enemyGroups.hazards.ceilingHazard = ceilingHazard;
+
+    const floatingHazard = scene.physics.add.group({
+        classType: IndestructibleHazard,
+        createCallback: (gameObject) => {
+            gameObject.body.setAllowGravity(false);
+        }
+    });
+    enemyGroups.hazards.collisionHazardArray.push(floatingHazard)
+    enemyGroups.hazards.floatingHazard = floatingHazard;
 
     return enemyGroups;
 }

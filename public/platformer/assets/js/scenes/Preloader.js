@@ -80,6 +80,7 @@ export default class Preloader extends Phaser.Scene {
 
         //hazards & enemy attacks
         this.load.image("cow-skull", "../platformer/assets/img/enemies/weapons/cow-skull.png")
+        this.load.image("spikes", "../platformer/assets/img/enemies/hazards/spikes.png")
 
         //ui
         this.load.image("dino-green-ui", "../platformer/assets/img/player/individual/dino-green-idle-1.png")

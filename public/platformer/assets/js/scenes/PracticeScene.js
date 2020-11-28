@@ -117,6 +117,12 @@ export default class Game extends Phaser.Scene {
 
         //stores enemies to load in here
         this.enemies = createEnemyGroups(this);
+
+        this.enemies.hazards.groundHazard.get(150, 400, "spikes")
+        this.enemies.hazards.groundHazard.get(166, 400, "spikes")
+
+        this.enemies.hazards.ceilingHazard.get(180, 400, "spikes")
+
         //store color pickups here
         this.colorPickups = createColorPickups(this);
 
