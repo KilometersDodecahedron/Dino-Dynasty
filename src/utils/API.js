@@ -1,4 +1,4 @@
-import axois from "axios";
+import axios from "axios";
 
 export default {
     //get all users

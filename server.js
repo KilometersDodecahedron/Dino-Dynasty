@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const routes = require("./routes");
 
 // PORT
 const PORT = process.env.PORT || 3000;
@@ -13,8 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
+app.use(routes);
+
 // MONGOOSE CONNECTION
-// Secondary Data
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gamesite_DB", {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
