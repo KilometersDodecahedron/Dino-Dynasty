@@ -40,6 +40,16 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
     callbackFunction(fireball){
         this.setFireballs(fireball);
         this.setRespawnPosition(this.x, this.y);
+        //TODO remove this
+        // $.ajax({
+        //     url: "/api/users/",
+        //     type: "GET",
+        //     //set the "success" to fun in this context, to get the next scene
+        //     context: this,
+        //     success: function(highScoreArray) {
+        //         console.log(highScoreArray);
+        //     }
+        // })
     }
 
     preUpdate(time, deltaTime){
