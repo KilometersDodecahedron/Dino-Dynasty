@@ -60,6 +60,13 @@ export default class Dungeon extends Phaser.Scene {
         
         const map = this.make.tilemap({key: "dungeon-level"})
         //"Sand tiles" comes from the json file
+        this.enemies.hazards.groundHazards.createMultiple({
+            key:"spikes",
+            setXY:{
+                x:16,
+                y:320,
+            stepX: 4}, 
+            quantity:10})
         const tileset = map.addTilesetImage("dungeonTiles", "dungeon-tiles")
         const backgroundTileset = map.addTilesetImage("dungeonBackground", "dungeon-background")
 
