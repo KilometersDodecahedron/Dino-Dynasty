@@ -25,8 +25,8 @@ export default class Dungeon extends Phaser.Scene {
         this.genericParticles;
         //the ground layer that doesn't move
         this.staticGround = [];
-        this.worldBoundsX = 800;
-        this.worldBoundsY = 560;
+        this.worldBoundsX = 3840;
+        this.worldBoundsY = 336;
 
         //stores bluePickup, redPickup, yellowPickup
         //set with createColorPickups
@@ -60,13 +60,13 @@ export default class Dungeon extends Phaser.Scene {
         
         const map = this.make.tilemap({key: "dungeon-level"})
         //"Sand tiles" comes from the json file
-        this.enemies.hazards.groundHazards.createMultiple({
-            key:"spikes",
-            setXY:{
-                x:16,
-                y:320,
-            stepX: 4}, 
-            quantity:10})
+        // this.enemies.hazards.groundHazards.createMultiple({
+        //     key:"spikes",
+        //     setXY:{
+        //         x:16,
+        //         y:320,
+        //     stepX: 4}, 
+        //     quantity:10})
         const tileset = map.addTilesetImage("dungeonTiles", "dungeon-tiles")
         const backgroundTileset = map.addTilesetImage("dungeonBackground", "dungeon-background")
 
@@ -87,7 +87,7 @@ export default class Dungeon extends Phaser.Scene {
             }
         })
 //play with this to affect spawn
-        this.player = this.add.player(this.scene, 100, 10, "dino-green");
+        this.player = this.add.player(this.scene, 100, 175, "dino-green");
         this.player.callbackFunction(this.fireBalls);
 
         this.cameras.main.startFollow(this.player)
