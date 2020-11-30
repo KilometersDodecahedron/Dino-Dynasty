@@ -19,7 +19,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         this.fireBallTimer = 0;
 
         //swap between green, blue, red, and yellow
-        this.currentColor = "blue"
+        this.currentColor = "green"
 
         this.respawnPositionX = 0;
         this.respawnPositionY = 0;
@@ -40,14 +40,24 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
     callbackFunction(fireball){
         this.setFireballs(fireball);
         this.setRespawnPosition(this.x, this.y);
+        //TODO remove this
+        // $.ajax({
+        //     url: "/api/users/",
+        //     type: "GET",
+        //     //set the "success" to fun in this context, to get the next scene
+        //     context: this,
+        //     success: function(highScoreArray) {
+        //         console.log(highScoreArray);
+        //     }
+        // })
     }
 
     preUpdate(time, deltaTime){
         super.preUpdate(time, deltaTime);
 
-        if(this.onBlock){
-            this.onBlock = false;
-        }
+        // if(this.onBlock){
+        //     this.onBlock = false;
+        // }
         
         if(this.fireBallTimer > 0){
             this.fireBallTimer -= deltaTime;
@@ -70,7 +80,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
 
     changeColor(newColor){
         this.currentColor = newColor;
-        console.log(this.x)
+        sceneEvents.emit(eventNames.colorChanged, newColor, this);
     }
 
     //run at start, and when hitting check point
@@ -85,7 +95,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         }
 
         if(this.currentColor != "green"){
-            this.currentColor = "green";
+            this.changeColor("green")
             this.anims.play(`dino-${this.currentColor}-hurt`, true)
             this.currentInvulnerableAfterHitDuration = 0;
             this.isInvulnerable = true;
@@ -122,6 +132,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
     respawnAtCheckpoint = () =>{
         this.isDead = false;
         this.body.setEnable(true);
+        this.setVelocity(0, 0);
         this.alpha = 1;
         this.setPosition(this.respawnPositionX, this.respawnPositionY)
     }

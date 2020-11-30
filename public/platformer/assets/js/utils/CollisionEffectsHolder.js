@@ -63,6 +63,18 @@ const createCollisionEffects = () => {
     }
     collisionEffectsObject.handlePlayerProjectileCollisions = handlePlayerProjectileCollisions;
 
+    function handlePlayerCheckpointCollision(player, checkpoint){
+        if(!checkpoint.hasBeenChecked){
+            checkpoint.setCheckpoint(player)
+        }
+    }
+    collisionEffectsObject.handlePlayerCheckpointCollision = handlePlayerCheckpointCollision;
+
+    function handlePlayerCoinCollision(player, coin) {
+        coin.collect();
+    }
+    collisionEffectsObject.handlePlayerCoinCollision = handlePlayerCoinCollision;
+
     return collisionEffectsObject;
 }
 

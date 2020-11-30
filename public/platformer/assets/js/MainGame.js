@@ -19,7 +19,9 @@ const config = {
 
     scene: [
         Preloader,
-        Game
+        //make sure to load the game before the UI, so the UI goes above it
+        Game,
+        GameUI,
     ]
 }
 

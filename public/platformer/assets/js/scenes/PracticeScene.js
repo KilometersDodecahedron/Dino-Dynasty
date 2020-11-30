@@ -2,6 +2,7 @@ import { sceneEvents, eventNames } from "../events/events.js"
 
 import { createPlayerAnims } from "../anims/playerAnims.js";
 import { createEnemyAnims } from "../anims/enemyAnims.js"
+import { createCollectableAnims } from "../anims/collectablesAnims.js"
 
 //this grants the this.add.player function
 import "../player/PlayerClass.js"
@@ -10,7 +11,9 @@ import FireBall from "../player/FireBall.js";
 
 import { createEnemyGroups } from "../enemies/EnemyGroupHolder.js"
 import { createColorPickups } from "../collectables/ColorPickupHolder.js"
-import { createBlockGroups } from "../platforms/BlocksGroupHolder.js"
+import { createCollectablesGroups } from "../collectables/CollectablesHolder.js"
+//import { createBlockGroups } from "../platforms/BlocksGroupHolder.js"
+import { createInteractableGroups } from "../interactables/InteractablesGroupHolder.js"
 
 import { createCollisionEffects } from "../utils/CollisionEffectsHolder.js"
 import { createCollision } from "../utils/CollisionHolder.js"
@@ -35,8 +38,13 @@ export default class Game extends Phaser.Scene {
         //enemy groups are stored here as object properties
         this.enemies;
 
+        //collectables stored in here, coins stored in collectables.coins
+        this.collectables;
+
+        //stores interactables like checkpoints, set with createInteractableGroups from InteractablesGroupHolder.js
+        this.interactables;
         //store the destroyable blocks, set from createBlockGroups
-        this.blocks;
+        //this.blocks;
 
         this.collisionEffects;
     }
@@ -47,8 +55,10 @@ export default class Game extends Phaser.Scene {
     }
 
     create(){
+        this.scene.run("game-ui");
         createPlayerAnims(this.anims);
         createEnemyAnims(this.anims);
+        createCollectableAnims(this.anims);
 
         //what to do when object collide is stored here
         this.collisionEffects = createCollisionEffects();
@@ -75,6 +85,29 @@ export default class Game extends Phaser.Scene {
             }
         })
 
+        //store interatables here
+        this.interactables = createInteractableGroups(this);
+        this.interactables.checkpoints.get(300, 450, "checkpoint-flag-white")
+
+        this.collectables = createCollectablesGroups(this);
+        this.collectables.coins.coinOne.get(170, 460, "coin-one")
+        this.collectables.coins.coinOne.get(200, 430, "coin-one")
+        this.collectables.coins.coinOne.get(220, 430, "coin-one")
+        this.collectables.coins.coinOne.get(200, 450, "coin-one")
+        this.collectables.coins.coinOne.get(220, 450, "coin-one")
+        this.collectables.coins.coinFive.get(240, 400, "coin-five")
+        this.collectables.coins.coinTen.get(300, 430, "coin-ten")
+        this.collectables.coins.coinTen.get(300, 350, "coin-ten")
+        this.collectables.coins.coinTen.get(340, 430, "coin-ten")
+        this.collectables.coins.coinTen.get(380, 430, "coin-ten")
+        this.collectables.coins.coinTen.get(500, 380, "coin-ten")
+        this.collectables.coins.coinTen.get(450, 330, "coin-ten")
+        this.collectables.coins.coinTen.get(500, 300, "coin-ten")
+        this.collectables.coins.coinTen.get(150, 450, "coin-ten")
+        this.collectables.coins.coinTen.get(150, 410, "coin-ten")
+        this.collectables.coins.coinTen.get(150, 370, "coin-ten")
+        
+
         this.player = this.add.player(this.scene, 100, 400, "dino-green");
         this.player.callbackFunction(this.fireBalls);
 
@@ -84,9 +117,14 @@ export default class Game extends Phaser.Scene {
 
         //stores enemies to load in here
         this.enemies = createEnemyGroups(this);
+
+        this.enemies.hazards.groundHazard.get(150, 400, "spikes")
+        this.enemies.hazards.groundHazard.get(166, 400, "spikes")
+
+        this.enemies.hazards.ceilingHazard.get(180, 400, "spikes")
+
         //store color pickups here
         this.colorPickups = createColorPickups(this);
-        this.blocks = createBlockGroups(this);
 
         this.colorPickups.bluePickup.get(150, 450, "Pickup")
 
@@ -99,11 +137,9 @@ export default class Game extends Phaser.Scene {
         //this.enemies.batsVertical.get(300, 435, "bat-1")
         this.enemies.batsSedentary.get(250, 425, "bat-1")
         //this.enemies.humpback.get(300, 300, "humpback")
-        // this.enemies.triclops.get(790, 450, "triclops")
+        this.enemies.triclops.get(790, 450, "triclops")
         // this.enemies.bigmouth.get(300, 250, "bigmouth")
         //this.enemies.mustache.get(300, 400, "mustache")
-        this.blocks.floatingBlocks.get(300, 420, "block")
-        this.blocks.floatingBlocks.get(230, 475, "block")
 
         this.cameras.main.startFollow(this.player)
         this.cameras.main.setZoom(2.5);
