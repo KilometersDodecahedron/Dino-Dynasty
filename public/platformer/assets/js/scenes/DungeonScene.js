@@ -2,6 +2,7 @@ import { sceneEvents, eventNames } from "../events/events.js"
 
 import { createPlayerAnims } from "../anims/playerAnims.js";
 import { createEnemyAnims } from "../anims/enemyAnims.js"
+import { createCollectableAnims } from "../anims/collectablesAnims.js"
 
 //this grants the this.add.player function
 import "../player/PlayerClass.js"
@@ -10,12 +11,14 @@ import FireBall from "../player/FireBall.js";
 
 import { createEnemyGroups } from "../enemies/EnemyGroupHolder.js"
 import { createColorPickups } from "../collectables/ColorPickupHolder.js"
-import { createBlockGroups } from "../platforms/BlocksGroupHolder.js"
+import { createCollectablesGroups } from "../collectables/CollectablesHolder.js"
+//import { createBlockGroups } from "../platforms/BlocksGroupHolder.js"
+import { createInteractableGroups } from "../interactables/InteractablesGroupHolder.js"
 
 import { createCollisionEffects } from "../utils/CollisionEffectsHolder.js"
 import { createCollision } from "../utils/CollisionHolder.js"
 
-export default class Dungeon extends Phaser.Scene {
+export default class Game extends Phaser.Scene {
     constructor() {
         super("dungeon");
         //the player
@@ -25,8 +28,8 @@ export default class Dungeon extends Phaser.Scene {
         this.genericParticles;
         //the ground layer that doesn't move
         this.staticGround = [];
-        this.worldBoundsX = 800;
-        this.worldBoundsY = 560;
+        this.worldBoundsX = 3840;
+        this.worldBoundsY = 336;
 
         //stores bluePickup, redPickup, yellowPickup
         //set with createColorPickups
@@ -35,8 +38,13 @@ export default class Dungeon extends Phaser.Scene {
         //enemy groups are stored here as object properties
         this.enemies;
 
+        //collectables stored in here, coins stored in collectables.coins
+        this.collectables;
+
+        //stores interactables like checkpoints, set with createInteractableGroups from InteractablesGroupHolder.js
+        this.interactables;
         //store the destroyable blocks, set from createBlockGroups
-        this.blocks;
+        //this.blocks;
 
         this.collisionEffects;
     }
@@ -47,8 +55,10 @@ export default class Dungeon extends Phaser.Scene {
     }
 
     create(){
+        this.scene.run("game-ui");
         createPlayerAnims(this.anims);
         createEnemyAnims(this.anims);
+        createCollectableAnims(this.anims);
 
         //what to do when object collide is stored here
         this.collisionEffects = createCollisionEffects();
@@ -59,7 +69,8 @@ export default class Dungeon extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, this.worldBoundsX, this.worldBoundsY, true, true, true, true)
         
         const map = this.make.tilemap({key: "dungeon-level"})
-        //"Sand tiles" comes from the json file
+
+        //creates variables to import background, ground, and platforms
         const tileset = map.addTilesetImage("dungeonTiles", "dungeon-tiles")
         const backgroundTileset = map.addTilesetImage("dungeonBackground", "dungeon-background")
 
@@ -79,8 +90,16 @@ export default class Dungeon extends Phaser.Scene {
                 gameObject.callbackFunction();
             }
         })
-//play with this to affect spawn
-        this.player = this.add.player(this.scene, 100, 10, "dino-green");
+
+        //store interatables here
+        this.interactables = createInteractableGroups(this);
+
+
+        this.collectables = createCollectablesGroups(this);
+
+        
+
+        this.player = this.add.player(this.scene, 100, 175, "dino-green");
         this.player.callbackFunction(this.fireBalls);
 
         this.cameras.main.startFollow(this.player)
@@ -89,26 +108,15 @@ export default class Dungeon extends Phaser.Scene {
 
         //stores enemies to load in here
         this.enemies = createEnemyGroups(this);
+
+
+
         //store color pickups here
         this.colorPickups = createColorPickups(this);
-        this.blocks = createBlockGroups(this);
 
-        // this.colorPickups.bluePickup.get(150, 450, "Pickup")
 
-        // this.colorPickups.yellowPickup.get(250, 450, "Pickup")
-
-        // this.colorPickups.redPickup.get(350, 450, "Pickup")
-
-        // //spawn enemies
-        // this.enemies.batsHorizontal.get(150, 425, "bat-1")
-        // //this.enemies.batsVertical.get(300, 435, "bat-1")
-        // this.enemies.batsSedentary.get(250, 425, "bat-1")
-        // //this.enemies.humpback.get(300, 300, "humpback")
-        // // this.enemies.triclops.get(790, 450, "triclops")
-        // // this.enemies.bigmouth.get(300, 250, "bigmouth")
-        // //this.enemies.mustache.get(300, 400, "mustache")
-        // this.blocks.floatingBlocks.get(300, 420, "block")
-        // this.blocks.floatingBlocks.get(230, 475, "block")
+        //spawn enemies
+        
 
         this.cameras.main.startFollow(this.player)
         this.cameras.main.setZoom(2.5);
