@@ -116,7 +116,7 @@ export default class Game extends Phaser.Scene {
 
 
         //spawn enemies
-        
+        this.enemies.hazards.createLavaBlocks(152, 320, 220, this)
 
         this.cameras.main.startFollow(this.player)
         this.cameras.main.setZoom(2.5);
