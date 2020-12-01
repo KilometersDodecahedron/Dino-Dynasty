@@ -78,6 +78,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         }
     }
 
+    instaKill(){
+        this.changeColor("green")
+        this.playerDied();
+    }
+
     changeColor(newColor){
         this.currentColor = newColor;
         sceneEvents.emit(eventNames.colorChanged, newColor, this);

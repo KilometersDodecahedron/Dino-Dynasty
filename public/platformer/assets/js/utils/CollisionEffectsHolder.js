@@ -57,6 +57,11 @@ const createCollisionEffects = () => {
     }
     collisionEffectsObject.handlePlayerHazardCollision = handlePlayerHazardCollision;
 
+    function handlePlayerInstakillCollision(player, hazard){
+        player.instaKill();
+    }
+    collisionEffectsObject.handlePlayerInstakillCollision = handlePlayerInstakillCollision;
+
     function handlePlayerProjectileCollisions(player, projectile){
         player.takeDamage();
         projectile.destroyProjectile();

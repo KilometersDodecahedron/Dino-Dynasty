@@ -16,6 +16,10 @@ const createCollision = (scene) => {
         scene.enemies.hazards.collisionHazardArray.forEach(hazard => {
             scene.physics.add.collider(ground, hazard)
         });
+
+        scene.enemies.hazards.collisionInstaKillArray.forEach(hazard => {
+            scene.physics.add.collider(ground, hazard)
+        });
     })
 
     //collide with block
@@ -34,6 +38,7 @@ const createCollision = (scene) => {
         scene.physics.add.overlap(pickup, scene.player, scene.collisionEffects.handleColorChangePickup, undefined, scene)
     });
 
+    //enemies collide with player and fireballs
     scene.enemies.collisionArray.forEach(enemy => {
         //enemies and player
         scene.physics.add.overlap(scene.player, enemy, scene.collisionEffects.handleEnemyPlayerCollision, undefined, scene)
@@ -46,8 +51,14 @@ const createCollision = (scene) => {
         scene.physics.add.overlap(scene.player, projectile, scene.collisionEffects.handlePlayerProjectileCollisions, undefined, scene)
     })
 
+    //damaging hazards like spikes
     scene.enemies.hazards.collisionHazardArray.forEach(hazard => {
         scene.physics.add.overlap(scene.player, hazard, scene.collisionEffects.handlePlayerHazardCollision, undefined, scene);
+    });
+
+    //instakill hazards like lava
+    scene.enemies.hazards.collisionInstaKillArray.forEach(hazard => {
+        scene.physics.add.overlap(scene.player, hazard, scene.collisionEffects.handlePlayerInstakillCollision, undefined, scene);
     });
     
     //checkpoints

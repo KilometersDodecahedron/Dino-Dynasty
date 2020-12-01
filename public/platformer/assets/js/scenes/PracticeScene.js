@@ -123,6 +123,21 @@ export default class Game extends Phaser.Scene {
 
         this.enemies.hazards.ceilingHazard.get(180, 400, "spikes")
 
+        const lava = this.enemies.hazards.createLavaBlocks(464, 320, 10, this);
+        // .createMultiple({
+        //     key: "lava",
+        //     setXY: {
+        //         x: 456,
+        //         y: 320,
+        //         stepX: 16
+        //     },
+        //     quantity: 10
+        // });
+
+        // lava.forEach(lavaBrick => {
+        //     lavaBrick.setScale(0.5)
+        // })
+
         //store color pickups here
         this.colorPickups = createColorPickups(this);
 
