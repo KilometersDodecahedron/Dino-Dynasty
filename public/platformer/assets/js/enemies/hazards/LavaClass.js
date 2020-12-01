@@ -9,5 +9,6 @@ export default class LavaClass extends IndestructibleHazard{
         this.anims.play("lava");
         //this.body.setSize(16, 16)
         this.setScale(0.5, 0.5)
+        this.setCollideWorldBounds(true);
     }
 }
