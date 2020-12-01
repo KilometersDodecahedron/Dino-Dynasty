@@ -7,6 +7,7 @@ import MustacheEnemy from "../enemies/MustacheEnemy.js"
 import CowSkullProjectile from "../enemies/weapons/CowSkullProjectile.js"
 
 import IndestructibleHazard from "../enemies/hazards/IndestructibleHazardClass.js"
+import LavaClass from "../enemies/hazards/LavaClass.js"
 
 const createEnemyGroups = (scene) => {
     let enemyGroups = {
@@ -19,7 +20,8 @@ const createEnemyGroups = (scene) => {
         collisionProjectilesArray: [],
         //hazards
         hazards: {
-            collisionHazardArray: []
+            collisionHazardArray: [],
+            collisionInstaKillArray: []
         },
     };
 
@@ -133,6 +135,44 @@ const createEnemyGroups = (scene) => {
     });
     enemyGroups.hazards.collisionHazardArray.push(floatingHazard)
     enemyGroups.hazards.floatingHazard = floatingHazard;
+
+    const groundInstaKill = scene.physics.add.group({
+        classType: LavaClass,
+        createCallback: (gameObject) => {
+            gameObject.callbackFunction();
+        }
+    });
+    enemyGroups.hazards.collisionInstaKillArray.push(groundInstaKill)
+    enemyGroups.hazards.groundInstaKill = groundInstaKill;
+
+    const ceilingInstaKill = scene.physics.add.group({
+        classType: LavaClass,
+        createCallback: (gameObject) => {
+            gameObject.setGravityY(-1000);
+            gameObject.flipY = true;
+            gameObject.callbackFunction();
+        }
+    });
+    enemyGroups.hazards.collisionInstaKillArray.push(ceilingInstaKill)
+    enemyGroups.hazards.ceilingInstaKill = ceilingInstaKill;
+
+    const floatingInstaKill = scene.physics.add.group({
+        classType: LavaClass,
+        createCallback: (gameObject) => {
+            gameObject.body.setAllowGravity(false);
+            gameObject.callbackFunction();
+        }
+    });
+    enemyGroups.hazards.collisionInstaKillArray.push(floatingInstaKill)
+    enemyGroups.hazards.floatingInstaKill = floatingInstaKill;
+
+    //making this a function due to a glitch in createMultiple that keeps the blocks from resizing from the callback
+    function createLavaBlocks(x, y, numberOfBlocks, scene) {
+        for(let i = 0; i < numberOfBlocks; i++){
+            scene.enemies.hazards.groundInstaKill.get(x + (i * 16), y, "lava");
+        }
+    }
+    enemyGroups.hazards.createLavaBlocks = createLavaBlocks;
 
     return enemyGroups;
 }

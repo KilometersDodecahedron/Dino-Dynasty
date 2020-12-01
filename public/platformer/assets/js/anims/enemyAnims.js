@@ -61,21 +61,10 @@ const createEnemyAnims = anims => {
         frameRate: 12,
         repeat: -1
     })
-}
 
-const createBatAnims = anims => {
     anims.create({
-        key: "bat",
-        frames: [{key: "bat-1"}, {key: "bat-2"}],
-        frameRate: 12,
-        repeat: -1
-    })
-}
-
-const createBigmouthAnims = anims => {
-    anims.create({
-        key: "bigmouth-idle",
-        frames: anims.generateFrameNames("bigmouth", {start: 1, end: 4, prefix: "bigmouth-idle-", suffix: ".png"}),
+        key: "lava",
+        frames: anims.generateFrameNames("lava", {start: 0, end: 11, prefix: "lava", suffix: ".png"}),
         frameRate: 12,
         repeat: -1
     })

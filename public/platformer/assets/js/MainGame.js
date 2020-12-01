@@ -1,6 +1,7 @@
 import Preloader from "./scenes/Preloader.js";
 import Game from "./scenes/PracticeScene.js";
 import GameUI from "./scenes/GameUI.js";
+import Dungeon from "./scenes/DungeonScene.js"
 
 const config = {
     type: Phaser.AUTO,
@@ -21,6 +22,7 @@ const config = {
         Preloader,
         //make sure to load the game before the UI, so the UI goes above it
         Game,
+        Dungeon,
         GameUI,
     ]
 }
