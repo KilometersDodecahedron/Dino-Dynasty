@@ -4,15 +4,18 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 
 // PORT
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
-// EXPRESS
+// EXPRESSs
 const app = express();
 
 //MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  }
 
 app.use(routes);
 
@@ -24,9 +27,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gamesite_DB", {
     useFindAndModify: false
 });
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./"));
-});
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "./"));
+// });
 
 // PORT
 app.listen(PORT, () => {
