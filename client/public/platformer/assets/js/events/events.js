@@ -6,7 +6,8 @@ const eventNames = {
     livesChanged: "livesChange",
     colorChanged: "livesChange",
     checkpointReached: "checkpointReached",
-    coinCollected: "coinCollected"
+    coinCollected: "coinCollected",
+    goalPostReached: "goalPostReached"
 }
 
 export {

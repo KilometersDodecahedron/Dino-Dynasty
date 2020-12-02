@@ -68,6 +68,9 @@ const createCollision = (scene) => {
     scene.collectables.coins.collisionArray.forEach(coin => {
         scene.physics.add.overlap(scene.player, coin, scene.collisionEffects.handlePlayerCoinCollision, undefined, scene)
     })
+
+    //goal
+    scene.physics.add.overlap(scene.interactables.goalPost, scene.player, scene.collisionEffects.handlePlayerGoalPostCollision, undefined, scene)
 }
 
 export {

@@ -80,6 +80,13 @@ const createCollisionEffects = () => {
     }
     collisionEffectsObject.handlePlayerCoinCollision = handlePlayerCoinCollision;
 
+    function handlePlayerGoalPostCollision(player, goal) {
+        if(!goal.hasBeenTouched){
+            goal.touchGoalPost();
+        }
+    }
+    collisionEffectsObject.handlePlayerGoalPostCollision = handlePlayerGoalPostCollision;
+
     return collisionEffectsObject;
 }
 
