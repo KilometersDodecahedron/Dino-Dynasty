@@ -33,16 +33,19 @@ export default class GameUI extends Phaser.Scene {
         sceneEvents.on(eventNames.colorChanged, this.handleColorChanged, this);
         sceneEvents.on(eventNames.checkpointReached, this.handleGotCheckpoint, this)
         sceneEvents.on(eventNames.coinCollected, this.handleCollectedCoin, this)
+        sceneEvents.on(eventNames.needStartingColor, this.handleGivePLayerColor, this)
 
         this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
             sceneEvents.off(eventNames.colorChanged, this.handleColorChanged, this);
             sceneEvents.off(eventNames.checkpointReached, this.handleGotCheckpoint, this);
             sceneEvents.off(eventNames.coinCollected, this.handleCollectedCoin, this);
+            sceneEvents.off(eventNames.needStartingColor, this.handleGivePLayerColor, this);
         })
     }
 
     handleColorChanged(color){
         this.playerIcon.setTexture(`dino-${color}-ui`)
+        this.currentPlayerColor = color;
     }
 
     handleGotCheckpoint(color){
@@ -60,6 +63,11 @@ export default class GameUI extends Phaser.Scene {
         }else{
             this.coinCountDisplay.text = `${this.coinCount}`
         }
+    }
+
+    handleGivePLayerColor(){
+        console.log(this.currentPlayerColor)
+        sceneEvents.emit(eventNames.sendStartingColor, this.currentPlayerColor);
     }
 
     updateLivesDisplay(){

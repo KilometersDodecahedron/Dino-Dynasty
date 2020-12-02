@@ -19,7 +19,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         this.fireBallTimer = 0;
 
         //swap between green, blue, red, and yellow
-        this.currentColor = "blue"
+        this.currentColor = "green"
 
         this.respawnPositionX = 0;
         this.respawnPositionY = 0;
@@ -35,11 +35,20 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         this.invulnerableAfterHitDuration = 2000;
         this.currentInvulnerableAfterHitDuration = 0;
         this.isInvulnerable = false;
+
+        sceneEvents.on(eventNames.sendStartingColor, this.changeColor, this);
+    }
+
+    preDestroy(){
+        sceneEvents.off(eventNames.sendStartingColor, this.changeColor, this);
     }
 
     callbackFunction(fireball){
         this.setFireballs(fireball);
         this.setRespawnPosition(this.x, this.y);
+        
+        sceneEvents.emit(eventNames.needStartingColor);
+
         //TODO remove this
         // $.ajax({
         //     url: "/api/users/",

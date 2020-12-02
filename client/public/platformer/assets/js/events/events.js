@@ -7,7 +7,11 @@ const eventNames = {
     colorChanged: "livesChange",
     checkpointReached: "checkpointReached",
     coinCollected: "coinCollected",
-    goalPostReached: "goalPostReached"
+    goalPostReached: "goalPostReached",
+
+    //used to move player color between scenes
+    needStartingColor: "needStartingColor",
+    sendStartingColor: "sendStartingColor"
 }
 
 export {
