@@ -19,6 +19,18 @@ const createCollectableAnims = anims => {
         frameRate: 12,
         repeat: -1
     });
+
+    anims.create({
+        key: "goal-post-inactive",
+        frames: [{key: 'goal-post', frame: "goal-post0.png"}]
+    })
+
+    anims.create({
+        key: "goal-post-active",
+        frames: anims.generateFrameNames("goal-post", {start: 1, end: 4, prefix: "goal-post", suffix: ".png"}),
+        frameRate: 12,
+        repeat: -1
+    })
 }
 
 export {

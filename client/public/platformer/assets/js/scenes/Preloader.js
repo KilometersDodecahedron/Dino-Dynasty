@@ -69,6 +69,7 @@ export default class Preloader extends Phaser.Scene {
         this.load.image("checkpoint-flag-blue", "../platformer/assets/img/interactables/checkpoint-flag-blue.png")
         this.load.image("checkpoint-flag-red", "../platformer/assets/img/interactables/checkpoint-flag-red.png")
         this.load.image("checkpoint-flag-yellow", "../platformer/assets/img/interactables/checkpoint-flag-yellow.png")
+        this.load.atlas("goal-post", "../platformer/assets/img/interactables/goal-post.png", "../platformer/assets/json/interactables/goal-post.json")
 
         //enemies
         this.load.image("bat-1", "../platformer/assets/img/enemies/bat-1.png");

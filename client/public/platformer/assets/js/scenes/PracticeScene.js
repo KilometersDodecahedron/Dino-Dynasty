@@ -31,6 +31,9 @@ export default class Game extends Phaser.Scene {
         this.worldBoundsX = 800;
         this.worldBoundsY = 560;
 
+        //key of level to load when they reach the goal post
+        this.nextLevelKey = "dungeon"
+
         //stores bluePickup, redPickup, yellowPickup
         //set with createColorPickups
         this.colorPickups;
@@ -89,6 +92,8 @@ export default class Game extends Phaser.Scene {
         this.interactables = createInteractableGroups(this);
         this.interactables.checkpoints.get(300, 450, "checkpoint-flag-white")
 
+        this,this.interactables.goalPost.get(270, 450, "goal-post")
+
         this.collectables = createCollectablesGroups(this);
         this.collectables.coins.coinOne.get(170, 460, "coin-one")
         this.collectables.coins.coinOne.get(200, 430, "coin-one")
@@ -124,19 +129,6 @@ export default class Game extends Phaser.Scene {
         this.enemies.hazards.ceilingHazard.get(180, 400, "spikes")
 
         const lava = this.enemies.hazards.createLavaBlocks(464, 320, 10, this);
-        // .createMultiple({
-        //     key: "lava",
-        //     setXY: {
-        //         x: 456,
-        //         y: 320,
-        //         stepX: 16
-        //     },
-        //     quantity: 10
-        // });
-
-        // lava.forEach(lavaBrick => {
-        //     lavaBrick.setScale(0.5)
-        // })
 
         //store color pickups here
         this.colorPickups = createColorPickups(this);

@@ -1,4 +1,5 @@
 import CheckPoint from "./midLevelCheckpoint.js";
+import GoalPost from "./GoalPost.js"
 
 const createInteractableGroups = (scene) => {
     let interactableGroups = {
@@ -14,6 +15,15 @@ const createInteractableGroups = (scene) => {
     })
     interactableGroups.checkpoints = checkpoints;
     interactableGroups.groudedCollisionArray.push(checkpoints);
+
+    const goalPost = scene.physics.add.group({
+        classType: GoalPost,
+        createCallback: (gameObject) => {
+            gameObject.callbackFunction();
+        }
+    })
+    interactableGroups.goalPost = goalPost;
+    interactableGroups.groudedCollisionArray.push(goalPost);
 
     return interactableGroups;
 }
