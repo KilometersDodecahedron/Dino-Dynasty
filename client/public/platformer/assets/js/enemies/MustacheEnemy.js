@@ -4,7 +4,7 @@ export default class MustacheEnemy extends Caveman{
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
 
-        this.pointValue = 30;
+        this.pointValue = 2000;
 
         this.cowSkull;
         this.initialPositionOffsetX = 0;

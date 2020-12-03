@@ -30,6 +30,7 @@ export default class Game extends Phaser.Scene {
         this.staticGround = [];
         this.worldBoundsX = 800;
         this.worldBoundsY = 560;
+        this.timeLimit = 300;
 
         //key of level to load when they reach the goal post
         this.nextLevelKey = "dungeon"
@@ -153,6 +154,15 @@ export default class Game extends Phaser.Scene {
         this.cameras.main.setBounds(0, 0, this.worldBoundsX, this.worldBoundsY);
 
         createCollision(this);
+
+        //send the event 10 milliseconds after the scene starts so the ui can recieve it
+        let setTime = Phaser.Time.TimerEvent;
+        setTime = this.time.addEvent({
+            delay: 10,
+            callback: () => {
+                sceneEvents.emit(eventNames.setAndStartTimer, this.timeLimit);
+            }
+        });
     }
 
     update(){

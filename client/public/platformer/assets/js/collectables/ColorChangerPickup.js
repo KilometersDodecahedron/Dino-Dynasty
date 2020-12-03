@@ -1,3 +1,5 @@
+import { sceneEvents, eventNames } from "../events/events.js"
+
 export default class ColorChangerPickup extends Phaser.Physics.Arcade.Sprite{
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
@@ -17,6 +19,7 @@ export default class ColorChangerPickup extends Phaser.Physics.Arcade.Sprite{
     }
 
     collect(){
+        sceneEvents.emit(eventNames.increaseScore, 2500)
         this.destroy();
     }
 }
