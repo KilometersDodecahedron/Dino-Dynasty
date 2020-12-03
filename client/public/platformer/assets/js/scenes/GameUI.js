@@ -125,7 +125,6 @@ export default class GameUI extends Phaser.Scene {
     }
 
     handleStartTimer(timeLimit){
-        console.log("HELLO WORLD")
         this.currentTime = timeLimit;
         this.timerText.text = `TIME:${this.currentTime}`;
         this.timerEvent.paused = false;
@@ -139,6 +138,11 @@ export default class GameUI extends Phaser.Scene {
     handleTimerCountdown(){
         this.currentTime--;
         this.timerText.text = `TIME:${this.currentTime}`;
+
+        if(this.currentTime <= 0){
+            this.handleStopTimer();
+            this.timerRanOut();
+        }
     }
 
     handleStopTimer(){
