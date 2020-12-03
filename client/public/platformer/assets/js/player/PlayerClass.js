@@ -19,7 +19,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         this.fireBallTimer = 0;
 
         //swap between green, blue, red, and yellow
-        this.currentColor = "blue"
+        this.currentColor = "green"
 
         this.respawnPositionX = 0;
         this.respawnPositionY = 0;
