@@ -100,7 +100,7 @@ export default class Game extends Phaser.Scene {
 
         
 
-        this.player = this.add.player(this.scene, 100, 175, "dino-green");
+        this.player = this.add.player(this.scene, 30, 175, "dino-green");
         this.player.callbackFunction(this.fireBalls);
 
         this.cameras.main.startFollow(this.player)
