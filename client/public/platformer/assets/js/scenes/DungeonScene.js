@@ -100,12 +100,8 @@ export default class Game extends Phaser.Scene {
 
         
 
-        this.player = this.add.player(this.scene, 100, 175, "dino-green");
+        this.player = this.add.player(this.scene, 30, 175, "dino-green");
         this.player.callbackFunction(this.fireBalls);
-
-        this.cameras.main.startFollow(this.player)
-        this.cameras.main.setZoom(2.5);
-        this.cameras.main.setBounds(0, 0, this.worldBoundsX, this.worldBoundsY);
 
         //stores enemies to load in here
         this.enemies = createEnemyGroups(this);
@@ -120,7 +116,7 @@ export default class Game extends Phaser.Scene {
         this.enemies.hazards.createLavaBlocks(152, 330, 220, this)
 
         this.cameras.main.startFollow(this.player)
-        this.cameras.main.setZoom(1.68);
+        this.cameras.main.setZoom(1.8);
         this.cameras.main.setBounds(0, 0, this.worldBoundsX, this.worldBoundsY);
 
         createCollision(this);
