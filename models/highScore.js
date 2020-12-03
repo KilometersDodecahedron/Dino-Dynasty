@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const highScoreSchema = new Schema ({
-    name: {type: String, required: true},
+    userID: {type: String, required: true},
     rogueScore: {type: Number, required: true},
     dinoScore: {type: Number, required: true},
     date: { type: Date, default: Date.now }

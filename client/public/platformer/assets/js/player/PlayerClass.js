@@ -54,9 +54,47 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         sceneEvents.emit(eventNames.needStartingColor);
 
         //TODO remove this
+        $.ajax({
+            url: "/api/users/" + "5fc95692300bf51b15bdefef",
+            type: "GET",
+            //set the "success" to fun in this context, to get the next scene
+            context: this,
+            success: function(highScoreArray) {
+                console.log(highScoreArray)
+                // $.ajax({
+                //     url: "/api/users/" + highScoreArray[0]._id,
+                //     type: "PUT",
+                //     data: {
+                //         hasPlayed: true,
+                //         dynoDynastyScore: 8000
+                //     },
+                //     //set the "success" to fun in this context, to get the next scene
+                //     context: this,
+                //     success: function(highScoreArray) {
+                        
+                //     }
+                // })
+            }
+        })
+
         // $.ajax({
         //     url: "/api/users/",
-        //     type: "GET",
+        //     type: "POST",
+        //     data: {
+        //         userName: "XMAN",
+        //         password: "12345678",
+        //         gamerTag: "XMAN"
+        //     },
+        //     //set the "success" to run in this context, to get the next scene
+        //     context: this,
+        //     success: function(highScoreArray) {
+        //         console.log(highScoreArray);
+        //     }
+        // })
+
+        // $.ajax({
+        //     url: "/api/users/" + "5fc953ad48b3b51a3510e637",
+        //     type: "DELETE",
         //     //set the "success" to fun in this context, to get the next scene
         //     context: this,
         //     success: function(highScoreArray) {
