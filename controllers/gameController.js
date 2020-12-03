@@ -11,7 +11,14 @@ module.exports = {
     },
     findUserByName: function(req, res){
         db.User
-            .find(req.params.id)
+            .find({_id: req.params.id})
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+    //get them by user name when they log in
+    findUserInfoByName: function(req, res){
+        db.User
+            .find({userName: req.body.userName, password: req.body.password})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -30,6 +37,13 @@ module.exports = {
     removeUser: function(req, res) {
         db.User
           .findById({ _id: req.params.id })
+          .then(dbModel => dbModel.remove())
+          .then(dbModel => res.json(dbModel))
+          .catch(err => res.status(422).json(err));
+
+        //remove their high scores when the user is deleted
+        db.HighScore
+          .find({ userID: req.params.id })
           .then(dbModel => dbModel.remove())
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
@@ -64,13 +78,13 @@ module.exports = {
     },
     updatScore: function(req, res) {
         db.HighScore
-          .findOneAndUpdate({ _id: req.params.id }, req.body)
+          .findOneAndUpdate({ userID: req.params.id }, req.body)
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
     },
     removeScore: function(req, res) {
         db.HighScore
-          .findById({ _id: req.params.id })
+          .find({ userID: req.params.id })
           .then(dbModel => dbModel.remove())
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));

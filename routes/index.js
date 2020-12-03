@@ -2,6 +2,10 @@ const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
 
+// GET /api/users = get the users
+// POST /api/users = create a new user
+//
+
 router.use("/api", apiRoutes);
 
 //If no API routes are hit, send the React app

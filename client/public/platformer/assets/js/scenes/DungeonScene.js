@@ -56,7 +56,7 @@ export default class Game extends Phaser.Scene {
     }
 
     create(){
-        this.scene.run("game-ui");
+        //this.scene.run("game-ui");
         createPlayerAnims(this.anims);
         createEnemyAnims(this.anims);
         createCollectableAnims(this.anims);
@@ -117,10 +117,10 @@ export default class Game extends Phaser.Scene {
 
 
         //spawn enemies
-        this.enemies.hazards.createLavaBlocks(152, 320, 220, this)
+        this.enemies.hazards.createLavaBlocks(152, 330, 220, this)
 
         this.cameras.main.startFollow(this.player)
-        this.cameras.main.setZoom(2.5);
+        this.cameras.main.setZoom(1.68);
         this.cameras.main.setBounds(0, 0, this.worldBoundsX, this.worldBoundsY);
 
         createCollision(this);
