@@ -35,12 +35,16 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         this.invulnerableAfterHitDuration = 2000;
         this.currentInvulnerableAfterHitDuration = 0;
         this.isInvulnerable = false;
+        //keep player from moving while score is being displayed
+        this.canControlPlayer = true;
 
         sceneEvents.on(eventNames.sendStartingColor, this.changeColor, this);
+        sceneEvents.on(eventNames.goalPostReached, () => {this.canControlPlayer = false; this.setVelocityX(0)}, this);
     }
 
     preDestroy(){
         sceneEvents.off(eventNames.sendStartingColor, this.changeColor, this);
+        sceneEvents.off(eventNames.goalPostReached, () => {this.canControlPlayer = false; this.setVelocityX(0)}, this);
     }
 
     callbackFunction(fireball){
@@ -152,7 +156,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
     }
 
     managePlayerMovement(){
-        if(this.isDead || this.inTakenDamageState){
+        if(this.isDead || this.inTakenDamageState || !this.canControlPlayer){
             return;
         }
 
@@ -231,6 +235,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
 
     managePlayerAnimations(){
         if(this.isDead || this.inTakenDamageState){
+            return;
+        }
+
+        if(!this.canControlPlayer){
+            this.anims.play(`dino-${this.currentColor}-idle`, true);
             return;
         }
 

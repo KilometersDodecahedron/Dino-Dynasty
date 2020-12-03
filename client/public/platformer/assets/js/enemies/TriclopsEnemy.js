@@ -4,7 +4,7 @@ export default class TriclopsEnemy extends Caveman{
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
 
-        this.pointValue = 20;
+        this.pointValue = 1500;
 
         this.health = 1;
         this.moveSpeed = 130;

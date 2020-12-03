@@ -11,7 +11,12 @@ const eventNames = {
 
     //used to move player color between scenes
     needStartingColor: "needStartingColor",
-    sendStartingColor: "sendStartingColor"
+    sendStartingColor: "sendStartingColor",
+
+    increaseScore: "increaseScore",
+
+    setAndStartTimer: "setAndStartTimer",
+    stopTimer: "stopTimer"
 }
 
 export {

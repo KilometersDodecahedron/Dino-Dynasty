@@ -30,6 +30,7 @@ export default class Game extends Phaser.Scene {
         this.staticGround = [];
         this.worldBoundsX = 3840;
         this.worldBoundsY = 336;
+        this.timeLimit = 300;
 
         //stores bluePickup, redPickup, yellowPickup
         //set with createColorPickups
@@ -123,6 +124,14 @@ export default class Game extends Phaser.Scene {
         this.cameras.main.setBounds(0, 0, this.worldBoundsX, this.worldBoundsY);
 
         createCollision(this);
+        //send the event 10 milliseconds after the scene starts so the ui can recieve it
+        let setTime = Phaser.Time.TimerEvent;
+        setTime = this.time.addEvent({
+            delay: 10,
+            callback: () => {
+                sceneEvents.emit(eventNames.setAndStartTimer, this.timeLimit);
+            }
+        });
     }
 
     update(){
