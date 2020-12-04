@@ -1,10 +1,12 @@
 import Enemy from "./EnemyClass.js"
+import { sceneEvents, eventNames } from "../events/events.js"
 
 export default class Caveman extends Enemy{
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
 
         this.health = 2;
+        this.levelOver = false;
 
         //resize hitbox facing left
         this.trueSizeX = 19;
@@ -20,6 +22,12 @@ export default class Caveman extends Enemy{
 
         //set true when the player sees it, then it starts moving
         this.hasBeenSpotted = false;
+        
+        sceneEvents.on(eventNames.goalPostReached, () => this.levelOver = true, this)
+    }
+
+    preDestroy(){
+        sceneEvents.off(eventNames.goalPostReached, () => this.levelOver = true, this)
     }
 
     callbackFunction(){

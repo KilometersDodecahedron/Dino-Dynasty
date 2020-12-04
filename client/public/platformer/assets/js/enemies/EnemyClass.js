@@ -9,6 +9,17 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite{
         //most enemies die in 1 hit
         this.health = 1;
         this.onPlayerCollisionEffects = [];
+
+        sceneEvents.on(eventNames.playerRespawned, () => this.destroy(), this)
+    }
+
+    preDestroy(){
+        sceneEvents.off(eventNames.playerRespawned, () => this.destroy(), this)
+    }
+
+    deathByHazard(){
+        console.log("Enemy died in lava");
+        this.destroy();
     }
 
     callbackFunction(){

@@ -191,6 +191,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         this.setVelocity(0, 0);
         this.alpha = 1;
         this.setPosition(this.respawnPositionX, this.respawnPositionY)
+        sceneEvents.emit(eventNames.playerRespawned);
     }
 
     managePlayerMovement(){

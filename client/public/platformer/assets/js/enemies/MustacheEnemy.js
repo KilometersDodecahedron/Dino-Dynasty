@@ -89,6 +89,10 @@ export default class MustacheEnemy extends Caveman{
     }
 
     throwWeapon(){
+        if(this.levelOver){
+            return;
+        }
+
         this.anims.play("mustache-idle", true)
 
         let xVelocity = 0;

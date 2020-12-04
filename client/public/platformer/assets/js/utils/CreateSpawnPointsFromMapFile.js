@@ -25,8 +25,22 @@ function spawnPlayer(scene){
 
 function spawnCavemen(scene){
     if(scene.spawningArrays.cavemenSpawns.objects.length > 0){
-        scene.spawningArrays.cavemenSpawns.objects.array.forEach(element => {
-            
+        console.log(scene.spawningArrays.cavemenSpawns.objects)
+        scene.spawningArrays.cavemenSpawns.objects.forEach(element => {
+            let caveman;
+            let type = element.properties[0].value;
+
+            if(type == "jumpat"){
+                caveman = scene.enemies.bigmouth.get(element.x, element.y, "bigmouth");
+            }else if(type == "runner"){
+                caveman = scene.enemies.triclops.get(element.x, element.y, "triclops");
+            }else if(type == "thrower"){
+                caveman = scene.enemies.mustache.get(element.x, element.y, "mustache");
+            }else if(type == "jumpup"){
+                caveman = scene.enemies.humpback.get(element.x, element.y, "humpback");
+            }
+
+            scene.spawningArrays.destroyOnRespawnArray.push(caveman)
         });
     }
 }

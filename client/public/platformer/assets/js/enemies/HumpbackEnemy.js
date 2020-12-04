@@ -32,6 +32,10 @@ export default class HumpbackEnemy extends Caveman{
     }
 
     jump(){
+        if(this.levelOver){
+            return;
+        }
+
         this.currentJumpUnterval = 0;
         this.anims.play("humpback-walk", true)
 
