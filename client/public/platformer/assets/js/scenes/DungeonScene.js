@@ -122,7 +122,7 @@ export default class Game extends Phaser.Scene {
         this.enemies.hazards.createLavaBlocks(152, 330, 220, this)
 
         this.cameras.main.startFollow(this.player)
-        this.cameras.main.setZoom(1.8);
+        this.cameras.main.setZoom(1.7);
         this.cameras.main.setBounds(0, 0, this.worldBoundsX, this.worldBoundsY);
 
         createCollision(this);
