@@ -95,11 +95,11 @@ export default class Game extends Phaser.Scene {
 
         //creates ground and platforms
         this.staticGround.push(map.createDynamicLayer("Ground", grassTileset));
-        this.staticGround.push(map.createDynamicLayer("Platform", platformSmallTileset))
-        this.staticGround.push(map.createDynamicLayer("PlatformLong", platformLongTileset))
-        this.staticGround.push(map.createDynamicLayer("BlockGold", blockGoldTileset))
-        this.staticGround.push(map.createDynamicLayer("Block", blockTileset))
-        this.staticGround.push(map.createDynamicLayer("BlockBig", blockBigTileset))
+        this.staticGround.push(map.createDynamicLayer("PlatformSmall", platformSmallTileset));
+        this.staticGround.push(map.createDynamicLayer("PlatformLong", platformLongTileset));
+        this.staticGround.push(map.createDynamicLayer("BlockGold", blockGoldTileset));
+        this.staticGround.push(map.createDynamicLayer("Block", blockTileset));
+        this.staticGround.push(map.createDynamicLayer("BlockBig", blockBigTileset));
 
         this.staticGround.forEach(ground => {
             ground.setCollisionByProperty({ ground: true })
