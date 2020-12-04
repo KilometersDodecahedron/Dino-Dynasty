@@ -19,19 +19,10 @@ function createStartingObjects(scene) {
 }
 
 function respawnObjects(scene){
-
     spawnCoins(scene);
+    spawnPotions(scene);
     spawnCavemen(scene);
-    //delaying respawn so they're not instantly destroyed if it trigger in the wrong order
-    // let respawnStuffAfterBriefDelay = Phaser.Time.TimerEvent;
-    
-    // scene.time.addEvent({
-    //     delay: 5,
-    //     callback: () => {
-    //         spawnCoins(scene);
-    //         spawnCavemen(scene);
-    //     }
-    // })
+    spawnBats(scene);
 }
 
 function spawnPlayer(scene){
@@ -53,6 +44,40 @@ function spawnCoins(scene){
             }
         })
 
+    }
+}
+
+function spawnBats(scene){
+    console.log(scene.spawningArrays.batSpawns.objects)
+    if(scene.spawningArrays.batSpawns.objects.length > 0){
+        scene.spawningArrays.batSpawns.objects.forEach(element => {
+            let bat;
+            let type = element.properties[0].value;
+
+            if(type == "leftright"){
+                bat = scene.enemies.batsHorizontal.get(element.x, element.y, "bat-1");
+            }else if(type == "updown"){
+                bat = scene.enemies.batsVertical.get(element.x, element.y, "bat-1");
+            }else if(type == "still"){
+                bat = scene.enemies.batsSedentary.get(element.x, element.y, "bat-1");
+            }
+        })
+    }
+}
+
+function spawnPotions(scene){
+    if(scene.spawningArrays.potionSpawns.objects.length > 0){
+        scene.spawningArrays.potionSpawns.objects.forEach(element => {
+            let type = element.properties[0].value;
+
+            if(type == "red"){
+                scene.colorPickups.redPickup.get(element.x, element.y, "Pickup");
+            }else if(type == "blue"){
+                scene.colorPickups.bluePickup.get(element.x, element.y, "Pickup");
+            }else if(type == "yellow"){
+                scene.colorPickups.yellowPickup.get(element.x, element.y, "Pickup");
+            }
+        })
     }
 }
 
