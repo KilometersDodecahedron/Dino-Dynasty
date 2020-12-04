@@ -31,6 +31,7 @@ export default class GameUI extends Phaser.Scene {
         this.checkpointScoreValue = 3000;
         this.getExtraLivePointValue = 3000;
         this.finishLevelPointValue = 5000;
+        this.beatGameRemainingLivesBonusMultiplier = 7500;
 
         //icon in top right that shows if you hit a checkpoint
         this.checkpointDisplay;
@@ -56,8 +57,8 @@ export default class GameUI extends Phaser.Scene {
         this.timerText = this.add.text(365, 5, `TIME:${this.currentTime}`)
 
         //style of the end-level text
-        var levelFinishTextConfig = {fontSize:'30px',fontFamily: 'Arial'};
-        var levelFinishTitleConfig = {fontSize:'50px',fontFamily: 'Arial'};
+        var levelFinishTextConfig = {fontSize:'30px',color:'#ff0000',fontFamily: 'Arial'};
+        var levelFinishTitleConfig = {fontSize:'50px',color:'#ff0000',fontFamily: 'Arial'};
 
         this.levelCompleteText = this.add.text(200, 100, "", levelFinishTitleConfig)
         this.levelCompleteScoreBonusText = this.add.text(160, 200, '', levelFinishTextConfig)
