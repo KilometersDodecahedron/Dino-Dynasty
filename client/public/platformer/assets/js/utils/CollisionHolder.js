@@ -44,6 +44,10 @@ const createCollision = (scene) => {
         scene.physics.add.overlap(scene.player, enemy, scene.collisionEffects.handleEnemyPlayerCollision, undefined, scene)
         //enemies and fireball
         scene.physics.add.overlap(scene.fireBalls, enemy, scene.collisionEffects.handleProjectileEnemyCollision, undefined, scene)
+
+        scene.enemies.hazards.collisionInstaKillArray.forEach(hazard => {
+            scene.physics.add.overlap(enemy, hazard, scene.collisionEffects.handleEnemyLavaCollision, undefined, scene)
+        });
     })
 
     //enemy projectiles

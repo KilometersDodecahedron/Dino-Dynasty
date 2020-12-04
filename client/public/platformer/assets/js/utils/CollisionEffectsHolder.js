@@ -87,6 +87,11 @@ const createCollisionEffects = () => {
     }
     collisionEffectsObject.handlePlayerGoalPostCollision = handlePlayerGoalPostCollision;
 
+    function handleEnemyLavaCollision(enemy, lava){
+        enemy.deathByHazard();
+    }
+    collisionEffectsObject.handleEnemyLavaCollision = handleEnemyLavaCollision;
+
     return collisionEffectsObject;
 }
 

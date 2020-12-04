@@ -58,6 +58,10 @@ export default class BigmouthEnemy extends Caveman{
             this.anims.play("bigmouth-idle", true)
             this.curentLungeInterval += deltaTime;
 
+            if(this.levelOver){
+                return;
+            }
+
             if(this.curentLungeInterval >= this.lungeInterval && !this.scene.player.isDead){
                 this.curentLungeInterval = 0;
                 

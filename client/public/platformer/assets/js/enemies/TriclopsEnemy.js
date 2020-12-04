@@ -41,6 +41,12 @@ export default class TriclopsEnemy extends Caveman{
     }
 
     runAroundAndBounceOffWalls(){
+        if(this.levelOver){
+            this.anims.play("triclops-idle", true);
+            this.setVelocityX(0)
+            return;
+        }
+
         if(this.flipX){
             this.setVelocityX(-this.moveSpeed);
         }else{

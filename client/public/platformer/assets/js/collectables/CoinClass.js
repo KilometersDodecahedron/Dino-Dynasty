@@ -5,6 +5,12 @@ export default class CoinClass extends Phaser.Physics.Arcade.Sprite{
         super(scene, x, y, texture, frame);
 
         this.value = 5;
+
+        sceneEvents.on(eventNames.playerRespawned, () => this.destroy(), this);
+    }
+
+    preDestroy(){
+        sceneEvents.off(eventNames.playerRespawned, () => this.destroy(), this)
     }
 
     setValueAndScale(value, pixelSize, offset, animationKey){
