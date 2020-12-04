@@ -14,6 +14,7 @@ import { createColorPickups } from "../collectables/ColorPickupHolder.js"
 import { createCollectablesGroups } from "../collectables/CollectablesHolder.js"
 //import { createBlockGroups } from "../platforms/BlocksGroupHolder.js"
 import { createInteractableGroups } from "../interactables/InteractablesGroupHolder.js"
+import { createSpawnPointArrays, createStartingObjects } from "../utils/CreateSpawnPointsFromMapFile.js"
 
 import { createCollisionEffects } from "../utils/CollisionEffectsHolder.js"
 import { createCollision } from "../utils/CollisionHolder.js"
@@ -47,6 +48,9 @@ export default class Game extends Phaser.Scene {
         //store the destroyable blocks, set from createBlockGroups
         //this.blocks;
 
+        //store object arrays that spawn enemies here
+        this.spawningArrays = {}
+
         this.collisionEffects;
     }
 
@@ -75,6 +79,8 @@ export default class Game extends Phaser.Scene {
         const tileset = map.addTilesetImage("dungeonTiles", "dungeon-tiles")
         const backgroundTileset = map.addTilesetImage("dungeonBackground", "dungeon-background")
 
+        this.spawningArrays = createSpawnPointArrays(map, this);
+
         //creates background
         map.createStaticLayer('Background', backgroundTileset)
 
@@ -99,18 +105,18 @@ export default class Game extends Phaser.Scene {
         this.collectables = createCollectablesGroups(this);
 
         
-
-        this.player = this.add.player(this.scene, 30, 175, "dino-green");
-        this.player.callbackFunction(this.fireBalls);
-
         //stores enemies to load in here
         this.enemies = createEnemyGroups(this);
-
-
-
+        
+        
+        
         //store color pickups here
         this.colorPickups = createColorPickups(this);
+        
+        // this.player = this.add.player(this.scene, this.spawningArrays.playerSpawn.objects[0].x, this.spawningArrays.playerSpawn.objects[0].y, "dino-green");
+        // this.player.callbackFunction(this.fireBalls);
 
+        createStartingObjects(this);
 
         //spawn enemies
         this.enemies.hazards.createLavaBlocks(152, 330, 220, this)

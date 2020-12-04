@@ -146,7 +146,7 @@ export default class Game extends Phaser.Scene {
         this.enemies.batsSedentary.get(250, 425, "bat-1")
         //this.enemies.humpback.get(300, 300, "humpback")
         this.enemies.triclops.get(790, 450, "triclops")
-        // this.enemies.bigmouth.get(300, 250, "bigmouth")
+        this.enemies.bigmouth.get(300, 250, "bigmouth")
         //this.enemies.mustache.get(300, 400, "mustache")
 
         this.cameras.main.startFollow(this.player)
