@@ -20,6 +20,10 @@ export default class Preloader extends Phaser.Scene {
         this.load.image("dungeon-background", "../platformer/assets/img/tilesets/dungeonBackground.png")
         this.load.tilemapTiledJSON("dungeon-level", "../platformer/assets/json/tilesets/dungeonMap.json")
 
+        //dungeon level
+        this.load.image("temple-background", "../platformer/assets/img/tilesets/templeBackground.png")
+        this.load.tilemapTiledJSON("temple-level", "../platformer/assets/json/tilesets/templeMap.json")
+
         this.load.image("background", "../platformer/assets/img/tilesets/background.png")
         this.load.image("block", "../platformer/assets/img/tilesets/block.png")
         this.load.image("bush", "../platformer/assets/img/tilesets/bush.png")
@@ -40,6 +44,7 @@ export default class Preloader extends Phaser.Scene {
 
         //blocks and platforms
         this.load.image("block", "../platformer/assets/img/platforms/block.png");
+        this.load.image("block-big", "../platformer/assets/img/tilesets/block-big.png");
 
         //player
         this.load.atlas("dino-green", "../platformer/assets/img/player/dino-green.png", "../platformer/assets/json/player/dino-green.json")
