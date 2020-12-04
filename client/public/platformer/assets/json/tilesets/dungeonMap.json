@@ -63,289 +63,736 @@
          "objects":[
                 {
                  "height":0,
-                 "id":9,
-                 "name":"moving",
+                 "id":93,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":2907.33333333333,
-                 "y":30
+                 "x":80,
+                 "y":48
                 }, 
                 {
                  "height":0,
-                 "id":10,
-                 "name":"moving",
+                 "id":100,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":2763.33333333333,
-                 "y":31.3333333333333
+                 "x":240,
+                 "y":80
                 }, 
                 {
                  "height":0,
-                 "id":11,
-                 "name":"moving",
+                 "id":101,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":2750.66666666667,
-                 "y":174.666666666667
+                 "x":448,
+                 "y":48
                 }, 
                 {
                  "height":0,
-                 "id":12,
-                 "name":"moving",
+                 "id":102,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":3008,
-                 "y":216.666666666667
+                 "x":576,
+                 "y":80
                 }, 
                 {
                  "height":0,
-                 "id":22,
-                 "name":"moving",
+                 "id":103,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":559.333333333333,
-                 "y":138
+                 "x":736,
+                 "y":80
                 }, 
                 {
                  "height":0,
-                 "id":26,
-                 "name":"moving",
+                 "id":104,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":58,
-                 "y":46
+                 "x":832,
+                 "y":48
                 }, 
                 {
                  "height":0,
-                 "id":28,
-                 "name":"moving",
+                 "id":105,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":256.666666666667,
-                 "y":86.6666666666667
+                 "x":1040,
+                 "y":80
                 }, 
                 {
                  "height":0,
-                 "id":29,
-                 "name":"moving",
+                 "id":106,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":453.333333333333,
-                 "y":35.3333333333333
+                 "x":800,
+                 "y":272
                 }, 
                 {
                  "height":0,
-                 "id":31,
-                 "name":"moving",
+                 "id":107,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":644,
-                 "y":82
+                 "x":272,
+                 "y":272
                 }, 
                 {
                  "height":0,
-                 "id":32,
-                 "name":"moving",
+                 "id":108,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":850,
-                 "y":36
+                 "x":1472,
+                 "y":48
                 }, 
                 {
                  "height":0,
-                 "id":33,
-                 "name":"moving",
+                 "id":109,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":1046,
-                 "y":82
+                 "x":1456,
+                 "y":224
                 }, 
                 {
                  "height":0,
-                 "id":34,
-                 "name":"moving",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1755.33333333333,
-                 "y":191.333333333333
-                }, 
-                {
-                 "height":0,
-                 "id":35,
-                 "name":"moving",
+                 "id":110,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
                  "x":1568,
-                 "y":142.666666666667
+                 "y":144
                 }, 
                 {
                  "height":0,
-                 "id":36,
-                 "name":"moving",
+                 "id":111,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":2092.66666666667,
-                 "y":112
+                 "x":1712,
+                 "y":176
                 }, 
                 {
                  "height":0,
-                 "id":37,
-                 "name":"moving",
+                 "id":112,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":2199.33333333333,
-                 "y":193.333333333333
+                 "x":1824,
+                 "y":48
                 }, 
                 {
                  "height":0,
-                 "id":38,
-                 "name":"moving",
+                 "id":113,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":2345.33333333333,
+                 "x":1904,
+                 "y":272
+                }, 
+                {
+                 "height":0,
+                 "id":114,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1984,
+                 "y":160
+                }, 
+                {
+                 "height":0,
+                 "id":115,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2096,
+                 "y":128
+                }, 
+                {
+                 "height":0,
+                 "id":116,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2208,
+                 "y":192
+                }, 
+                {
+                 "height":0,
+                 "id":118,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2352,
                  "y":64
                 }, 
                 {
                  "height":0,
-                 "id":39,
-                 "name":"moving",
+                 "id":119,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":2003.33333333333,
-                 "y":190
+                 "x":2768,
+                 "y":32
                 }, 
                 {
                  "height":0,
-                 "id":45,
-                 "name":"moving",
+                 "id":120,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":3252,
-                 "y":181.333333333333
+                 "x":2960,
+                 "y":32
                 }, 
                 {
                  "height":0,
-                 "id":46,
-                 "name":"moving",
+                 "id":121,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":3290,
-                 "y":289.333333333333
+                 "x":2928,
+                 "y":208
                 }, 
                 {
                  "height":0,
-                 "id":47,
-                 "name":"moving",
+                 "id":122,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":269.333333333333,
-                 "y":280
+                 "x":2816,
+                 "y":176
                 }, 
                 {
                  "height":0,
-                 "id":48,
-                 "name":"moving",
+                 "id":127,
+                 "name":"updown",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"updown"
+                        }, 
+                        {
+                         "name":"moveDuration",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":808.666666666667,
-                 "y":273.333333333333
+                 "x":3456,
+                 "y":160
                 }, 
                 {
                  "height":0,
-                 "id":49,
-                 "name":"moving",
+                 "id":128,
+                 "name":"updown",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"updown"
+                        }, 
+                        {
+                         "name":"moveDuration",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":1900,
-                 "y":279.333333333333
+                 "x":3456,
+                 "y":80
                 }, 
                 {
                  "height":0,
-                 "id":50,
-                 "name":"moving",
+                 "id":130,
+                 "name":"updown",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"updown"
+                        }, 
+                        {
+                         "name":"moveDuration",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":1819.33333333333,
-                 "y":42
+                 "x":3536,
+                 "y":160
                 }, 
                 {
                  "height":0,
-                 "id":51,
-                 "name":"moving",
+                 "id":131,
+                 "name":"updown",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"updown"
+                        }, 
+                        {
+                         "name":"moveDuration",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":1453.33333333333,
-                 "y":200
+                 "x":3648,
+                 "y":160
                 }, 
                 {
                  "height":0,
-                 "id":58,
-                 "name":"moving",
+                 "id":133,
+                 "name":"updown",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"updown"
+                        }, 
+                        {
+                         "name":"moveDuration",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":1474,
-                 "y":44
+                 "x":3376,
+                 "y":272
                 }, 
                 {
                  "height":0,
-                 "id":59,
-                 "name":"moving",
+                 "id":134,
+                 "name":"updown",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"updown"
+                        }, 
+                        {
+                         "name":"moveDuration",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":3590.66666666667,
-                 "y":94.6666666666667
+                 "x":3344,
+                 "y":192
+                }, 
+                {
+                 "height":0,
+                 "id":135,
+                 "name":"updown",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"updown"
+                        }, 
+                        {
+                         "name":"moveDuration",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":3376,
+                 "y":128
+                }, 
+                {
+                 "height":0,
+                 "id":136,
+                 "name":"updown",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"updown"
+                        }, 
+                        {
+                         "name":"moveDuration",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":3344,
+                 "y":80
+                }, 
+                {
+                 "height":0,
+                 "id":137,
+                 "name":"updown",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"updown"
+                        }, 
+                        {
+                         "name":"moveDuration",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":3248,
+                 "y":112
+                }, 
+                {
+                 "height":0,
+                 "id":138,
+                 "name":"updown",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"updown"
+                        }, 
+                        {
+                         "name":"moveDuration",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":3248,
+                 "y":240
+                }, 
+                {
+                 "height":0,
+                 "id":139,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":3296,
+                 "y":288
+                }, 
+                {
+                 "height":0,
+                 "id":140,
+                 "name":"leftright",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"leftright"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":3600,
+                 "y":96
+                }, 
+                {
+                 "height":0,
+                 "id":141,
+                 "name":"updown",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"updown"
+                        }, 
+                        {
+                         "name":"moveDuration",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":208,
+                 "y":144
+                }, 
+                {
+                 "height":0,
+                 "id":142,
+                 "name":"updown",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"updown"
+                        }, 
+                        {
+                         "name":"moveDuration",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":672,
+                 "y":144
+                }, 
+                {
+                 "height":0,
+                 "id":144,
+                 "name":"updown",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"updown"
+                        }, 
+                        {
+                         "name":"moveDuration",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1152,
+                 "y":144
+                }, 
+                {
+                 "height":0,
+                 "id":145,
+                 "name":"updown",
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"updown"
+                        }, 
+                        {
+                         "name":"moveDuration",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2592,
+                 "y":144
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -363,84 +810,234 @@
                  "id":5,
                  "name":"jumper",
                  "point":true,
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"jumpat"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":3075.33333333333,
-                 "y":230.666666666667
-                }, 
-                {
-                 "height":0,
-                 "id":6,
-                 "name":"jumper",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":2962.66666666667,
-                 "y":276
+                 "x":3088,
+                 "y":224
                 }, 
                 {
                  "height":0,
                  "id":7,
                  "name":"runner",
                  "point":true,
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"runner"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":3038.66666666667,
-                 "y":114.666666666667
-                }, 
-                {
-                 "height":0,
-                 "id":8,
-                 "name":"runner",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":2793.33333333333,
-                 "y":118
-                }, 
-                {
-                 "height":0,
-                 "id":15,
-                 "name":"runner",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":2813.33333333333,
-                 "y":272.666666666667
+                 "x":3040,
+                 "y":128
                 }, 
                 {
                  "height":0,
                  "id":41,
                  "name":"thrower",
                  "point":true,
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"thrower"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":558,
-                 "y":203.333333333333
+                 "x":560,
+                 "y":208
                 }, 
                 {
                  "height":0,
-                 "id":43,
-                 "name":"thrower",
+                 "id":60,
+                 "name":"runner",
                  "point":true,
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"runner"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":1042.66666666667,
-                 "y":204
+                 "x":2768,
+                 "y":128
+                }, 
+                {
+                 "height":0,
+                 "id":61,
+                 "name":"runner",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"runner"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2896,
+                 "y":288
+                }, 
+                {
+                 "height":0,
+                 "id":62,
+                 "name":"runner",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"runner"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2880,
+                 "y":128
+                }, 
+                {
+                 "height":0,
+                 "id":63,
+                 "name":"thrower",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"thrower"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1040,
+                 "y":208
+                }, 
+                {
+                 "height":0,
+                 "id":64,
+                 "name":"thrower",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"thrower"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1472,
+                 "y":128
+                }, 
+                {
+                 "height":0,
+                 "id":65,
+                 "name":"runner",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"runner"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2768,
+                 "y":288
+                }, 
+                {
+                 "height":0,
+                 "id":66,
+                 "name":"jumper",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"jumpat"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":3040,
+                 "y":272
+                }, 
+                {
+                 "height":0,
+                 "id":94,
+                 "name":"jumper",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"jumpup"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1808,
+                 "y":208
+                }, 
+                {
+                 "height":0,
+                 "id":96,
+                 "name":"jumper",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"jumpup"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1648,
+                 "y":224
+                }, 
+                {
+                 "height":0,
+                 "id":97,
+                 "name":"thrower",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"enemyType",
+                         "type":"string",
+                         "value":"thrower"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2304,
+                 "y":96
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -456,50 +1053,74 @@
                 {
                  "ellipse":true,
                  "height":0,
-                 "id":3,
-                 "name":"blue",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":91.3333333333337,
-                 "y":136.666666666667
-                }, 
-                {
-                 "ellipse":true,
-                 "height":0,
                  "id":16,
                  "name":"red",
+                 "properties":[
+                        {
+                         "name":"potionColor",
+                         "type":"string",
+                         "value":"red"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":2528.66666666667,
-                 "y":80.6666666666667
+                 "x":2528,
+                 "y":80
                 }, 
                 {
                  "ellipse":true,
                  "height":0,
                  "id":17,
                  "name":"blue",
+                 "properties":[
+                        {
+                         "name":"potionColor",
+                         "type":"string",
+                         "value":"blue"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":2446,
-                 "y":206
+                 "x":2448,
+                 "y":208
                 }, 
                 {
                  "ellipse":true,
                  "height":0,
                  "id":18,
                  "name":"yellow",
+                 "properties":[
+                        {
+                         "name":"potionColor",
+                         "type":"string",
+                         "value":"yellow"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":2492,
-                 "y":148.666666666667
+                 "x":2496,
+                 "y":144
+                }, 
+                {
+                 "ellipse":true,
+                 "height":0,
+                 "id":72,
+                 "name":"blue",
+                 "properties":[
+                        {
+                         "name":"potionColor",
+                         "type":"string",
+                         "value":"blue"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":96,
+                 "y":128
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -527,17 +1148,63 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":32.5,
-                 "y":169
+                 "x":32,
+                 "y":192
                 }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":10,
+         "name":"Checkpoint",
+         "objects":[
+                {
+                 "height":0,
+                 "id":99,
+                 "name":"checkpoint",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1840,
+                 "y":128
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":false,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":11,
+         "name":"Goal",
+         "objects":[
+                {
+                 "height":0,
+                 "id":98,
+                 "name":"Goal",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":3808,
+                 "y":80
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":false,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":10,
- "nextobjectid":60,
+ "nextlayerid":12,
+ "nextobjectid":146,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",

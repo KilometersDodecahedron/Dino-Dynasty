@@ -55,7 +55,7 @@ export default class Game extends Phaser.Scene {
         this.cursors = this.input.keyboard.createCursorKeys();
     }
 
-    create(){
+    create() {
         //this.scene.run("game-ui");
         createPlayerAnims(this.anims);
         createEnemyAnims(this.anims);
@@ -65,11 +65,11 @@ export default class Game extends Phaser.Scene {
         this.collisionEffects = createCollisionEffects();
 
         this.genericParticles = this.add.particles("particles");
-        
+
         //set the boundaries of the world, to make them different from the canvas
         this.physics.world.setBounds(0, 0, this.worldBoundsX, this.worldBoundsY, true, true, true, true)
-        
-        const map = this.make.tilemap({key: "dungeon-level"})
+
+        const map = this.make.tilemap({ key: "dungeon-level" })
 
         //creates variables to import background, ground, and platforms
         const tileset = map.addTilesetImage("dungeonTiles", "dungeon-tiles")
@@ -79,10 +79,10 @@ export default class Game extends Phaser.Scene {
         map.createStaticLayer('Background', backgroundTileset)
 
         //creates ground and platforms
-        this.staticGround.push(map.createDynamicLayer("Ground", tileset)); 
-        
+        this.staticGround.push(map.createDynamicLayer("Ground", tileset));
+
         this.staticGround.forEach(ground => {
-            ground.setCollisionByProperty({ground: true})
+            ground.setCollisionByProperty({ ground: true })
         })
 
         this.fireBalls = this.physics.add.group({
@@ -95,22 +95,15 @@ export default class Game extends Phaser.Scene {
         //store interatables here
         this.interactables = createInteractableGroups(this);
 
-
         this.collectables = createCollectablesGroups(this);
-
-        
-
         this.player = this.add.player(this.scene, 30, 175, "dino-green");
         this.player.callbackFunction(this.fireBalls);
 
         //stores enemies to load in here
         this.enemies = createEnemyGroups(this);
 
-
-
         //store color pickups here
         this.colorPickups = createColorPickups(this);
-
 
         //spawn enemies
         this.enemies.hazards.createLavaBlocks(152, 330, 220, this)
@@ -130,8 +123,8 @@ export default class Game extends Phaser.Scene {
         });
     }
 
-    update(){
-        if(this.player){
+    update() {
+        if (this.player) {
             this.player.managePlayerMovement();
             this.player.managePlayerAnimations();
             this.player.managePlayerAttacking();
