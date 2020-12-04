@@ -1138,12 +1138,6 @@
                  "id":1,
                  "name":"playerSpawn",
                  "point":true,
-                 "properties":[
-                        {
-                         "name":"spawn",
-                         "type":"bool",
-                         "value":true
-                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
