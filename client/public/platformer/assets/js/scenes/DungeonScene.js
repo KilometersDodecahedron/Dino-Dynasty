@@ -14,7 +14,7 @@ import { createColorPickups } from "../collectables/ColorPickupHolder.js"
 import { createCollectablesGroups } from "../collectables/CollectablesHolder.js"
 //import { createBlockGroups } from "../platforms/BlocksGroupHolder.js"
 import { createInteractableGroups } from "../interactables/InteractablesGroupHolder.js"
-import { createSpawnPointArrays, createStartingObjects } from "../utils/CreateSpawnPointsFromMapFile.js"
+import { createSpawnPointArrays, createStartingObjects, respawnObjects } from "../utils/CreateSpawnPointsFromMapFile.js"
 
 import { createCollisionEffects } from "../utils/CollisionEffectsHolder.js"
 import { createCollision } from "../utils/CollisionHolder.js"
@@ -80,6 +80,10 @@ export default class Game extends Phaser.Scene {
         const backgroundTileset = map.addTilesetImage("dungeonBackground", "dungeon-background")
 
         this.spawningArrays = createSpawnPointArrays(map, this);
+        sceneEvents.on(eventNames.playerRespawned, this.respawnEnemiesAfterDelay, this)
+        this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
+            sceneEvents.off(eventNames.playerRespawned, this.respawnEnemiesAfterDelay, this)
+        })
 
         //creates background
         map.createStaticLayer('Background', backgroundTileset)
@@ -130,6 +134,15 @@ export default class Game extends Phaser.Scene {
                 sceneEvents.emit(eventNames.setAndStartTimer, this.timeLimit);
             }
         });
+    }
+
+    respawnEnemiesAfterDelay(){
+        this.time.addEvent({
+            delay: 5,
+            callback: () => {
+                respawnObjects(this)
+            }
+        })
     }
 
     update() {
