@@ -11,10 +11,12 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite{
         this.onPlayerCollisionEffects = [];
 
         sceneEvents.on(eventNames.playerRespawned, () => this.destroy(), this)
+        sceneEvents.on(eventNames.goalPostReached, this.deathByHazard, this)
     }
 
     preDestroy(){
         sceneEvents.off(eventNames.playerRespawned, () => this.destroy(), this)
+        sceneEvents.off(eventNames.goalPostReached, this.deathByHazard, this)
     }
 
     deathByHazard(){

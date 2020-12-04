@@ -22,12 +22,6 @@ export default class Caveman extends Enemy{
 
         //set true when the player sees it, then it starts moving
         this.hasBeenSpotted = false;
-        
-        sceneEvents.on(eventNames.goalPostReached, () => this.levelOver = true, this)
-    }
-
-    preDestroy(){
-        sceneEvents.off(eventNames.goalPostReached, () => this.levelOver = true, this)
     }
 
     callbackFunction(){
