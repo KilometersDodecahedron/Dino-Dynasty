@@ -9,11 +9,15 @@ function createSpawnPointArrays(map, scene){
     spawningArrays.batSpawns = map.getObjectLayer("Bats");
     spawningArrays.potionSpawns = map.getObjectLayer("Potions");
     spawningArrays.coinSpawns = map.getObjectLayer("Coins");
+    spawningArrays.checkpointSpawn = map.getObjectLayer("Checkpoint");
+    spawningArrays.goalSpawn = map.getObjectLayer("Goal");
 
     return spawningArrays;
 }
 
 function createStartingObjects(scene) {
+    spawnCheckpoint(scene);
+    spawnGoal(scene)
     spawnPlayer(scene);
     respawnObjects(scene);
 }
@@ -26,8 +30,26 @@ function respawnObjects(scene){
 }
 
 function spawnPlayer(scene){
-    scene.player = scene.add.player(scene.scene, scene.spawningArrays.playerSpawn.objects[0].x, scene.spawningArrays.playerSpawn.objects[0].y, "dino-green");
-    scene.player.callbackFunction(scene.fireBalls);
+    if(scene.spawningArrays.playerSpawn.objects[0].x, scene.spawningArrays.playerSpawn){
+        scene.player = scene.add.player(scene.scene, scene.spawningArrays.playerSpawn.objects[0].x, scene.spawningArrays.playerSpawn.objects[0].y, "dino-green");
+        scene.player.callbackFunction(scene.fireBalls);
+    }else{
+        console.log("No Player object layer detected");
+    }
+}
+
+function spawnCheckpoint(scene){
+    if(scene.spawningArrays.checkpointSpawn.objects.length > 0){
+        scene.interactables.checkpoints.get(scene.spawningArrays.checkpointSpawn.objects[0].x, scene.spawningArrays.checkpointSpawn.objects[0].y, "checkpoint-flag-white");
+    }
+}
+
+function spawnGoal(scene){
+    if(scene.spawningArrays.goalSpawn.objects.length > 0){
+        scene.interactables.goalPost.get(scene.spawningArrays.goalSpawn.objects[0].x, scene.spawningArrays.goalSpawn.objects[0].y, "goal-post");
+    }else{
+        console.log("This level has no goal post");
+    }
 }
 
 function spawnCoins(scene){
