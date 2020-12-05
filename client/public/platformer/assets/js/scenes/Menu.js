@@ -34,7 +34,7 @@ export default class Menu extends Phaser.Scene {
         //making the ajax call to get High Score data to be passed into the next scene
         r2.on('pointerdown', () => { 
             $.ajax({
-                url: "/api/highScores",
+                url: "/api/scores/dino",
                 type: "GET",
                 //set the "success" to fun in this context, to get the next scene
                 context: this,

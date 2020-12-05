@@ -22,7 +22,6 @@ export default class Scores extends Phaser.Scene {
     //pass in the High Scores from the AJAX call on the Menu
     init(data){
         this.highScoreArray = data;
-        console.log(data);
     }
     
     create() {
