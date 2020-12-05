@@ -8,6 +8,7 @@ export default class Preloader extends Phaser.Scene {
     preload() {
         //test
         this.load.image("test", "../platformer/assets/img/player/individual/dino-blue-hurt-1.png")
+        this.load.image("Menubackground", "../platformer/assets/img/Menubackground.png")
 
         //levels
         this.load.image("sand-tiles", "../platformer/assets/img/tilesets/sand-tiles.png")
@@ -98,6 +99,10 @@ export default class Preloader extends Phaser.Scene {
 
     create() {
         //TODO have it load the main menu
+<<<<<<< HEAD
         this.scene.start("game")
+=======
+        this.scene.start("menu")
+>>>>>>> 2ed9204d12f23c1004453978159de82a3107ad34
     }
 }
