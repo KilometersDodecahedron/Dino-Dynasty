@@ -4,6 +4,7 @@ import GameUI from "./scenes/GameUI.js";
 import Dungeon from "./scenes/DungeonScene.js"
 import Temple from "./scenes/TempleScene.js"
 import Menu from "./scenes/Menu.js"
+import Scores from "./scenes/Scores"
 
 const config = {
     type: Phaser.AUTO,
@@ -24,6 +25,7 @@ const config = {
         Preloader,
         //make sure to load the game before the UI, so the UI goes above it
         Menu,
+        Scores,
         Game,
         Temple,
         Dungeon,
