@@ -1,4 +1,6 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Platformer = () => {
     useEffect(() => {
@@ -11,9 +13,12 @@ const Platformer = () => {
         document.body.appendChild(script);
     }, [])
 
-    return(
+    return (
+
         <div>
+            <Header> </Header>
             <div id="mygame"></div>
+            <Footer></Footer>
         </div>
     )
 }
