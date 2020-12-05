@@ -23,7 +23,7 @@ export default class WinScreen extends Phaser.Scene {
 
         this.checkIfNewHighScore();
 
-        const gameOverText = this.add.text(400, 50, "You Win", this.textConfig).setOrigin(0.5);
+        const gameOverText = this.add.text(400, 50, "You Win!!", this.textConfig).setOrigin(0.5);
         const finalScoreText = this.add.text(400, 150, "Final Score", this.textConfig).setOrigin(0.5);
         const scoreDisplay = this.add.text(400, 230, this.score, this.textConfig).setOrigin(0.5);
 
