@@ -11,14 +11,16 @@ function createSpawnPointArrays(map, scene){
     spawningArrays.coinSpawns = map.getObjectLayer("Coins");
     spawningArrays.checkpointSpawn = map.getObjectLayer("Checkpoint");
     spawningArrays.goalSpawn = map.getObjectLayer("Goal");
+    spawningArrays.hazardsSpawns = map.getObjectLayer("Hazards");
 
     return spawningArrays;
 }
 
 function createStartingObjects(scene) {
     spawnCheckpoint(scene);
-    spawnGoal(scene)
+    spawnGoal(scene);
     spawnPlayer(scene);
+    spawnHazards(scene);
     respawnObjects(scene);
 }
 
@@ -30,7 +32,7 @@ function respawnObjects(scene){
 }
 
 function spawnPlayer(scene){
-    if(scene.spawningArrays.playerSpawn.objects[0].x, scene.spawningArrays.playerSpawn){
+    if(scene.spawningArrays.playerSpawn){
         scene.player = scene.add.player(scene.scene, scene.spawningArrays.playerSpawn.objects[0].x, scene.spawningArrays.playerSpawn.objects[0].y, "dino-green");
         scene.player.callbackFunction(scene.fireBalls);
     }else{
@@ -39,13 +41,13 @@ function spawnPlayer(scene){
 }
 
 function spawnCheckpoint(scene){
-    if(scene.spawningArrays.checkpointSpawn.objects.length > 0){
+    if(scene.spawningArrays.checkpointSpawn){
         scene.interactables.checkpoints.get(scene.spawningArrays.checkpointSpawn.objects[0].x, scene.spawningArrays.checkpointSpawn.objects[0].y, "checkpoint-flag-white");
     }
 }
 
 function spawnGoal(scene){
-    if(scene.spawningArrays.goalSpawn.objects.length > 0){
+    if(scene.spawningArrays.goalSpawn){
         scene.interactables.goalPost.get(scene.spawningArrays.goalSpawn.objects[0].x, scene.spawningArrays.goalSpawn.objects[0].y, "goal-post");
     }else{
         console.log("This level has no goal post");
@@ -53,7 +55,7 @@ function spawnGoal(scene){
 }
 
 function spawnCoins(scene){
-    if(scene.spawningArrays.coinSpawns.objects.length > 0){
+    if(scene.spawningArrays.coinSpawns){
         scene.spawningArrays.coinSpawns.objects.forEach(element => {
             let type = element.properties[0].value;
 
@@ -70,8 +72,7 @@ function spawnCoins(scene){
 }
 
 function spawnBats(scene){
-    console.log(scene.spawningArrays.batSpawns.objects)
-    if(scene.spawningArrays.batSpawns.objects.length > 0){
+    if(scene.spawningArrays.batSpawns){
         scene.spawningArrays.batSpawns.objects.forEach(element => {
             let bat;
             let type = element.properties[0].value;
@@ -88,7 +89,7 @@ function spawnBats(scene){
 }
 
 function spawnPotions(scene){
-    if(scene.spawningArrays.potionSpawns.objects.length > 0){
+    if(scene.spawningArrays.potionSpawns){
         scene.spawningArrays.potionSpawns.objects.forEach(element => {
             let type = element.properties[0].value;
 
@@ -104,7 +105,7 @@ function spawnPotions(scene){
 }
 
 function spawnCavemen(scene){
-    if(scene.spawningArrays.cavemenSpawns.objects.length > 0){
+    if(scene.spawningArrays.cavemenSpawns){
         scene.spawningArrays.cavemenSpawns.objects.forEach(element => {
             let caveman;
             let type = element.properties[0].value;
@@ -117,6 +118,39 @@ function spawnCavemen(scene){
                 caveman = scene.enemies.mustache.get(element.x, element.y, "mustache");
             }else if(type == "jumpup"){
                 caveman = scene.enemies.humpback.get(element.x, element.y, "humpback");
+            }
+        });
+    }
+}
+
+function spawnHazards(scene){
+    if(scene.spawningArrays.hazardsSpawns){
+        scene.spawningArrays.hazardsSpawns.objects.forEach(element => {
+            let type = element.properties[0].value;
+            let amount = element.properties[1].value;
+
+            if(type == "spikesFloor"){
+                scene.enemies.hazards.groundHazard.createMultiple({
+                    key: "spikes",
+                    setXY: {
+                        x: element.x,
+                        y: element.y,
+                        stepX: 16
+                    },
+                    quantity: amount
+                });
+            }else if(type == "spikesCeiling"){
+                scene.enemies.hazards.ceilingHazard.createMultiple({
+                    key: "spikes",
+                    setXY: {
+                        x: element.x,
+                        y: element.y,
+                        stepX: 16
+                    },
+                    quantity: amount
+                });
+            }else if(type == "lava"){
+                scene.enemies.hazards.createLavaBlocks(element.x, element.y, amount, scene);
             }
         });
     }
