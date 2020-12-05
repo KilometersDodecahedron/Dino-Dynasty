@@ -4,7 +4,7 @@ import GameUI from "./scenes/GameUI.js";
 import Dungeon from "./scenes/DungeonScene.js"
 import Temple from "./scenes/TempleScene.js"
 import Menu from "./scenes/Menu.js"
-import Scores from "./scenes/Scores"
+import Scores from "./scenes/Scores.js"
 
 const config = {
     type: Phaser.AUTO,
