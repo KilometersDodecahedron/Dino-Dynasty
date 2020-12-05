@@ -53,8 +53,8 @@ export default class Scores extends Phaser.Scene {
     //helper function for adding the scores to the scene
     displayScores(scoresArray){
         var currentRowIncrement = 0;
-        for(let i = 0; i < scoresArray.length; i++){
-            var score = this.add.text(0,0, `${i + 1}. ${this.highScoreArray[i].score}`, this.scoreTextConfig);
+        for(let i = 0; i < scoresArray.length && i < 10; i++){
+            var score = this.add.text(0,0, `${this.highScoreArray[i].gamerTag}: ${this.highScoreArray[i].dinoScore}`, this.scoreTextConfig);
             
             //put odd numbers on the left 
             if(i % 2 == 0){
