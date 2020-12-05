@@ -20,11 +20,11 @@ const userSchema = new Schema({
         required: true,
         maxlength: 6,
         minlength: 3 },
-    rogueBlitzScore: {
+    rogueScore: {
         type: Number,
         default: 0
     },
-    dynoDynastyScore: {
+    dinoScore: {
         type: Number,
         default: 0
     },

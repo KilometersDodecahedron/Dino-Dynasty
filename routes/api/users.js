@@ -6,7 +6,13 @@ const { route } = require("./scores.js");
 router.route("/")
   .get(gameController.findAllUsers)
   .post(gameController.createUser);
-
+  
+//for logins, "/api/users/byName"
+//send it as data, object with properties "userName" and "password"
+router
+  .route("/byName")
+  .get(gameController.findUserInfoByName);
+  
 // Matches with "/api/users/:id"
 router
   .route("/:id")
@@ -15,10 +21,5 @@ router
   .put(gameController.updateUser)
   .delete(gameController.removeUser);
 
-  //for logins, "/api/users/byName"
-  //send it as data, object with properties "userName" and "password"
-router
-  .route("/byName")
-  .get(gameController.findUserInfoByName)
 
 module.exports = router;

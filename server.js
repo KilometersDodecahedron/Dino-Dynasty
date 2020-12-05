@@ -2,6 +2,10 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+// const passport = require("passport");
+
+// const initializePassport = require("./passport-config");
+// initializePassport(passport);
 
 // PORT
 const PORT = process.env.PORT || 3001;

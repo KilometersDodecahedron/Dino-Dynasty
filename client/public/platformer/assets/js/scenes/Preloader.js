@@ -99,6 +99,7 @@ export default class Preloader extends Phaser.Scene {
 
     create() {
         //TODO have it load the main menu
+
         this.scene.start("menu")
     }
 }

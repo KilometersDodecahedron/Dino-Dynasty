@@ -8,61 +8,61 @@ mongoose.connect(
 
 const scoresSeed = [
     {
-        name: "GW7",
+        gamerTag: "GW7",
         rogueScore: 1000,
         dinoScore: 20000,
         date: new Date(Date.now())
     },
     {
-        name: "JA1",
+        gamerTag: "JA1",
         rogueScore: 900,
         dinoScore: 18000,
         date: new Date(Date.now())
     },
     {
-        name: "TJ9",
+        gamerTag: "TJ9",
         rogueScore: 800,
         dinoScore: 16000,
         date: new Date(Date.now())
     },
     {
-        name: "JM7",
+        gamerTag: "JM7",
         rogueScore: 700,
         dinoScore: 14000,
         date: new Date(Date.now())
     },
     {
-        name: "JQA9",
+        gamerTag: "JQA9",
         rogueScore: 600,
         dinoScore: 12000,
         date: new Date(Date.now())
     },
     {
-        name: "AJ7",
+        gamerTag: "AJ7",
         rogueScore: 500,
         dinoScore: 10000,
         date: new Date(Date.now())
     },
     {
-        name: "MVB1",
+        gamerTag: "MVB1",
         rogueScore: 400,
         dinoScore: 8000,
         date: new Date(Date.now())
     },
     {
-        name: "WHH1",
+        gamerTag: "WHH1",
         rogueScore: 300,
         dinoScore: 6000,
         date: new Date(Date.now())
     },
     {
-        name: "JT5",
+        gamerTag: "JT5",
         rogueScore: 200,
         dinoScore: 4000,
         date: new Date(Date.now())
     },
     {
-        name: "JKP9",
+        gamerTag: "JKP9",
         rogueScore: 100,
         dinoScore: 2000,
         date: new Date(Date.now())
