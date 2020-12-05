@@ -15,7 +15,7 @@ export default class Menu extends Phaser.Scene {
         //title text
         var titleConfig={fontSize:'50px',color:'#ff0000',fontFamily: 'Arial'};
         this.title=this.add.text(2,.75,"DINO DYNASTY",titleConfig);
-        this.title.setOrigin(-.67,-.25);
+        this.title.setOrigin(-.6,-.25);
 
         //rectangle button place holders and text
         var r1 = this.add.rectangle(400, 200, 320, 110, 0xff0000);
@@ -29,7 +29,7 @@ export default class Menu extends Phaser.Scene {
         this.scores=this.add.text(2,.75,"HIGH SCORES",scoresConfig);
         this.scores.setOrigin(-.92,-7.43);
         r1.setInteractive();
-        r1.on('pointerdown', () => { this.scene.start('dungeon');});
+        r1.on('pointerdown', () => { this.scene.start('game');});
         r2.setInteractive();
         //making the ajax call to get High Score data to be passed into the next scene
         r2.on('pointerdown', () => { 
