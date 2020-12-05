@@ -100,9 +100,14 @@ export default class Preloader extends Phaser.Scene {
     create() {
         //TODO have it load the main menu
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.scene.start("game")
 =======
         this.scene.start("menu")
 >>>>>>> 2ed9204d12f23c1004453978159de82a3107ad34
+=======
+
+        this.scene.start("menu")
+>>>>>>> eaa80ce754493cc99adb29a0e8ef70bfce0b6b37
     }
 }
