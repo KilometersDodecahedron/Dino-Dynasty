@@ -4,7 +4,7 @@ const RogueBlitz = () => {
     useEffect(() => {
         const script = document.createElement('script');
 
-        script.src = "./rogueblitz/assets/js/mainGame.js";
+        script.src = "/rogueblitz/assets/js/mainGame.js";
         script.type = "module"
         script.async = true;
 

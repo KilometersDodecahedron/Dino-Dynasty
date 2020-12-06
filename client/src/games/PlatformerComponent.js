@@ -6,7 +6,7 @@ const Platformer = () => {
     useEffect(() => {
         const script = document.createElement('script');
 
-        script.src = "./platformer/assets/js/MainGame.js";
+        script.src = "/platformer/assets/js/MainGame.js";
         script.type = "module"
         script.async = true;
 
