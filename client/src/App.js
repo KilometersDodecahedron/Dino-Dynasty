@@ -14,17 +14,18 @@ function App() {
   return (
     <div className="Dino Dynasty 
     A Race Before Time">
-      {/* <Router>
+      <Router>
         <div>
           <Route exact path="/" component={Welcome} />
-          <Route exact path="/Forget" component={Forget} />
-          <Route exact path="/Account" component={Account} />
+          {/* <Route exact path="/Forget" component={Forget} /> */}
+          {/* <Route exact path="/Account" component={Account} /> */}
           <Route exact path="/Reset" component={Reset} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/Game" component={Platformer} />
+          <Route exact path="/Rogueblitz" component={RogueBlitz} />
         </div>
-      </Router> */}
-      <Platformer />
+      </Router>
+      {/* <Platformer /> */}
     </div>
   );
 }
