@@ -38,28 +38,55 @@ export default class WinScreen extends Phaser.Scene {
     }
 
     checkIfNewHighScore(){
+        var userID = sessionStorage.getItem("userID");
+
+        if(userID == null){
+            console.log("No session data found")
+            userID = "5fcbc3a5c88a4023c43e1b61";
+        }
+
         var newHighScore = false;
         var newScoreObject;
 
-        for(let i = 0; i < this.highScoreArray.length; i++){
+        for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
             if(this.score > this.highScoreArray[i].score){
-                console.log(`${this.score} is larger than ${this.highScoreArray[i].score}`);
+                console.log(`${this.score} is larger than ${this.highScoreArray[i].rogueScore}`);
                 console.log(i + 1);
                 newHighScore = true;
-                newScoreObject = {score: this.score};
+                newScoreObject = {dinoScore: this.score};
                 break;
             }
         }
 
+        //check against personal best
+        $.ajax("/api/users/" + userID, {
+            type: "GET",
+            context: this
+        }).then(function(user){
+            console.log(user)
+            if(this.score > user[0].rogueScore){
+                $.ajax("/api/users/" + userID, {
+                    type: "PUT",
+                    data: newScoreObject,
+                    context: this
+                }).then(function(){
+                    const newHighScoreText = this.add.text(400, 280, "New Personal Best!", this.textConfig).setOrigin(0.5);
+                });
+
+                //update score array
+                $.ajax("/api/scores/method/" + userID, {
+                    type: "PUT",
+                    data: newScoreObject,
+                    context: this
+                }).then(function(){
+                    // const newHighScoreText = this.add.text(400, 350, "New Personal Best!", this.textConfig).setOrigin(0.5);
+                });
+            }
+        });
+
         //if there's a new high score, save it to the database
         if(newHighScore){
-            $.ajax("/api/highScores/newHighScore", {
-                type: "POST",
-                data: newScoreObject,
-                context: this
-            }).then(function(){
-                const newHighScoreText = this.add.text(400, 340, "New High Score!", this.textConfig).setOrigin(0.5);
-            });
+            const newHighScoreText = this.add.text(400, 350, "New High Score!", this.textConfig).setOrigin(0.5);
         }
     }
 }

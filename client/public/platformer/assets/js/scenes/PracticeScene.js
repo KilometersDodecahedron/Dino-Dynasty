@@ -76,7 +76,7 @@ export default class Game extends Phaser.Scene {
         //"Sand tiles" comes from the json file
         const tileset = map.addTilesetImage("Sand tiles", "sand-tiles")
         
-        this.staticGround.push(map.createDynamicLayer("Ground", tileset)); 
+        this.staticGround = [map.createDynamicLayer("Ground", tileset)]; 
         
         this.staticGround.forEach(ground => {
             ground.setCollisionByProperty({ground: true})
@@ -155,6 +155,13 @@ export default class Game extends Phaser.Scene {
 
         createCollision(this);
 
+        sceneEvents.on(eventNames.gameOver, this.gameOver, this)
+
+        this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
+            sceneEvents.off(eventNames.gameOver, this.gameOver, this);
+            this.player.shutDownEvents();
+        });
+
         //send the event 10 milliseconds after the scene starts so the ui can recieve it
         let setTime = Phaser.Time.TimerEvent;
         setTime = this.time.addEvent({
@@ -171,5 +178,23 @@ export default class Game extends Phaser.Scene {
             this.player.managePlayerAnimations();
             this.player.managePlayerAttacking();
         }
+    }
+
+    //called by event
+    gameOver(score){
+        //sceneEvents.destroy();
+        $.ajax({
+            url: "/api/scores/dino",
+            type: "GET",
+            //set the "success" to fun in this context, to get the next scene
+            context: this,
+            success: function(highScoreArray) {
+                this.scene.stop("game-ui");
+                this.scene.start("gameOverScreen", {
+                    score: score,
+                    highScoreArray: highScoreArray
+                });
+            }
+        }); 
     }
 }

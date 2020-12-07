@@ -39,12 +39,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         this.canControlPlayer = true;
 
         sceneEvents.on(eventNames.sendStartingColor, this.changeColor, this);
-        sceneEvents.on(eventNames.goalPostReached, () => {this.canControlPlayer = false; this.setVelocityX(0)}, this);
+        sceneEvents.on(eventNames.goalPostReached, this.goalReached, this);
+        sceneEvents.on(eventNames.playerRespawned, this.respawnAtCheckpoint, this);
+        sceneEvents.on(eventNames.timeRanOut, this.playerDied, this);
     }
 
     preDestroy(){
-        sceneEvents.off(eventNames.sendStartingColor, this.changeColor, this);
-        sceneEvents.off(eventNames.goalPostReached, () => {this.canControlPlayer = false; this.setVelocityX(0)}, this);
+        this.shutDownEvents()
     }
 
     callbackFunction(fireball){
@@ -52,55 +53,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         this.setRespawnPosition(this.x, this.y);
         
         sceneEvents.emit(eventNames.needStartingColor);
-
-        //TODO remove this
-        // $.ajax({
-        //     url: "/api/users/" + "5fc95692300bf51b15bdefef",
-        //     type: "GET",
-        //     //set the "success" to fun in this context, to get the next scene
-        //     context: this,
-        //     success: function(highScoreArray) {
-        //         console.log(highScoreArray)
-        //         // $.ajax({
-        //         //     url: "/api/users/" + highScoreArray[0]._id,
-        //         //     type: "PUT",
-        //         //     data: {
-        //         //         hasPlayed: true,
-        //         //         dynoDynastyScore: 8000
-        //         //     },
-        //         //     //set the "success" to fun in this context, to get the next scene
-        //         //     context: this,
-        //         //     success: function(highScoreArray) {
-                        
-        //         //     }
-        //         // })
-        //     }
-        // })
-
-        // $.ajax({
-        //     url: "/api/users/",
-        //     type: "POST",
-        //     data: {
-        //         userName: "XMAN",
-        //         password: "12345678",
-        //         gamerTag: "XMAN"
-        //     },
-        //     //set the "success" to run in this context, to get the next scene
-        //     context: this,
-        //     success: function(highScoreArray) {
-        //         console.log(highScoreArray);
-        //     }
-        // })
-
-        // $.ajax({
-        //     url: "/api/users/" + "5fc953ad48b3b51a3510e637",
-        //     type: "DELETE",
-        //     //set the "success" to fun in this context, to get the next scene
-        //     context: this,
-        //     success: function(highScoreArray) {
-        //         console.log(highScoreArray);
-        //     }
-        // })
     }
 
     preUpdate(time, deltaTime){
@@ -173,16 +125,20 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
     }
 
     playerDied(){
+        if(this.isDead){
+            return;
+        }
+        console.log(this.x)
         this.isDead = true;
         this.body.setEnable(false)
-        sceneEvents.emit(eventNames.playerDied);
+        sceneEvents.emit(eventNames.playerDied, this.respawnDelay);
         this.alpha = 0;
 
         //respawn after a delay
-        this.scene.time.addEvent({
-            delay: this.respawnDelay,
-            callback: this.respawnAtCheckpoint
-        })
+        // this.scene.time.addEvent({
+        //     delay: this.respawnDelay,
+        //     callback: this.respawnAtCheckpoint
+        // })
     }
 
     respawnAtCheckpoint = () =>{
@@ -191,7 +147,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         this.setVelocity(0, 0);
         this.alpha = 1;
         this.setPosition(this.respawnPositionX, this.respawnPositionY)
-        sceneEvents.emit(eventNames.playerRespawned);
+        //sceneEvents.emit(eventNames.playerRespawned);
     }
 
     managePlayerMovement(){
@@ -254,6 +210,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
     }
 
     jump(){
+        console.log(this.x)
         this.setVelocityY(this.playerJumpHeight);
     }
 
@@ -318,6 +275,20 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
                 this.anims.play(`dino-${this.currentColor}-jump-down`, true);
             }
         }
+    }
+
+    //called from scene to prevent stacking
+    shutDownEvents(){
+        sceneEvents.off(eventNames.sendStartingColor, this.changeColor, this);
+        sceneEvents.off(eventNames.goalPostReached, this.goalReached, this);
+        sceneEvents.off(eventNames.playerRespawned, this.respawnAtCheckpoint, this);
+        sceneEvents.off(eventNames.timeRanOut, this.playerDied, this);
+    }
+
+    goalReached(){
+        this.canControlPlayer = false; 
+        this.setVelocityX(0)
+        this.shutDownEvents();
     }
 
     //run after calling the player, so be sure to set the fireballs first

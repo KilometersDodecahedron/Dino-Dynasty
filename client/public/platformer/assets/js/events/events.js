@@ -9,6 +9,7 @@ const eventNames = {
     checkpointReached: "checkpointReached",
     coinCollected: "coinCollected",
     goalPostReached: "goalPostReached",
+    gameOver: "gameOver",
 
     //used to move player color between scenes
     needStartingColor: "needStartingColor",
@@ -17,7 +18,8 @@ const eventNames = {
     increaseScore: "increaseScore",
 
     setAndStartTimer: "setAndStartTimer",
-    stopTimer: "stopTimer"
+    stopTimer: "stopTimer",
+    timeRanOut: "timeRanOut"
 }
 
 export {
