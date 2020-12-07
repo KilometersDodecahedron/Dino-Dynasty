@@ -25,7 +25,12 @@ export default class GoalPost extends Phaser.Physics.Arcade.Sprite{
             this.timerEvent = this.scene.time.addEvent({
                 delay: this.timeUntilNextScene,
                 callback: () => {
-                    this.scene.scene.start(this.scene.nextLevelKey);
+                    //if it's not the last level
+                    if(this.scene.nextLevelKey != "winScreen"){
+                        this.scene.scene.start(this.scene.nextLevelKey);
+                    }else{
+                        sceneEvents.emit(eventNames.finalGoalReacher);
+                    }
                 }
             })
         }

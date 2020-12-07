@@ -128,11 +128,13 @@ export default class Dungeon extends Phaser.Scene {
         this.cameras.main.setZoom(1.7);
         this.cameras.main.setBounds(0, 0, this.worldBoundsX, this.worldBoundsY);
 
-        sceneEvents.on(eventNames.gameOver, this.gameOver, this)
+        sceneEvents.on(eventNames.gameOver, this.gameOver, this);
+        sceneEvents.on(eventNames.loadWinScreen, this.winGame, this);
 
         this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
             this.staticGround = [];
             sceneEvents.off(eventNames.gameOver, this.gameOver, this);
+            sceneEvents.off(eventNames.loadWinScreen, this.winGame, this);
         });
 
         createCollision(this);
@@ -175,6 +177,24 @@ export default class Dungeon extends Phaser.Scene {
                 this.scene.stop("game-ui");
                 this.scene.start("gameOverScreen", {
                     score: score,
+                    highScoreArray: highScoreArray
+                });
+            }
+        }); 
+    }
+
+    winGame(scoreAndLives){
+        $.ajax({
+            url: "/api/scores/dino",
+            type: "GET",
+            //set the "success" to fun in this context, to get the next scene
+            context: this,
+            success: function(highScoreArray) {
+                this.scene.stop("game-ui");
+                this.scene.start("winScreen", {
+                    score: scoreAndLives.score,
+                    lives: scoreAndLives.lives,
+                    bonusMultiplier: scoreAndLives.bonusMultiplier,
                     highScoreArray: highScoreArray
                 });
             }
