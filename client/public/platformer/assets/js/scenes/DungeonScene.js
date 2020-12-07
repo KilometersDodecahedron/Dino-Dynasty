@@ -19,7 +19,7 @@ import { createSpawnPointArrays, createStartingObjects, respawnObjects } from ".
 import { createCollisionEffects } from "../utils/CollisionEffectsHolder.js"
 import { createCollision } from "../utils/CollisionHolder.js"
 
-export default class Game extends Phaser.Scene {
+export default class Dungeon extends Phaser.Scene {
     constructor() {
         super("dungeon");
         //the player
@@ -32,6 +32,9 @@ export default class Game extends Phaser.Scene {
         this.worldBoundsX = 3840;
         this.worldBoundsY = 336;
         this.timeLimit = 300;
+
+        //key of level to load when they reach the goal post
+        this.nextLevelKey = "winScreen"
 
         //stores bluePickup, redPickup, yellowPickup
         //set with createColorPickups
@@ -60,7 +63,7 @@ export default class Game extends Phaser.Scene {
     }
 
     create() {
-        //this.scene.run("game-ui");
+        this.scene.run("game-ui");
         createPlayerAnims(this.anims);
         createEnemyAnims(this.anims);
         createCollectableAnims(this.anims);
@@ -125,6 +128,13 @@ export default class Game extends Phaser.Scene {
         this.cameras.main.setZoom(1.7);
         this.cameras.main.setBounds(0, 0, this.worldBoundsX, this.worldBoundsY);
 
+        sceneEvents.on(eventNames.gameOver, this.gameOver, this)
+
+        this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
+            this.staticGround = [];
+            sceneEvents.off(eventNames.gameOver, this.gameOver, this);
+        });
+
         createCollision(this);
         //send the event 10 milliseconds after the scene starts so the ui can recieve it
         let setTime = Phaser.Time.TimerEvent;
@@ -151,5 +161,23 @@ export default class Game extends Phaser.Scene {
             this.player.managePlayerAnimations();
             this.player.managePlayerAttacking();
         }
+    }
+
+    //called by event
+    gameOver(score){
+        //sceneEvents.destroy();
+        $.ajax({
+            url: "/api/scores/dino",
+            type: "GET",
+            //set the "success" to fun in this context, to get the next scene
+            context: this,
+            success: function(highScoreArray) {
+                this.scene.stop("game-ui");
+                this.scene.start("gameOverScreen", {
+                    score: score,
+                    highScoreArray: highScoreArray
+                });
+            }
+        }); 
     }
 }

@@ -41,9 +41,11 @@ export default class GameUI extends Phaser.Scene {
         this.levelCompleteScoreBonusText;
         this.levelCompleteTimeBonusText;
         this.levelCompleteTotalScoreText;
+        this.timeRanOutText;
     }
 
     create(){
+        this.resetValues();
         this.playerIcon = this.add.image(20, 542, "dino-green-ui")
         this.lifeCounter = this.add.text(35, 534, `x${this.lives}`)
 
@@ -72,6 +74,7 @@ export default class GameUI extends Phaser.Scene {
         sceneEvents.on(eventNames.increaseScore, this.increaseScore, this)
         sceneEvents.on(eventNames.goalPostReached, this.handleReachedGoalPost, this)
         sceneEvents.on(eventNames.setAndStartTimer, this.handleStartTimer, this);
+        sceneEvents.on(eventNames.playerDied, this.handlePlayerRespawn, this);
 
         this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
             sceneEvents.off(eventNames.colorChanged, this.handleColorChanged, this);
@@ -81,6 +84,7 @@ export default class GameUI extends Phaser.Scene {
             sceneEvents.off(eventNames.increaseScore, this.increaseScore, this);
             sceneEvents.off(eventNames.goalPostReached, this.handleReachedGoalPost, this)
             sceneEvents.off(eventNames.setAndStartTimer, this.handleStartTimer, this);
+            sceneEvents.off(eventNames.playerDied, this.handlePlayerRespawn, this);
         })
 
         this.timerEvent = this.time.addEvent({
@@ -150,6 +154,22 @@ export default class GameUI extends Phaser.Scene {
         this.timerEvent.paused = true;
     }
 
+    handlePlayerRespawn(respawnDelay){
+        this.lives -= 1;
+        this.updateLivesDisplay();
+
+        this.time.addEvent({
+            delay: respawnDelay,
+            callback: () => {
+                if(this.lives > 0 && this.currentTime > 0){
+                    sceneEvents.emit(eventNames.playerRespawned);
+                }else{
+                    sceneEvents.emit(eventNames.gameOver, this.currentScore);
+                }
+            }
+        })
+    }
+
     handleReachedGoalPost(){
         this.increaseScore(this.finishLevelPointValue);
         this.handleStopTimer();
@@ -168,11 +188,30 @@ export default class GameUI extends Phaser.Scene {
     }
 
     timerRanOut(){
-        //TODO write what to do when this happens
+        sceneEvents.emit(eventNames.timeRanOut);
+        const textConfig = {fontSize:'100px',color:'#ff0000',fontFamily: 'Arial'};
+
+        this.timeRanOutText = this.add.text(400, 280, "TIME'S UP", textConfig).setOrigin(0.5);
+
+        // this.time.addEvent({
+        //     delay: 3000,
+        //     callback: () => {
+        //         this.timeRanOutText.text = "";
+        //         sceneEvents.emit(eventNames.gameOver, this.currentScore);
+        //     }
+        // })
     }
 
     increaseScore(points){
         this.currentScore += points;
         this.scoreText.text = `SCORE:${this.currentScore}`;
+    }
+
+    //run at start for repeated plays
+    resetValues(){
+        this.lives = 3;
+        this.currentScore = 0;
+        this.coinCount = 0;
+        this.timeRanOutText = this.add.text(35, 534, "");
     }
 }
