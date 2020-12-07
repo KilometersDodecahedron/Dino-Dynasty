@@ -3,7 +3,9 @@ export default class WinScreen extends Phaser.Scene {
         super("winScreen");
         this.Menubackground;
         this.playAgainButton;
-        this.score;
+        this.finalScore;
+        this.livesRemaining;
+        this.livesBonusMultiplier;
         this.highScoreArray;
 
         this.textConfig = {fontSize:'50px',color:'#ff0000',fontFamily: 'Arial'};
@@ -11,7 +13,9 @@ export default class WinScreen extends Phaser.Scene {
     }
 
     init(data){
-        this.score = data.score;
+        this.livesRemaining = data.lives;
+        this.livesBonusMultiplier = data.bonusMultiplier;
+        this.finalScore = data.score + (this.livesRemaining * this.livesBonusMultiplier);
         this.highScoreArray = data.highScoreArray;
         console.log(this.highScoreArray);
     }
@@ -23,9 +27,10 @@ export default class WinScreen extends Phaser.Scene {
 
         this.checkIfNewHighScore();
 
-        const gameOverText = this.add.text(400, 50, "You Win!!", this.textConfig).setOrigin(0.5);
-        const finalScoreText = this.add.text(400, 150, "Final Score", this.textConfig).setOrigin(0.5);
-        const scoreDisplay = this.add.text(400, 230, this.score, this.textConfig).setOrigin(0.5);
+        const gameOverText = this.add.text(400, 30, "You Win!!", this.textConfig).setOrigin(0.5);
+        const livesBonusText = this.add.text(400, 95, `Lives Bonus: ${this.livesRemaining} X ${this.livesBonusMultiplier} = ${this.livesRemaining * this.livesBonusMultiplier}`, this.textConfig).setOrigin(0.5);
+        const finalScoreText = this.add.text(400, 160, "Final Score", this.textConfig).setOrigin(0.5);
+        const scoreDisplay = this.add.text(400, 230, this.finalScore, this.textConfig).setOrigin(0.5);
 
         this.playAgainButton = this.add.rectangle(400, 450, 320, 100, 0xff0000).setOrigin(0.5);
         const playAginText = this.add.text(400, 450, "Main Menu", this.buttonTextConfig).setOrigin(0.5);
@@ -49,11 +54,11 @@ export default class WinScreen extends Phaser.Scene {
         var newScoreObject;
 
         for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
-            if(this.score > this.highScoreArray[i].score){
-                console.log(`${this.score} is larger than ${this.highScoreArray[i].rogueScore}`);
+            if(this.finalScore > this.highScoreArray[i].score){
+                console.log(`${this.finalScore} is larger than ${this.highScoreArray[i].dinoScore}`);
                 console.log(i + 1);
                 newHighScore = true;
-                newScoreObject = {dinoScore: this.score};
+                newScoreObject = {dinoScore: this.finalScore};
                 break;
             }
         }
@@ -64,7 +69,7 @@ export default class WinScreen extends Phaser.Scene {
             context: this
         }).then(function(user){
             console.log(user)
-            if(this.score > user[0].rogueScore){
+            if(this.finalScore > user[0].dinoScore){
                 $.ajax("/api/users/" + userID, {
                     type: "PUT",
                     data: newScoreObject,

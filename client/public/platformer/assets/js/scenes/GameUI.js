@@ -75,6 +75,7 @@ export default class GameUI extends Phaser.Scene {
         sceneEvents.on(eventNames.goalPostReached, this.handleReachedGoalPost, this)
         sceneEvents.on(eventNames.setAndStartTimer, this.handleStartTimer, this);
         sceneEvents.on(eventNames.playerDied, this.handlePlayerRespawn, this);
+        sceneEvents.on(eventNames.finalGoalReacher, this.handleFinalGoalReached, this);
 
         this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
             sceneEvents.off(eventNames.colorChanged, this.handleColorChanged, this);
@@ -85,6 +86,7 @@ export default class GameUI extends Phaser.Scene {
             sceneEvents.off(eventNames.goalPostReached, this.handleReachedGoalPost, this)
             sceneEvents.off(eventNames.setAndStartTimer, this.handleStartTimer, this);
             sceneEvents.off(eventNames.playerDied, this.handlePlayerRespawn, this);
+            sceneEvents.off(eventNames.finalGoalReacher, this.handleFinalGoalReached, this);
         })
 
         this.timerEvent = this.time.addEvent({
@@ -125,7 +127,8 @@ export default class GameUI extends Phaser.Scene {
     }
 
     handleGivePLayerColor(){
-        console.log(this.currentPlayerColor)
+        // reset the checkpoint display when the level restarts
+        this.checkpointDisplay.setTexture(`checkpoint-flag-white`)
         sceneEvents.emit(eventNames.sendStartingColor, this.currentPlayerColor);
     }
 
@@ -176,6 +179,16 @@ export default class GameUI extends Phaser.Scene {
         this.showEndingScore();
     }
 
+    handleFinalGoalReached(){
+        let dataObject = {
+            score: this.currentScore,
+            lives: this.lives,
+            bonusMultiplier: this.beatGameRemainingLivesBonusMultiplier
+        }
+
+        sceneEvents.emit(eventNames.loadWinScreen, dataObject);
+    }
+
     showEndingScore(){
         this.levelCompleteText.text = "LEVEL COMPLETE";
         this.levelCompleteScoreBonusText.text = `Finished Level Bonus: ${this.finishLevelPointValue}`;
@@ -192,14 +205,6 @@ export default class GameUI extends Phaser.Scene {
         const textConfig = {fontSize:'100px',color:'#ff0000',fontFamily: 'Arial'};
 
         this.timeRanOutText = this.add.text(400, 280, "TIME'S UP", textConfig).setOrigin(0.5);
-
-        // this.time.addEvent({
-        //     delay: 3000,
-        //     callback: () => {
-        //         this.timeRanOutText.text = "";
-        //         sceneEvents.emit(eventNames.gameOver, this.currentScore);
-        //     }
-        // })
     }
 
     increaseScore(points){

@@ -33,7 +33,7 @@ export default class Game extends Phaser.Scene {
         this.timeLimit = 300;
 
         //key of level to load when they reach the goal post
-        this.nextLevelKey = "dungeon"
+        this.nextLevelKey = "winScreen"
 
         //stores bluePickup, redPickup, yellowPickup
         //set with createColorPickups
@@ -156,10 +156,11 @@ export default class Game extends Phaser.Scene {
         createCollision(this);
 
         sceneEvents.on(eventNames.gameOver, this.gameOver, this)
+        sceneEvents.on(eventNames.loadWinScreen, this.winGame, this);
 
         this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
             sceneEvents.off(eventNames.gameOver, this.gameOver, this);
-            this.player.shutDownEvents();
+            sceneEvents.off(eventNames.loadWinScreen, this.winGame, this);
         });
 
         //send the event 10 milliseconds after the scene starts so the ui can recieve it
@@ -192,6 +193,25 @@ export default class Game extends Phaser.Scene {
                 this.scene.stop("game-ui");
                 this.scene.start("gameOverScreen", {
                     score: score,
+                    highScoreArray: highScoreArray
+                });
+            }
+        }); 
+    }
+
+    winGame(scoreAndLives){
+        $.ajax({
+            url: "/api/scores/dino",
+            type: "GET",
+            //set the "success" to fun in this context, to get the next scene
+            context: this,
+            success: function(highScoreArray) {
+                this.scene.stop("game-ui");
+                
+                this.scene.start("winScreen", {
+                    score: scoreAndLives.score,
+                    lives: scoreAndLives.lives,
+                    bonusMultiplier: scoreAndLives.bonusMultiplier,
                     highScoreArray: highScoreArray
                 });
             }

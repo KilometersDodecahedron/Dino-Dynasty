@@ -32,6 +32,7 @@ const config = {
         Game,
         Temple,
         Dungeon,
+        WinScreen,
         GameUI,
     ]
 }

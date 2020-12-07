@@ -10,6 +10,8 @@ const eventNames = {
     coinCollected: "coinCollected",
     goalPostReached: "goalPostReached",
     gameOver: "gameOver",
+    finalGoalReacher: "finalGoalReacher",
+    loadWinScreen: "loadWinScreen",
 
     //used to move player color between scenes
     needStartingColor: "needStartingColor",
