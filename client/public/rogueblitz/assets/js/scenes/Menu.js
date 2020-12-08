@@ -54,7 +54,7 @@ export default class Menu extends Phaser.Scene {
         //     },
         //     context: this,
         //     success: function(result){
-        //         sessionStorage.setItem("userID", result._id)
+        //         localStorage.setItem("userID", result._id)
         //         $.ajax({
         //             url: "/api/scores/",
         //             type: "POST",

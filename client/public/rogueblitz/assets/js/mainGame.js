@@ -34,4 +34,4 @@ const config = {
     }
 }
 
-const game = new Phaser.Game(config);
+const rogueBlitz = new Phaser.Game(config);

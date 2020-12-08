@@ -5,21 +5,29 @@ import "../styles/headerR.css";
 import "../styles/footerR.css";
 
 const RogueBlitz = () => {
+    let script;
+
     useEffect(() => {
-        const script = document.createElement('script');
+        script = document.createElement('script');
 
         script.src = "/rogueblitz/assets/js/mainGame.js";
         script.type = "module"
         script.async = true;
 
         document.body.appendChild(script);
+
+        console.log(document.body)
+
+        return() => {
+            script.remove();
+            window.location.reload();
+        }
     }, [])
 
     return (
         <div>
 
             <HeaderR> </HeaderR>
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/phaser-raycaster@0.9.0/dist/phaser-raycaster.min.js"></script>
             <div id="roguegame"></div>
             <FooterR> </FooterR>
         </div>

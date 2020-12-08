@@ -1,9 +1,22 @@
+import passport from 'passport';
 import React from 'react';
 import { Link } from "react-router-dom";
 import Create from "../img-frontend/Create.gif"
 import "../styles/account.css";
 
 function Account() {
+    function formatDataForCheck(){
+        const userName = document.getElementById("name");
+        const gamerTag = document.getElementById("gamerTag");
+        const password = document.getElementById("password");
+
+        
+    }
+
+    function tryCreateAccount() {
+
+    }
+
     return (
         <section className="h-100">
             <div className="container h-100">
@@ -14,25 +27,25 @@ function Account() {
                         <div className="card fat">
                             <div className="card-body" id="join">
                                 <h4 className="card-title">Join the Force</h4>
-                                <form method="POST" className="my-login-validation" novalidate="">
+                                <form method="POST" className="my-login-validation" noValidate="">
                                     <div className="form-group">
-                                        <label for="name">GamerTag</label>
-                                        <input id="name" type="text" className="form-control" name="name" required autofocus />
+                                        <label htmlFor="name">User Name</label>
+                                        <input id="name" type="text" className="form-control" name="name" required autoFocus />
                                         <div className="invalid-feedback">
                                             What's your name?
                                     </div>
                                     </div>
 
                                     <div className="form-group">
-                                        <label for="email">E-Mail Address</label>
-                                        <input id="email" type="email" className="form-control" name="email" required />
+                                        <label htmlFor="gamerTag">Gamer Tag (3-6 Characters)</label>
+                                        <input id="gamerTag" type="gamerTag" className="form-control" name="gamerTag" required />
                                         <div className="invalid-feedback">
-                                            Your email is invalid
+                                            Your Tag is invalid
                                     </div>
                                     </div>
 
                                     <div className="form-group">
-                                        <label for="password">Password</label>
+                                        <label htmlFor="password">Password</label>
                                         <input id="password" type="password" className="form-control" name="password" required
                                             data-eye />
                                         <div className="invalid-feedback">
@@ -40,7 +53,7 @@ function Account() {
                                     </div>
                                     </div>
                                     <div className="form-group m-0">
-                                        <button type="submit" className="btn btn-primary btn-block">
+                                        <button onClick={formatDataForCheck} className="btn btn-primary btn-block">
                                             Register
                                     </button>
                                     </div>
