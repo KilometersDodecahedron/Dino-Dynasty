@@ -1,0 +1,13 @@
+.header {
+    background: url("../img-frontend/Dino-Header.png");
+    text-align: center;
+    width: 100%;
+    color: #000000;
+    padding: 1%;
+    text-shadow: 4px 2px 2px blueviolet, 0 0 15px whitesmoke, 0 0 5px red;
+}
+
+p {
+    text-shadow: 4px 2px 2px blueviolet, 0 0 15px whitesmoke, 0 0 5px red;
+    color: #000000;
+}
