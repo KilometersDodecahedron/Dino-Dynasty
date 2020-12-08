@@ -1,20 +1,31 @@
-import passport from 'passport';
 import React from 'react';
 import { Link } from "react-router-dom";
 import Create from "../img-frontend/Create.gif"
 import "../styles/account.css";
 
 function Account() {
-    function formatDataForCheck(){
+    function tryCreateAccount(data) {
+        console.log(data)
+    }
+    
+    function formatDataForCheck(event){
+        event.preventDefault();
+
         const userName = document.getElementById("name");
         const gamerTag = document.getElementById("gamerTag");
         const password = document.getElementById("password");
 
-        
-    }
+        const formattedData = {
+            userName: userName.value,
+            password: password.value,
+            gamerTag: gamerTag.value
+        }
 
-    function tryCreateAccount() {
+        userName.value = "";
+        password.value = "";
+        gamerTag.value = "";
 
+        tryCreateAccount(formattedData);
     }
 
     return (
@@ -27,7 +38,7 @@ function Account() {
                         <div className="card fat">
                             <div className="card-body" id="join">
                                 <h4 className="card-title">Join the Force</h4>
-                                <form method="POST" className="my-login-validation" noValidate="">
+                                <form onSubmit={formatDataForCheck} className="my-login-validation" noValidate="">
                                     <div className="form-group">
                                         <label htmlFor="name">User Name</label>
                                         <input id="name" type="text" className="form-control" name="name" required autoFocus />
@@ -53,7 +64,7 @@ function Account() {
                                     </div>
                                     </div>
                                     <div className="form-group m-0">
-                                        <button onClick={formatDataForCheck} className="btn btn-primary btn-block">
+                                        <button className="btn btn-primary btn-block">
                                             Register
                                     </button>
                                     </div>
