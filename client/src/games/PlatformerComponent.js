@@ -16,6 +16,7 @@ const Platformer = () => {
     return (
 
         <div>
+
             <Header> </Header>
             <div id="mygame"></div>
             <Footer></Footer>

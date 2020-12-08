@@ -3,12 +3,12 @@ import "../styles/header.css";
 import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGamepad } from '@fortawesome/free-solid-svg-icons';
-function Header() {
+
+function HeaderR() {
     const location = useLocation();
     return (
         <div className="header">
-            <h1>Dino Dynasty </h1>
-            <p> A Race Before Time</p>
+            <h1>RogueBlitz </h1>
             <ul className="nav navbar-nav nav-flex-icons ml-auto">
                 <li className="nav-item">
                     <Link to="/Rogueblitz" className={location.pathname === "" ? "nav-link active" : "nav-link"}><FontAwesomeIcon icon={faGamepad} /> Rogueblitz</Link>
@@ -21,4 +21,4 @@ function Header() {
     )
 }
 
-export default Header;
+export default HeaderR;

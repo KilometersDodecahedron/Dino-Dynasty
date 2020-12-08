@@ -1,5 +1,6 @@
 import React from "react";
 import Welcome from "../img-frontend/welcome.gif"
+import { Link } from "react-router-dom";
 import "../styles/login.css";
 
 
@@ -29,9 +30,7 @@ function Login() {
 
                                         <div className="form-group">
                                             <label for="password">Password
-                                        <br /> <a href="forgot.html" className="float-right">
-                                                    Forgot Password?
-                                        </a>
+                                     
                                             </label>
                                             <input id="password" type="password" className="form-control" name="password" required
                                                 data-eye />
@@ -42,9 +41,7 @@ function Login() {
 
                                         <div className="form-group">
                                             <div className="custom-checkbox custom-control">
-                                                <input type="checkbox" name="remember" id="remember"
-                                                    className="custom-control-input" />
-                                                <label for="remember" className="custom-control-label">Remember Me</label>
+
                                             </div>
                                         </div>
 
@@ -54,7 +51,7 @@ function Login() {
                                     </button>
                                         </div>
                                         <div className="mt-4 text-center">
-                                            Don't have an account? <a href="register.html">Create One</a>
+                                          <Link to="/Account"> Don't have an account? </Link>
                                         </div>
                                     </form>
                                 </div>

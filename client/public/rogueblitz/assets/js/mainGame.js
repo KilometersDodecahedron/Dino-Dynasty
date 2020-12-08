@@ -10,7 +10,7 @@ const config = {
     width: 800,
     height: 560,
     autoCenter: true,
-    parent: 'mygame',
+    parent: 'roguegame',
     physics: {
         default: "arcade",
         arcade: {
