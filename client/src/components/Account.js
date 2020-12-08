@@ -1,20 +1,40 @@
-import passport from 'passport';
 import React from 'react';
 import { Link } from "react-router-dom";
 import Create from "../img-frontend/Create.gif"
 import "../styles/account.css";
 
 function Account() {
+<<<<<<< HEAD
     function formatDataForCheck() {
+=======
+    function tryCreateAccount(data) {
+        console.log(data)
+    }
+    
+    function formatDataForCheck(event){
+        event.preventDefault();
+
+>>>>>>> 0d83b8721b84ba295bcf7c70b1d1a90c0bca184f
         const userName = document.getElementById("name");
         const gamerTag = document.getElementById("gamerTag");
         const password = document.getElementById("password");
 
+<<<<<<< HEAD
 
     }
+=======
+        const formattedData = {
+            userName: userName.value,
+            password: password.value,
+            gamerTag: gamerTag.value
+        }
+>>>>>>> 0d83b8721b84ba295bcf7c70b1d1a90c0bca184f
 
-    function tryCreateAccount() {
+        userName.value = "";
+        password.value = "";
+        gamerTag.value = "";
 
+        tryCreateAccount(formattedData);
     }
 
     return (
@@ -26,8 +46,13 @@ function Account() {
                         </div>
                         <div className="card fat">
                             <div className="card-body" id="join">
+<<<<<<< HEAD
                                 <h4 className="login-force">Join the Force</h4>
                                 <form method="POST" className="my-login-validation" noValidate="">
+=======
+                                <h4 className="card-title">Join the Force</h4>
+                                <form onSubmit={formatDataForCheck} className="my-login-validation" noValidate="">
+>>>>>>> 0d83b8721b84ba295bcf7c70b1d1a90c0bca184f
                                     <div className="form-group">
                                         <label htmlFor="name">Username</label>
                                         <input id="name" type="text" className="form-control" name="name" required autoFocus />
@@ -53,7 +78,11 @@ function Account() {
                                     </div>
                                     </div>
                                     <div className="form-group m-0">
+<<<<<<< HEAD
                                         <button onClick={formatDataForCheck} className="btn btn-warning btn-block">
+=======
+                                        <button className="btn btn-primary btn-block">
+>>>>>>> 0d83b8721b84ba295bcf7c70b1d1a90c0bca184f
                                             Register
                                     </button>
                                     </div>
