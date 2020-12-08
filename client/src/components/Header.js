@@ -7,7 +7,7 @@ import { faGamepad } from '@fortawesome/free-solid-svg-icons';
 function Header() {
     const location = useLocation();
     return (
-        <div className="header">
+        <div className="header" id="header-dino">
             <h1>Dino Dynasty </h1>
             <p> A Race Before Time</p>
             <ul className="nav navbar-nav nav-flex-icons ml-auto">

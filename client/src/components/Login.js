@@ -6,18 +6,18 @@ import "../styles/login.css";
 
 function Login() {
     return (
-        <div className="my-login-page" >
+        <div className="my-login-page" id="login" >
             <section className="h-100">
                 <div className="container h-100">
                     <div className="row justify-content-md-center h-100">
                         <div className="card-wrapper">
-                            <div className="brand"><img src={Welcome} alt="logo" />
+                            <div className="brand"><img src={Welcome}  alt="logo" />
 
                             </div>
 
                             <div className="card fat">
                                 <div className="card-body">
-                                    <h4 className="card-title">Login</h4>
+                                    <h4 className="login-p">Login</h4>
                                     <form method="POST" className="my-login-validation" noValidate="">
                                         <div className="form-group">
                                             <label htmlFor="email">Username</label>
@@ -46,8 +46,8 @@ function Login() {
                                         </div> */}
 
                                         <div className="form-group m-0">
-                                            <button className="btn btn-primary btn-block">
-                                                Login
+                                            <button className="btn btn-dark btn-block">
+                                                Login 
                                     </button>
                                         </div>
                                         <div className="mt-4 text-center">
@@ -56,7 +56,7 @@ function Login() {
                                     </form>
                                 </div>
                             </div>
-                            <div className="card-footer">
+                            <div className="card-footer" id="login-footer">
                                 Copyright &copy; 2020 &mdash; DG Universe
                     </div>
                         </div>

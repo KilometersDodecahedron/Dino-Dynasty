@@ -1,0 +1,32 @@
+#account{
+    background:url("https://media1.tenor.com/images/959fb1f51bc1026ace27acede55e1bc8/tenor.gif?itemid=7526875");
+    background-repeat: inherit;
+}
+
+.login-force{
+text-align: center;
+font: #000000;
+}
+
+#account-footer{
+
+    background: linear-gradient(-45deg, #ffffff, #e6e200, #000000, #e6e200);
+	background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    text-align: center;
+    border-top: 5px solid yellow;
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

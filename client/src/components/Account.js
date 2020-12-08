@@ -5,12 +5,12 @@ import Create from "../img-frontend/Create.gif"
 import "../styles/account.css";
 
 function Account() {
-    function formatDataForCheck(){
+    function formatDataForCheck() {
         const userName = document.getElementById("name");
         const gamerTag = document.getElementById("gamerTag");
         const password = document.getElementById("password");
 
-        
+
     }
 
     function tryCreateAccount() {
@@ -18,7 +18,7 @@ function Account() {
     }
 
     return (
-        <section className="h-100">
+        <section className="h-100" id="account">
             <div className="container h-100">
                 <div className="row justify-content-md-center h-100">
                     <div className="card-wrapper">
@@ -26,10 +26,10 @@ function Account() {
                         </div>
                         <div className="card fat">
                             <div className="card-body" id="join">
-                                <h4 className="card-title">Join the Force</h4>
+                                <h4 className="login-force">Join the Force</h4>
                                 <form method="POST" className="my-login-validation" noValidate="">
                                     <div className="form-group">
-                                        <label htmlFor="name">User Name</label>
+                                        <label htmlFor="name">Username</label>
                                         <input id="name" type="text" className="form-control" name="name" required autoFocus />
                                         <div className="invalid-feedback">
                                             What's your name?
@@ -53,7 +53,7 @@ function Account() {
                                     </div>
                                     </div>
                                     <div className="form-group m-0">
-                                        <button onClick={formatDataForCheck} className="btn btn-primary btn-block">
+                                        <button onClick={formatDataForCheck} className="btn btn-warning btn-block">
                                             Register
                                     </button>
                                     </div>
@@ -63,7 +63,7 @@ function Account() {
                                 </form>
                             </div>
                         </div>
-                        <div className="card-footer">
+                        <div className="card-footer" id="account-footer">
                             Copyright &copy; 2020 &mdash; DG Universe
                     </div>
                     </div>
