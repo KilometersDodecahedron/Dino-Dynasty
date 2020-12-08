@@ -30,7 +30,7 @@ function Account() {
                             <input id="email" type="email" className="form-control" name="email" required>
                                 <div className="invalid-feedback">
                                     Your email is invalid
-                                        </div>
+                                </div>
 
 
                                 <div className="form-group">
@@ -72,7 +72,8 @@ function Account() {
                         </div>
                                     </div>
         </section>
-        )
+        </div>
+    );
 }
 
 export default Account;

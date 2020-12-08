@@ -20,7 +20,7 @@ function Login() {
                                     <form method="POST" className="my-login-validation" novalidate="">
                                         <div className="form-group">
                                             <label for="email">Username</label>
-                                            <input id="email" type="email" className="form-control" name="email" value="" required
+                                            <input id="email" type="text" className="form-control" name="email" required
                                                 autofocus />
                                             <div className="invalid-feedback">
                                                 Email is invalid
@@ -29,9 +29,9 @@ function Login() {
 
                                         <div className="form-group">
                                             <label for="password">Password
-                                        <br /> <a href="forgot.html" className="float-right">
+                                        {/* <br /> <a href="forgot.html" className="float-right">
                                                     Forgot Password?
-                                        </a>
+                                        </a> */}
                                             </label>
                                             <input id="password" type="password" className="form-control" name="password" required
                                                 data-eye />
@@ -40,13 +40,13 @@ function Login() {
                                     </div>
                                         </div>
 
-                                        <div className="form-group">
+                                        {/* <div className="form-group">
                                             <div className="custom-checkbox custom-control">
                                                 <input type="checkbox" name="remember" id="remember"
                                                     className="custom-control-input" />
                                                 <label for="remember" className="custom-control-label">Remember Me</label>
                                             </div>
-                                        </div>
+                                        </div> */}
 
                                         <div className="form-group m-0">
                                             <button type="submit" className="btn btn-primary btn-block">
