@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import "../styles/header.css";
+import "../styles/footer.css";
 
 const Platformer = () => {
     useEffect(() => {

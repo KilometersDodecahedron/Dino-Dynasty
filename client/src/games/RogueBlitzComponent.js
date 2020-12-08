@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import HeaderR from "../components/HeaderR";
-import Footer from "../components/Footer";
+import FooterR from "../components/FooterR";
+import "../styles/headerR.css";
+import "../styles/footerR.css";
 
 const RogueBlitz = () => {
     useEffect(() => {
@@ -19,7 +21,7 @@ const RogueBlitz = () => {
             <HeaderR> </HeaderR>
             <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/phaser-raycaster@0.9.0/dist/phaser-raycaster.min.js"></script>
             <div id="roguegame"></div>
-            <Footer> </Footer>
+            <FooterR> </FooterR>
         </div>
     )
 }
