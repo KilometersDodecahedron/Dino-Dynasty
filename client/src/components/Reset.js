@@ -1,17 +1,17 @@
 import React from "react";
+import Password from "../img-frontend/Password.png"
 import "../styles/reset.css"
 
 
 function Reset() {
     return (
-
         <div className="my-login-page">
             <section className="h-100">
                 <div className="container h-100">
                     <div className="row justify-content-md-center align-items-center h-100" />
                     <div className="card-wrapper" />
-                    <div className="brand" />
-                    <img src="img/logo.jpg" alt="bootstrap 4 login page" />
+                    <div className="brand" /><img src={Password} alt="logo" />
+
                 </div>
                 <div className="card fat" />
                 <div className="card-body" />

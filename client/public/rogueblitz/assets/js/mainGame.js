@@ -10,7 +10,7 @@ const config = {
     width: 800,
     height: 560,
     autoCenter: true,
-    parent: 'mygame',
+    parent: 'roguegame',
     physics: {
         default: "arcade",
         arcade: {
@@ -34,4 +34,4 @@ const config = {
     }
 }
 
-const game = new Phaser.Game(config);
+const rogueBlitz = new Phaser.Game(config);

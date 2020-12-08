@@ -43,7 +43,7 @@ export default class WinScreen extends Phaser.Scene {
     }
 
     checkIfNewHighScore(){
-        var userID = sessionStorage.getItem("userID");
+        var userID = localStorage.getItem("userID");
 
         if(userID == null){
             console.log("No session data found")
