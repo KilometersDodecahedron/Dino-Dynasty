@@ -21,7 +21,7 @@ import { createCollision } from "../utils/CollisionHolder.js"
 
 export default class Game extends Phaser.Scene {
     constructor() {
-        super("mysticforest");
+        super("tutorial");
         //the player
         this.player;
         this.cursors;

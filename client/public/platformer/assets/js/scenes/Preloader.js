@@ -25,7 +25,7 @@ export default class Preloader extends Phaser.Scene {
         this.load.image("temple-background", "../platformer/assets/img/tilesets/templeBackground.png")
         this.load.tilemapTiledJSON("temple-level", "../platformer/assets/json/tilesets/templeMap.json")
 
-        //mysticForest level
+        //tutorial level
         this.load.image("mysticForest-background", "../platformer/assets/img/tilesets/mysticForestBackground.png")
         this.load.tilemapTiledJSON("mysticForest-level", "../platformer/assets/json/tilesets/mysticForestMap.json")
 
@@ -102,6 +102,6 @@ export default class Preloader extends Phaser.Scene {
     }
 
     create() {
-        this.scene.start("mysticforest")
+        this.scene.start("tutorial")
     }
 }
