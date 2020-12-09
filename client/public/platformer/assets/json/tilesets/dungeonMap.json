@@ -1181,8 +1181,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":1479.5,
-                 "y":232.5
+                 "x":1360,
+                 "y":160
                 }, 
                 {
                  "ellipse":true,
@@ -2525,7 +2525,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -2605,6 +2605,24 @@
                  "width":0,
                  "x":96,
                  "y":128
+                }, 
+                {
+                 "ellipse":true,
+                 "height":0,
+                 "id":241,
+                 "name":"blue",
+                 "properties":[
+                        {
+                         "name":"potionColor",
+                         "type":"string",
+                         "value":"blue"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1480,
+                 "y":240
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2631,7 +2649,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -2654,7 +2672,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -2677,12 +2695,12 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }],
  "nextlayerid":12,
- "nextobjectid":241,
+ "nextobjectid":242,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
