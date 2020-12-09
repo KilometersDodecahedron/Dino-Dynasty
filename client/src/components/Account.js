@@ -29,7 +29,7 @@ function Account() {
                     axios.post("/api/users/", data)
                     .then(response => {
                         console.log(response)
-                        localStorage.setItem("userID", response._id);
+                        localStorage.setItem("userID", response.data._id);
                         document.location.href="/Game"
                     })
                 }else{

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Platformer from "./games/PlatformerComponent.js";
 import RogueBlitz from "./games/RogueBlitzComponent.js"
@@ -10,7 +10,6 @@ import Reset from "./components/Reset";
 
 
 function App() {
-  const [cheatState, setCheatState] = useState(1);
   
   return (
     <div className="Dino Dynasty 
@@ -20,7 +19,7 @@ function App() {
           <Route exact path="/" component={Login} />
           {<Route exact path="/Account" component={Account} />}
           <Route exact path="/Reset" component={Reset} />
-          <Route exact path="/Game" render={(props) =>  <Platformer {...props} value={Math.random()} />} />
+          <Route exact path="/Game" component={Platformer} />
           <Route exact path="/Rogueblitz" component={RogueBlitz} />
         </div>
         
