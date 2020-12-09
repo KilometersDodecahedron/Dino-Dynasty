@@ -29,8 +29,6 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     updateUser: function(req, res) {
-        console.log(req.body);
-        console.log(req.params)
         db.User
           .findOneAndUpdate({ _id: req.params.id }, req.body)
           .then(dbModel => res.json(dbModel))
