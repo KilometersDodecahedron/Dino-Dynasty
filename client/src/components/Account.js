@@ -30,7 +30,17 @@ function Account() {
                     .then(response => {
                         console.log(response)
                         localStorage.setItem("userID", response.data._id);
-                        document.location.href="/Game"
+                        
+                        const scoreData = {
+                            userID: response.data._id,
+                            gamerTag: response.data.gamerTag
+                        }
+
+                        axios.post("/api/scores/", scoreData)
+                        .then(scoreResponse => {
+                            console.log(scoreResponse)
+                            document.location.href="/Game"
+                        })
                     })
                 }else{
                     console.log("Name Taken")
