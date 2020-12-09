@@ -31,7 +31,7 @@ export default class Dungeon extends Phaser.Scene {
         this.staticGround = [];
         this.worldBoundsX = 3840;
         this.worldBoundsY = 336;
-        this.timeLimit = 300;
+        this.timeLimit = 230;
 
         //key of level to load when they reach the goal post
         this.nextLevelKey = "winScreen"
