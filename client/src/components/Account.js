@@ -13,16 +13,33 @@ function Account() {
             data.gamerTag.length >= 3 && data.gamerTag.length <= 6
         ){
             console.log("This is Valid")
+            axios.get("/api/users/")
+            .then(response => {
+                console.log(response)
+                let userNameAlreadyExists = false;
+                // console.log(response.data)
+                response.data.forEach(user => {
+                    if(user.userName == data.userName){
+                        userNameAlreadyExists = true;
+                    }
+                })
+
+                if(!userNameAlreadyExists){
+                    console.log("Name Available")
+                    axios.post("/api/users/", data)
+                    .then(response => {
+                        console.log(response)
+                        localStorage.setItem("userID", response._id);
+                        document.location.href="/Game"
+                    })
+                }else{
+                    console.log("Name Taken")
+                }
+            })
         }else{
             console.log("this is invalid")
         }
-        axios.get("/api/users/")
-            .then(response => {
-                console.log(response.data)
-                response.data.forEach(user => {
-                    console.log(user)
-                })
-            })
+        
     }
 
     function formatDataForCheck(e) {
