@@ -9,7 +9,7 @@ function Header() {
     return (
         <div className="header" id="header-dino">
             <h1>Dino Dynasty </h1>
-            <p> A Race Before Time</p>
+            <h1>  A Race Before Time</h1>
             <ul className="nav navbar-nav nav-flex-icons ml-auto">
                 <li className="nav-right">
                     <Link to="/Rogueblitz" className={location.pathname === "" ? "nav-link active" : "nav-link"}><FontAwesomeIcon icon={faGamepad} /> Rogueblitz</Link>

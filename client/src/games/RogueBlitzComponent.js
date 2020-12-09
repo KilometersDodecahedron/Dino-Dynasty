@@ -18,14 +18,14 @@ const RogueBlitz = () => {
 
         console.log(document.body)
 
-        return() => {
+        return () => {
             script.remove();
             window.location.reload();
         }
     }, [])
 
     return (
-        <div>
+        <div className="rogueblitz">
 
             <HeaderR> </HeaderR>
             <div id="roguegame"></div>

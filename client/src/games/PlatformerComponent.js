@@ -6,7 +6,7 @@ import "../styles/footer.css";
 
 const Platformer = (props) => {
     const [cheatState, setCheatState] = useState(1);
-    
+
     let script;
     let holder;
 
@@ -26,7 +26,7 @@ const Platformer = (props) => {
 
         // holder.id = "mygame";
 
-        return() => {
+        return () => {
             script.remove();
             // holder.remove();
             console.log("goodbye")
@@ -40,7 +40,7 @@ const Platformer = (props) => {
 
     return (
 
-        <div>
+        <div className="dyno">
             <Header> </Header>
             <div id="mygame"></div>
             <Footer></Footer>

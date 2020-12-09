@@ -64,7 +64,7 @@ function Login() {
 
                             <div className="card fat">
                                 <div className="card-body">
-                                    <h4 className="login-p">Login</h4>
+                                    <h2 className="login-p">Login</h2>
                                     <form onSubmit={formatDataForCheck} className="my-login-validation" noValidate="">
                                         <div className="form-group">
                                             <label htmlFor="email">Username</label>

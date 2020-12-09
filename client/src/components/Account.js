@@ -5,41 +5,41 @@ import Create from "../img-frontend/Create.gif"
 import "../styles/account.css";
 
 function Account() {
-    function tryCreateAccount(data){
+    function tryCreateAccount(data) {
         console.log(data);
-        if(
+        if (
             data.userName.length > 0 && data.userName.length <= 30 &&
             data.password.length >= 8 && data.userName.length <= 20 &&
             data.gamerTag.length >= 3 && data.gamerTag.length <= 6
-        ){
+        ) {
             console.log("This is Valid")
             axios.get("/api/users/")
-            .then(response => {
-                console.log(response)
-                let userNameAlreadyExists = false;
-                // console.log(response.data)
-                response.data.forEach(user => {
-                    if(user.userName == data.userName){
-                        userNameAlreadyExists = true;
+                .then(response => {
+                    console.log(response)
+                    let userNameAlreadyExists = false;
+                    // console.log(response.data)
+                    response.data.forEach(user => {
+                        if (user.userName == data.userName) {
+                            userNameAlreadyExists = true;
+                        }
+                    })
+
+                    if (!userNameAlreadyExists) {
+                        console.log("Name Available")
+                        axios.post("/api/users/", data)
+                            .then(response => {
+                                console.log(response)
+                                localStorage.setItem("userID", response.data._id);
+                                document.location.href = "/Game"
+                            })
+                    } else {
+                        console.log("Name Taken")
                     }
                 })
-
-                if(!userNameAlreadyExists){
-                    console.log("Name Available")
-                    axios.post("/api/users/", data)
-                    .then(response => {
-                        console.log(response)
-                        localStorage.setItem("userID", response.data._id);
-                        document.location.href="/Game"
-                    })
-                }else{
-                    console.log("Name Taken")
-                }
-            })
-        }else{
+        } else {
             console.log("this is invalid")
         }
-        
+
     }
 
     function formatDataForCheck(e) {
@@ -71,7 +71,7 @@ function Account() {
                         </div>
                         <div className="card fat">
                             <div className="card-body" id="join">
-                                <h4 className="card-title">Join the Force</h4>
+                                <h2 className="card-title">Join the Force</h2>
                                 <form onSubmit={formatDataForCheck} className="my-login-validation" noValidate="">
                                     <div className="form-group">
                                         <label htmlFor="name">Username</label>
@@ -98,7 +98,7 @@ function Account() {
                                     </div>
                                     </div>
                                     <div className="form-group m-0">
-                                        <button className="btn btn-primary btn-block">
+                                        <button className="btn btn-warning btn-block">
                                             Register
                                     </button>
                                     </div>

@@ -1,26 +1,32 @@
-body
+.dyno
 {
-    background: #00c3ff;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ffff1c, #00c3ff);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ffff1c, #00c3ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: #16BFFD;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #cbda06, #0b9bcf);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #cbda06, #0b9bcf); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
 a
 {
-    color: #000000;
+    color: #2904fc;
+    text-align: center;
+    font-size: 2em;
 }
 
-.header-dino {
+
+#header-dino {
     background: url("../img-frontend/Dino-Header.png");
+    background-repeat: unset;
     text-align: center;
     width: 100%;
     color: #000000;
     padding: 1%;
-    text-shadow: 4px 2px 2px blueviolet, 0 0 15px whitesmoke, 0 0 5px red;
+    text-shadow: 4px 2px 2px whitesmoke, 0 0 15px black, 0 0 5px yellow;
 }
-/* 
+ 
+
 p {
-    text-shadow: 4px 2px 2px blueviolet, 0 0 15px whitesmoke, 0 0 5px red;
+    text-shadow: 4px 2px 2px whitesmoke, 0 0 15px black, 0 0 5px yellow;
     color: #000000;
-} */
+} 
+
