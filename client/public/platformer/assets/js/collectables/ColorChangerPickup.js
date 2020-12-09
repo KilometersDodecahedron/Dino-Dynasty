@@ -7,7 +7,7 @@ export default class ColorChangerPickup extends Phaser.Physics.Arcade.Sprite{
         this.color = "green";
         //given in the child
         this.pngKey;
-        this.scale = 0.5;
+        this.scale = 0.8;
         this.radius = 16;
 
         sceneEvents.on(eventNames.playerRespawned, () => this.destroy(), this);
