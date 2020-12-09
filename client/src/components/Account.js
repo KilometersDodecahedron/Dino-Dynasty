@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Create from "../img-frontend/Create.gif"
 import "../styles/account.css";
@@ -6,9 +7,44 @@ import "../styles/account.css";
 function Account() {
     function tryCreateAccount(data){
         console.log(data);
+        if(
+            data.userName.length > 0 && data.userName.length <= 30 &&
+            data.password.length >= 8 && data.userName.length <= 20 &&
+            data.gamerTag.length >= 3 && data.gamerTag.length <= 6
+        ){
+            console.log("This is Valid")
+            axios.get("/api/users/")
+            .then(response => {
+                console.log(response)
+                let userNameAlreadyExists = false;
+                // console.log(response.data)
+                response.data.forEach(user => {
+                    if(user.userName == data.userName){
+                        userNameAlreadyExists = true;
+                    }
+                })
+
+                if(!userNameAlreadyExists){
+                    console.log("Name Available")
+                    axios.post("/api/users/", data)
+                    .then(response => {
+                        console.log(response)
+                        localStorage.setItem("userID", response._id);
+                        document.location.href="/Game"
+                    })
+                }else{
+                    console.log("Name Taken")
+                }
+            })
+        }else{
+            console.log("this is invalid")
+        }
+        
     }
 
-    function formatDataForCheck() {
+    function formatDataForCheck(e) {
+        e.preventDefault();
+
         const userName = document.getElementById("name");
         const gamerTag = document.getElementById("gamerTag");
         const password = document.getElementById("password");
