@@ -12,7 +12,6 @@ function Login() {
             data.userName.length > 0 && data.userName.length <= 30 &&
             data.password.length >= 8 && data.userName.length <= 20
         ){
-            console.log("Valid")
             axios.get("/api/users/")
             .then(response => {
                 let foundMatchingUser = false;

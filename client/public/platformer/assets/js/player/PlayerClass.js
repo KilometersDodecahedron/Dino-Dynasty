@@ -128,7 +128,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         if(this.isDead){
             return;
         }
-        console.log(this.x)
         this.isDead = true;
         this.body.setEnable(false)
         sceneEvents.emit(eventNames.playerDied, this.respawnDelay);
@@ -210,7 +209,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
     }
 
     jump(){
-        console.log(this.x)
         this.setVelocityY(this.playerJumpHeight);
     }
 

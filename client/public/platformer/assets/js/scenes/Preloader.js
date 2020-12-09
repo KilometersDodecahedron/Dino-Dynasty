@@ -29,23 +29,31 @@ export default class Preloader extends Phaser.Scene {
         this.load.image("mysticForest-background", "../platformer/assets/img/tilesets/mysticForestBackground.png")
         this.load.tilemapTiledJSON("mysticForest-level", "../platformer/assets/json/tilesets/mysticForestMap.json")
 
+        //Level 1
         this.load.image("background", "../platformer/assets/img/tilesets/background.png")
+        this.load.image("grass", "../platformer/assets/img/tilesets/grass.png")
         this.load.image("block", "../platformer/assets/img/tilesets/block.png")
-        this.load.image("bush", "../platformer/assets/img/tilesets/bush.png")
+        this.load.image("small-platform", "../platformer/assets/img/tilesets/small-platform.png")
+        this.load.tilemapTiledJSON("level1", "../platformer/assets/json/tilesets/level1.json")
+
+        //Level 2
+        this.load.tilemapTiledJSON("level2", "../platformer/assets/json/tilesets/level2.json")
         this.load.image("darkblock", "../platformer/assets/img/tilesets/darkblock.png")
         this.load.image("darkgrass", "../platformer/assets/img/tilesets/darkgrass.png")
-        this.load.image("dungeon", "../platformer/assets/img/tilesets/dungeon.png")
         this.load.image("forestbackground", "../platformer/assets/img/tilesets/forestbackground.png")
-        this.load.image("grass", "../platformer/assets/img/tilesets/grass.png")
+
+        //Level 3
+        this.load.tilemapTiledJSON("level3", "../platformer/assets/json/tilesets/level3.json")
+        this.load.image("sand", "../platformer/assets/img/tilesets/sand.png")
+        this.load.image("wastelandbackground", "../platformer/assets/img/tilesets/wastelandbackground.png")
+
+        this.load.image("bush", "../platformer/assets/img/tilesets/bush.png")
+        this.load.image("dungeon", "../platformer/assets/img/tilesets/dungeon.png")
         this.load.image("platform-long", "../platformer/assets/img/tilesets/platform-long.png")
-        this.load.image("small-platform", "../platformer/assets/img/tilesets/small-platform.png")
-        //this.load.image("sand", "../platformer/assets/img/tilesets/sand.png")
         this.load.image("small-platformGOLD", "../platformer/assets/img/tilesets/small-platformGOLD.png")
         // this.load.image("spikes", "../platformer/assets/img/tilesets/spikes.png")
         // this.load.image("spikes-top", "../platformer/assets/img/tilesets/spikes-top.png")
         this.load.image("tree", "../platformer/assets/img/tilesets/tree.png")
-        this.load.tilemapTiledJSON("level1", "../platformer/assets/json/tilesets/level1.json")
-        this.load.tilemapTiledJSON("level2", "../platformer/assets/json/tilesets/level2.json")
 
         //blocks and platforms
         this.load.image("block", "../platformer/assets/img/platforms/block.png");

@@ -13,7 +13,6 @@ export default class GameOverScreen extends Phaser.Scene {
     init(data){
         this.score = data.score;
         this.highScoreArray = data.highScoreArray;
-        console.log(this.highScoreArray);
     }
 
     create(){
@@ -41,7 +40,6 @@ export default class GameOverScreen extends Phaser.Scene {
         var userID = localStorage.getItem("userID");
 
         if(userID == null){
-            console.log("No session data found")
             userID = "5fcbc3a5c88a4023c43e1b61";
         }
 
@@ -50,8 +48,6 @@ export default class GameOverScreen extends Phaser.Scene {
 
         for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
             if(this.score > this.highScoreArray[i].score){
-                console.log(`${this.score} is larger than ${this.highScoreArray[i].rogueScore}`);
-                console.log(i + 1);
                 newHighScore = true;
                 break;
             }

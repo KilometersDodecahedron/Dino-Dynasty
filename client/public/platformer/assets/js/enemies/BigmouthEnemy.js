@@ -6,7 +6,7 @@ export default class BigmouthEnemy extends Caveman{
 
         this.pointValue = 2000;
 
-        this.health = 2;
+        this.health = 1;
 
         this.lungeDistance = 100;
         this.lungeDistanceShort = 80;

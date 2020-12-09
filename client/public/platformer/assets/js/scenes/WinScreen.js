@@ -17,7 +17,6 @@ export default class WinScreen extends Phaser.Scene {
         this.livesBonusMultiplier = data.bonusMultiplier;
         this.finalScore = data.score + (this.livesRemaining * this.livesBonusMultiplier);
         this.highScoreArray = data.highScoreArray;
-        console.log(this.highScoreArray);
     }
 
     create(){
@@ -46,7 +45,6 @@ export default class WinScreen extends Phaser.Scene {
         var userID = localStorage.getItem("userID");
 
         if(userID == null){
-            console.log("No session data found")
             userID = "5fcbc3a5c88a4023c43e1b61";
         }
 
@@ -55,8 +53,6 @@ export default class WinScreen extends Phaser.Scene {
 
         for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
             if(this.finalScore > this.highScoreArray[i].score){
-                console.log(`${this.finalScore} is larger than ${this.highScoreArray[i].dinoScore}`);
-                console.log(i + 1);
                 newHighScore = true;
                 break;
             }
@@ -67,14 +63,12 @@ export default class WinScreen extends Phaser.Scene {
             type: "GET",
             context: this
         }).then(function(user){
-            console.log(user)
             if(this.finalScore > user[0].dinoScore){
                 $.ajax("/api/users/" + userID, {
                     type: "PUT",
                     data: newScoreObject,
                     context: this
                 }).then(function(response){
-                    console.log(response)
                     const newHighScoreText = this.add.text(400, 280, "New Personal Best!", this.textConfig).setOrigin(0.5);
                 });
 

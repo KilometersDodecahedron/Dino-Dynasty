@@ -4,6 +4,9 @@ import GameUI from "./scenes/GameUI.js";
 import Dungeon from "./scenes/DungeonScene.js"
 import Tutorial from "./scenes/TutorialScene.js"
 import Temple from "./scenes/TempleScene.js"
+import Level1 from "./scenes/Level1Scene.js"
+import Level2 from "./scenes/Level2Scene.js"
+import Level3 from "./scenes/Level3Scene.js"
 import Menu from "./scenes/Menu.js"
 import Scores from "./scenes/Scores.js"
 import GameOverScreen from "./scenes/GameOverScreen.js"
@@ -32,6 +35,9 @@ const config = {
         GameOverScreen,
         Game,
         Tutorial,
+        Level1,
+        Level2,
+        Level3,
         Temple,
         Dungeon,
         WinScreen,

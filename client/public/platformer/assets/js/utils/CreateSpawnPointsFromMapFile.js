@@ -36,7 +36,7 @@ function spawnPlayer(scene){
         scene.player = scene.add.player(scene.scene, scene.spawningArrays.playerSpawn.objects[0].x, scene.spawningArrays.playerSpawn.objects[0].y, "dino-green");
         scene.player.callbackFunction(scene.fireBalls);
     }else{
-        console.log("No Player object layer detected");
+        
     }
 }
 

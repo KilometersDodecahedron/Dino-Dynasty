@@ -16,8 +16,6 @@ const RogueBlitz = () => {
 
         document.body.appendChild(script);
 
-        console.log(document.body)
-
         return () => {
             script.remove();
             window.location.reload();

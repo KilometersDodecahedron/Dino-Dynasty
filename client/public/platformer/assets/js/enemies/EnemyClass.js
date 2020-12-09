@@ -20,7 +20,6 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite{
     }
 
     deathByHazard(){
-        console.log("Enemy died in lava");
         this.destroy();
     }
 

@@ -5,7 +5,7 @@ export default class Caveman extends Enemy{
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
 
-        this.health = 2;
+        this.health = 1;
         this.levelOver = false;
 
         //resize hitbox facing left

@@ -41,7 +41,6 @@ export default class WeaponWieldingEnemy extends RandomlyMovingEnemy{
     manageIncrementingAndAttacking(){
         if(this.currentHalfSeconds < this.halfSecondsBetweenChecks){
             this.currentHalfSeconds++;
-            console.log(this.currentHalfSeconds)
         }else{
             this.checkPlayerPosition()
             this.castRaysToCheckForPlayer();
@@ -49,7 +48,6 @@ export default class WeaponWieldingEnemy extends RandomlyMovingEnemy{
     }
 
     checkPlayerPosition(){
-        console.log(this.position);
     }
 
     castRaysToCheckForPlayer(){

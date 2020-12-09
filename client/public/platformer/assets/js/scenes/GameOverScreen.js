@@ -40,7 +40,6 @@ export default class GameOverScreen extends Phaser.Scene {
         var userID = localStorage.getItem("userID");
 
         if(userID == null){
-            console.log("No session data found")
             userID = "5fcbc3a5c88a4023c43e1b61";
         }
 
@@ -49,8 +48,6 @@ export default class GameOverScreen extends Phaser.Scene {
 
         for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
             if(this.score > this.highScoreArray[i].score){
-                console.log(`${this.score} is larger than ${this.highScoreArray[i].dinoScore}`);
-                console.log(i + 1);
                 newHighScore = true;
                 break;
             }
@@ -61,7 +58,6 @@ export default class GameOverScreen extends Phaser.Scene {
             type: "GET",
             context: this
         }).then(function(user){
-            console.log(user)
             if(this.score > user[0].dinoScore){
                 $.ajax("/api/users/" + userID, {
                     type: "PUT",
@@ -77,8 +73,7 @@ export default class GameOverScreen extends Phaser.Scene {
                     data: newScoreObject,
                     context: this
                 }).then(function(obj){
-                    // const newHighScoreText = this.add.text(400, 350, "New Personal Best!", this.textConfig).setOrigin(0.5);
-                    console.log(obj)
+                    
                 });
             }
         });
