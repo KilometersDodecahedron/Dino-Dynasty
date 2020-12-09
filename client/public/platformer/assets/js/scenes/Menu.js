@@ -31,7 +31,7 @@ export default class Menu extends Phaser.Scene {
         this.scores.setOrigin(-.92,-7.43);
         r1.setInteractive();
         //FIRST LEVEL GOES HERE
-        r1.on('pointerdown', () => { this.scene.start('temple');});
+        r1.on('pointerdown', () => { this.scene.start('tutorial');});
         r2.setInteractive();
         //making the ajax call to get High Score data to be passed into the next scene
         r2.on('pointerdown', () => { 

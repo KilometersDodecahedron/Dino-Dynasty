@@ -63,7 +63,7 @@ export default class Dungeon extends Phaser.Scene {
     }
 
     create() {
-        this.scene.run("game-ui");
+        //this.scene.run("game-ui");
         createPlayerAnims(this.anims);
         createEnemyAnims(this.anims);
         createCollectableAnims(this.anims);
