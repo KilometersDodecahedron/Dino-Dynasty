@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Create from "../img-frontend/Create.gif"
 import "../styles/account.css";
@@ -6,9 +7,27 @@ import "../styles/account.css";
 function Account() {
     function tryCreateAccount(data){
         console.log(data);
+        if(
+            data.userName.length > 0 && data.userName.length <= 30 &&
+            data.password.length >= 8 && data.userName.length <= 20 &&
+            data.gamerTag.length >= 3 && data.gamerTag.length <= 6
+        ){
+            console.log("This is Valid")
+        }else{
+            console.log("this is invalid")
+        }
+        axios.get("/api/users/")
+            .then(response => {
+                console.log(response.data)
+                response.data.forEach(user => {
+                    console.log(user)
+                })
+            })
     }
 
-    function formatDataForCheck() {
+    function formatDataForCheck(e) {
+        e.preventDefault();
+
         const userName = document.getElementById("name");
         const gamerTag = document.getElementById("gamerTag");
         const password = document.getElementById("password");
