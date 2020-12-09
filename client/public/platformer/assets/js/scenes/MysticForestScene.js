@@ -21,7 +21,7 @@ import { createCollision } from "../utils/CollisionHolder.js"
 
 export default class Game extends Phaser.Scene {
     constructor() {
-        super("temple");
+        super("mysticforest");
         //the player
         this.player;
         this.cursors;
@@ -31,7 +31,7 @@ export default class Game extends Phaser.Scene {
         this.staticGround = [];
         this.worldBoundsX = 3840;
         this.worldBoundsY = 336;
-        this.timeLimit = 160;
+        this.timeLimit = 300;
 
         //key of level to load when they reach the goal post
         this.nextLevelKey = "dungeon"
@@ -76,16 +76,15 @@ export default class Game extends Phaser.Scene {
         //set the boundaries of the world, to make them different from the canvas
         this.physics.world.setBounds(0, 0, this.worldBoundsX, this.worldBoundsY, true, true, true, true)
 
-        const map = this.make.tilemap({ key: "temple-level" })
+        const map = this.make.tilemap({ key: "mysticForest-level" })
 
         //creates variables to import background, ground, and platforms
         const grassTileset = map.addTilesetImage("grass", "grass")
         const platformSmallTileset = map.addTilesetImage("small-platform", "small-platform")
         const platformLongTileset = map.addTilesetImage("platform-long", "platform-long")
-        const blockGoldTileset = map.addTilesetImage("small-platformGOLD", "small-platformGOLD")
-        const blockTileset = map.addTilesetImage("block", "block")
-        const blockBigTileset = map.addTilesetImage("block-big", "block-big")
-        const backgroundTileset = map.addTilesetImage("templeBackground", "temple-background")
+        // const blockTileset = map.addTilesetImage("block", "block")
+        // const blockBigTileset = map.addTilesetImage("block-big", "block-big")
+        const backgroundTileset = map.addTilesetImage("mysticForestBackground", "mysticForest-background")
 
         this.spawningArrays = createSpawnPointArrays(map, this);
         sceneEvents.on(eventNames.playerRespawned, this.respawnEnemiesAfterDelay, this)
@@ -100,9 +99,8 @@ export default class Game extends Phaser.Scene {
         this.staticGround.push(map.createDynamicLayer("Ground", grassTileset));
         this.staticGround.push(map.createDynamicLayer("PlatformSmall", platformSmallTileset));
         this.staticGround.push(map.createDynamicLayer("PlatformLong", platformLongTileset));
-        this.staticGround.push(map.createDynamicLayer("BlockGold", blockGoldTileset));
-        this.staticGround.push(map.createDynamicLayer("Block", blockTileset));
-        this.staticGround.push(map.createDynamicLayer("BlockBig", blockBigTileset));
+        // this.staticGround.push(map.createDynamicLayer("Block", blockTileset));
+        // this.staticGround.push(map.createDynamicLayer("BlockBig", blockBigTileset));
 
         this.staticGround.forEach(ground => {
             ground.setCollisionByProperty({ ground: true })
@@ -130,6 +128,7 @@ export default class Game extends Phaser.Scene {
 
         createStartingObjects(this);
         //spawn enemies
+        this.enemies.hazards.createLavaBlocks(152, 330, 220, this)
 
 
         this.cameras.main.startFollow(this.player)

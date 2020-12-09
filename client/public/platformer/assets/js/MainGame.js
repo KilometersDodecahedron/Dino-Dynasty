@@ -2,6 +2,7 @@ import Preloader from "./scenes/Preloader.js";
 import Game from "./scenes/PracticeScene.js";
 import GameUI from "./scenes/GameUI.js";
 import Dungeon from "./scenes/DungeonScene.js"
+import MysticForest from "./scenes/MysticForestScene.js"
 import Temple from "./scenes/TempleScene.js"
 import Menu from "./scenes/Menu.js"
 import Scores from "./scenes/Scores.js"
@@ -30,6 +31,7 @@ const config = {
         Scores,
         GameOverScreen,
         Game,
+        MysticForest,
         Temple,
         Dungeon,
         WinScreen,
