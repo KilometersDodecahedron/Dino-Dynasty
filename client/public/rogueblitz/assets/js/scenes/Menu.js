@@ -43,31 +43,5 @@ export default class Menu extends Phaser.Scene {
                 }
             });
         });
-
-        // $.ajax({
-        //     url: "/api/users",
-        //     type: "POST",
-        //     data: {
-        //         userName: "John Tester Smith",
-        //         password: "12345678",
-        //         gamerTag: "GJG"
-        //     },
-        //     context: this,
-        //     success: function(result){
-        //         localStorage.setItem("userID", result._id)
-        //         $.ajax({
-        //             url: "/api/scores/",
-        //             type: "POST",
-        //             data: {
-        //                 userID: result._id,
-        //                 gamerTag: result.gamerTag
-        //             },
-        //             context: this,
-        //             success: function(result){
-        //                 console.log(result);
-        //             }
-        //         })
-        //     }
-        // })
     }
 }
