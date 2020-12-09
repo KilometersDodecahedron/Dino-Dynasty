@@ -36,34 +36,7 @@ function Account() {
                         console.log("Name Taken")
                     }
                 })
-<<<<<<< HEAD
         } else {
-=======
-
-                if(!userNameAlreadyExists){
-                    console.log("Name Available")
-                    axios.post("/api/users/", data)
-                    .then(response => {
-                        console.log(response)
-                        localStorage.setItem("userID", response.data._id);
-                        
-                        const scoreData = {
-                            userID: response.data._id,
-                            gamerTag: response.data.gamerTag
-                        }
-
-                        axios.post("/api/scores/", scoreData)
-                        .then(scoreResponse => {
-                            console.log(scoreResponse)
-                            document.location.href="/Game"
-                        })
-                    })
-                }else{
-                    console.log("Name Taken")
-                }
-            })
-        }else{
->>>>>>> 054cf75f501621882273988eeb63374532df840c
             console.log("this is invalid")
         }
 
