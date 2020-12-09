@@ -98,6 +98,6 @@ export default class Preloader extends Phaser.Scene {
     }
 
     create() {
-        this.scene.start("temple")
+        this.scene.start("dungeon")
     }
 }
