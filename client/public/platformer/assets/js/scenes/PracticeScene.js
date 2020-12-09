@@ -33,7 +33,7 @@ export default class Game extends Phaser.Scene {
         this.timeLimit = 300;
 
         //key of level to load when they reach the goal post
-        this.nextLevelKey = "winScreen"
+        this.nextLevelKey = "dungeon"
 
         //stores bluePickup, redPickup, yellowPickup
         //set with createColorPickups
