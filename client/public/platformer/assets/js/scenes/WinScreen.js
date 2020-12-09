@@ -51,14 +51,13 @@ export default class WinScreen extends Phaser.Scene {
         }
 
         var newHighScore = false;
-        var newScoreObject;
+        var newScoreObject = {dinoScore: this.finalScore};
 
         for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
             if(this.finalScore > this.highScoreArray[i].score){
                 console.log(`${this.finalScore} is larger than ${this.highScoreArray[i].dinoScore}`);
                 console.log(i + 1);
                 newHighScore = true;
-                newScoreObject = {dinoScore: this.finalScore};
                 break;
             }
         }
@@ -74,7 +73,8 @@ export default class WinScreen extends Phaser.Scene {
                     type: "PUT",
                     data: newScoreObject,
                     context: this
-                }).then(function(){
+                }).then(function(response){
+                    console.log(response)
                     const newHighScoreText = this.add.text(400, 280, "New Personal Best!", this.textConfig).setOrigin(0.5);
                 });
 
@@ -86,6 +86,8 @@ export default class WinScreen extends Phaser.Scene {
                 }).then(function(){
                     // const newHighScoreText = this.add.text(400, 350, "New Personal Best!", this.textConfig).setOrigin(0.5);
                 });
+            }else{
+                
             }
         });
 

@@ -46,14 +46,13 @@ export default class GameOverScreen extends Phaser.Scene {
         }
 
         var newHighScore = false;
-        var newScoreObject;
+        let newScoreObject = {rogueScore: this.score};
 
         for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
             if(this.score > this.highScoreArray[i].score){
                 console.log(`${this.score} is larger than ${this.highScoreArray[i].rogueScore}`);
                 console.log(i + 1);
                 newHighScore = true;
-                newScoreObject = {rogueScore: this.score};
                 break;
             }
         }

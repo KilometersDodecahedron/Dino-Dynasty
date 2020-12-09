@@ -91,26 +91,26 @@ run node server.js
 Try the game here ==> [Game]
 
 # Screenshots📸
-![Game]
+![Dino-Dynasty](https://user-images.githubusercontent.com/62157127/101557331-cba83280-398a-11eb-8922-3f0c612127b0.png)
 
 # Contributors🙌👨‍💻
 
 <a href="https://github.com/tmbx9482">
-         <img alt="Troy Berentsen" src="./src/Team/Troy.png"
+         <img alt="Troy Berentsen" src="team/Troy.png"
          width="100" height="100" style="border-radius:50%;">
       </a>
 
 <a href="https://github.com/KilometersDodecahedron">
-         <img alt="Miles Cohn" src="./src/Team/Miles.png"
+         <img alt="Miles Cohn" src="team/Miles.png"
          width="100" height="100" style="border-radius:50%;">
       </a>
 
 <a href="https://github.com/chrissy613">
-         <img alt="Chris Crook" src="./src/Team/Chris.png"
+         <img alt="Chris Crook" src="team/Chris.png"
          width="100" height="100" style="border-radius:50%;">
       </a>
 
 <a href="https://github.com/Carlosbenitez">
-         <img alt="Carlos Benitez" src="./src/Team/Carlos.png"
+         <img alt="Carlos Benitez" src="team/Carlos.png"
          width="100" height="100" style="border-radius:50%;">
       </a>

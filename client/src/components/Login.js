@@ -1,10 +1,57 @@
 import React from "react";
+import axios from "axios";
 import Welcome from "../img-frontend/welcome.gif"
 import { Link } from "react-router-dom";
 import "../styles/login.css";
 
 
 function Login() {
+    function tryLoggingIn(data){
+        console.log(data)
+        if(
+            data.userName.length > 0 && data.userName.length <= 30 &&
+            data.password.length >= 8 && data.userName.length <= 20
+        ){
+            console.log("Valid")
+            axios.get("/api/users/")
+            .then(response => {
+                let foundMatchingUser = false;
+                let activeUser;
+
+                response.data.forEach(user => {
+                    if(user.userName == data.userName && user.password == data.password){
+                        foundMatchingUser = true;
+                        activeUser = user;
+                    }
+                })
+
+                if(foundMatchingUser){
+                    localStorage.setItem("userID", activeUser._id);
+                    document.location.href="/Game"
+                }
+            });
+        }else{
+            console.log("inva;id")
+        }
+    }
+
+    function formatDataForCheck(e) {
+        e.preventDefault();
+
+        const userName = document.getElementById("email");
+        const password = document.getElementById("password");
+
+        const formattedData = {
+            userName: userName.value,
+            password: password.value
+        }
+
+        userName.value = "";
+        password.value = "";
+
+        tryLoggingIn(formattedData);
+    }
+
     return (
         <div className="my-login-page" id="login" >
             <section className="h-100">
@@ -18,7 +65,7 @@ function Login() {
                             <div className="card fat">
                                 <div className="card-body">
                                     <h4 className="login-p">Login</h4>
-                                    <form method="POST" className="my-login-validation" noValidate="">
+                                    <form onSubmit={formatDataForCheck} className="my-login-validation" noValidate="">
                                         <div className="form-group">
                                             <label htmlFor="email">Username</label>
                                             <input id="email" type="text" className="form-control" name="email" required
