@@ -88,7 +88,7 @@ run node server.js
 * Feel free to message Troy at troyberentsen94@gmail.com and or use the contacts resource on our projects page to send us your thoughs, ideas, and what your looking to create!  
 
 # Link📶🤝
-Try the game here ==> [Game]
+Create and account or login in here ==> [Game](https://vguniverse.herokuapp.com/)
 
 # Screenshots📸
 ![Dino-Dynasty](https://user-images.githubusercontent.com/62157127/101557331-cba83280-398a-11eb-8922-3f0c612127b0.png)
