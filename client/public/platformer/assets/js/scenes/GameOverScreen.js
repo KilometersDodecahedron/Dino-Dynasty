@@ -67,20 +67,21 @@ export default class GameOverScreen extends Phaser.Scene {
                     type: "PUT",
                     data: newScoreObject,
                     context: this
-                }).then(function(){
+                }).then(function(response){
+                    console.log(response)
                     const newHighScoreText = this.add.text(400, 280, "New Personal Best!", this.textConfig).setOrigin(0.5);
-
-                    //update score array
-                    $.ajax("/api/scores/method/" + userID, {
-                        type: "PUT",
-                        data: newScoreObject,
-                        context: this
-                    }).then(function(obj){
-                        console.log(obj)
-                    });
                 });
+            }
 
-                
+            if(this.score > user[0].dinoScore || newHighScore){
+                //update score array
+                $.ajax("/api/scores/method/" + userID, {
+                    type: "PUT",
+                    data: newScoreObject,
+                    context: this
+                }).then(function(obj){
+                    console.log(obj)
+                });
             }
         });
 
