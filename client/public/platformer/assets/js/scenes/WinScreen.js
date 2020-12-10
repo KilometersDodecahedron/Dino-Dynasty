@@ -81,7 +81,8 @@ export default class WinScreen extends Phaser.Scene {
                     type: "PUT",
                     data: newScoreObject,
                     context: this
-                }).then(function(){
+                }).then(function(response){
+                    console.log(response);
                     // const newHighScoreText = this.add.text(400, 350, "New Personal Best!", this.textConfig).setOrigin(0.5);
                 });
             }else{
