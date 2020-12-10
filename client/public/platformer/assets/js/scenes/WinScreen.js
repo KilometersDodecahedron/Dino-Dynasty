@@ -51,10 +51,14 @@ export default class WinScreen extends Phaser.Scene {
         var newHighScore = false;
         var newScoreObject = {dinoScore: this.finalScore};
 
-        for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
-            if(this.finalScore > this.highScoreArray[i].score){
-                newHighScore = true;
-                break;
+        if(this.highScoreArray.length < 10){
+            newHighScore = true;
+        }else{
+            for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
+                if(this.score > this.highScoreArray[i].score){
+                    newHighScore = true;
+                    break;
+                }
             }
         }
 
