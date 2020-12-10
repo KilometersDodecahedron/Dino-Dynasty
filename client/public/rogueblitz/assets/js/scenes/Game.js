@@ -559,7 +559,7 @@ export default class Game extends Phaser.Scene {
     gameOver(){
         //sceneEvents.destroy();
         $.ajax({
-            url: "/api/scores/rogue",
+            url: "/api/users/",
             type: "GET",
             //set the "success" to fun in this context, to get the next scene
             context: this,

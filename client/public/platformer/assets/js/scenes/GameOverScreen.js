@@ -13,6 +13,10 @@ export default class GameOverScreen extends Phaser.Scene {
     init(data){
         this.score = data.score;
         this.highScoreArray = data.highScoreArray;
+
+        this.highScoreArray.sort(function(a, b) {
+            return b.dinoScore - a.dinoScore;
+        });
     }
 
     create(){
@@ -46,14 +50,10 @@ export default class GameOverScreen extends Phaser.Scene {
         var newHighScore = false;
         var newScoreObject = {dinoScore: this.score};
 
-        if(this.highScoreArray.length < 10){
-            newHighScore = true;
-        }else{
-            for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
-                if(this.score > this.highScoreArray[i].score){
-                    newHighScore = true;
-                    break;
-                }
+        for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
+            if(this.score > this.highScoreArray[i].dinoScore){
+                newHighScore = true;
+                break;
             }
         }
 
@@ -68,8 +68,15 @@ export default class GameOverScreen extends Phaser.Scene {
                     data: newScoreObject,
                     context: this
                 }).then(function(response){
-                    console.log(response)
                     const newHighScoreText = this.add.text(400, 280, "New Personal Best!", this.textConfig).setOrigin(0.5);
+                    for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
+                        if(this.score > this.highScoreArray[i].dinoScore){
+                            const newHighScoreText = this.add.text(400, 350, "New High Score!", this.textConfig).setOrigin(0.5);
+                            break;
+                        }else{
+                            console.log(this.highScoreArray[i].dinoScore)
+                        }
+                    }
                 });
             }
 
@@ -80,14 +87,12 @@ export default class GameOverScreen extends Phaser.Scene {
                     data: newScoreObject,
                     context: this
                 }).then(function(obj){
-                    console.log(obj)
+                    //console.log(obj)
                 });
             }
+
         });
 
-        //if there's a new high score, save it to the database
-        if(newHighScore){
-            const newHighScoreText = this.add.text(400, 350, "New High Score!", this.textConfig).setOrigin(0.5);
-        }
+        
     }
 }

@@ -171,7 +171,7 @@ export default class Level3 extends Phaser.Scene {
     gameOver(score){
         //sceneEvents.destroy();
         $.ajax({
-            url: "/api/scores/dino",
+            url: "/api/users/",
             type: "GET",
             //set the "success" to fun in this context, to get the next scene
             context: this,
@@ -187,7 +187,7 @@ export default class Level3 extends Phaser.Scene {
 
     winGame(scoreAndLives){
         $.ajax({
-            url: "/api/scores/dino",
+            url: "/api/users/",
             type: "GET",
             //set the "success" to fun in this context, to get the next scene
             context: this,

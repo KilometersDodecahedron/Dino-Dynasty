@@ -7,7 +7,6 @@ import "../styles/login.css";
 
 function Login() {
     function tryLoggingIn(data){
-        console.log(data)
         if(
             data.userName.length > 0 && data.userName.length <= 30 &&
             data.password.length >= 8 && data.userName.length <= 20

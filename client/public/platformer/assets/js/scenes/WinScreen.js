@@ -17,6 +17,10 @@ export default class WinScreen extends Phaser.Scene {
         this.livesBonusMultiplier = data.bonusMultiplier;
         this.finalScore = data.score + (this.livesRemaining * this.livesBonusMultiplier);
         this.highScoreArray = data.highScoreArray;
+
+        this.highScoreArray.sort(function(a, b) {
+            return b.dinoScore - a.dinoScore;
+        });
     }
 
     create(){
@@ -51,14 +55,10 @@ export default class WinScreen extends Phaser.Scene {
         var newHighScore = false;
         var newScoreObject = {dinoScore: this.finalScore};
 
-        if(this.highScoreArray.length < 10){
-            newHighScore = true;
-        }else{
-            for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
-                if(this.score > this.highScoreArray[i].score){
-                    newHighScore = true;
-                    break;
-                }
+        for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
+            if(this.score > this.highScoreArray[i].dinoScore){
+                newHighScore = true;
+                break;
             }
         }
 
@@ -74,6 +74,14 @@ export default class WinScreen extends Phaser.Scene {
                     context: this
                 }).then(function(response){
                     const newHighScoreText = this.add.text(400, 280, "New Personal Best!", this.textConfig).setOrigin(0.5);
+                    for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
+                        if(this.score > this.highScoreArray[i].dinoScore){
+                            const newHighScoreText = this.add.text(400, 350, "New High Score!", this.textConfig).setOrigin(0.5);
+                            break;
+                        }else{
+                            console.log(this.highScoreArray[i].dinoScore)
+                        }
+                    }
                 });
 
                 //update score array
@@ -82,17 +90,15 @@ export default class WinScreen extends Phaser.Scene {
                     data: newScoreObject,
                     context: this
                 }).then(function(response){
-                    console.log(response);
+                    //console.log(response);
                     // const newHighScoreText = this.add.text(400, 350, "New Personal Best!", this.textConfig).setOrigin(0.5);
                 });
+   
             }else{
                 
             }
         });
 
-        //if there's a new high score, save it to the database
-        if(newHighScore){
-            const newHighScoreText = this.add.text(400, 350, "New High Score!", this.textConfig).setOrigin(0.5);
-        }
+        
     }
 }
