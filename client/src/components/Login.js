@@ -9,7 +9,7 @@ function Login() {
     function tryLoggingIn(data){
         if(
             data.userName.length > 0 && data.userName.length <= 30 &&
-            data.password.length >= 8 && data.userName.length <= 20
+            data.password.length >= 8 && data.password.length <= 20
         ){
             axios.get("/api/users/")
             .then(response => {

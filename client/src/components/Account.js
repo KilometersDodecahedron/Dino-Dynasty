@@ -8,7 +8,7 @@ function Account() {
     function tryCreateAccount(data) {
         if (
             data.userName.length > 0 && data.userName.length <= 30 &&
-            data.password.length >= 8 && data.userName.length <= 20 &&
+            data.password.length >= 8 && data.password.length <= 20 &&
             data.gamerTag.length >= 3 && data.gamerTag.length <= 6
         ) {
             axios.get("/api/users/")
@@ -69,10 +69,10 @@ function Account() {
                                 <h2 className="card-title">Join the Force</h2>
                                 <form onSubmit={formatDataForCheck} className="my-login-validation" noValidate="">
                                     <div className="form-group">
-                                        <label htmlFor="name">Username</label>
+                                        <label htmlFor="name">Username (1-30 Characters)</label>
                                         <input id="name" type="text" className="form-control" name="name" required autoFocus />
                                         <div className="invalid-feedback">
-                                            What's your name?
+                                            What's your name? 
                                     </div>
                                     </div>
 
@@ -85,7 +85,7 @@ function Account() {
                                     </div>
 
                                     <div className="form-group">
-                                        <label htmlFor="password">Password</label>
+                                        <label htmlFor="password">Password (8-20 Characters)</label>
                                         <input id="password" type="password" className="form-control" name="password" required
                                             data-eye />
                                         <div className="invalid-feedback">
