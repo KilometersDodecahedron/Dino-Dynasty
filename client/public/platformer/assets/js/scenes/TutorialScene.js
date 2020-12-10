@@ -130,6 +130,34 @@ export default class Game extends Phaser.Scene {
         //spawn enemies
         this.enemies.hazards.createLavaBlocks(152, 330, 220, this)
 
+        this.add.text(50, 80, 
+        `Use the Left and Right 
+arrows keys to move`)
+
+        this.add.text(320, 80, 
+        `Hold the Up arrow 
+    key to Jump`)
+
+        this.add.text(520, 60, 
+        `Collect the Blue Potion 
+to press Space to Double Jump`)
+
+        this.add.text(900, 60, 
+        `Jump on enemies to Defeat them`)
+
+        this.add.text(1200, 95, 
+        `Hold Up to jump off them`)
+
+        this.add.text(1470, 40, 
+        `   Collect the Red Potion 
+to press Space to Shoot Fireballs`)
+
+        this.add.text(2350, 120, 
+        `Checkpoints save your progress`)
+
+        this.add.text(2850, 40, 
+        `Examine the level around you,
+there's always a way forward`)
 
         this.cameras.main.startFollow(this.player)
         this.cameras.main.setZoom(1.8);
