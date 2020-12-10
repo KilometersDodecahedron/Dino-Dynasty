@@ -52,6 +52,7 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite{
         this.health--;
 
         if(this.health <= 0){
+            sceneEvents.emit(eventNames.increaseScore, this.pointValue);
             this.destroy();
         }
     }
