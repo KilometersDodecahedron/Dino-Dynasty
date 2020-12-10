@@ -12,6 +12,12 @@ router.route("/")
 router
   .route("/byName")
   .get(gameController.findUserInfoByName);
+
+router.route("/dino")
+  .get(gameController.findUserScoreDino);
+  
+router.route("/rogue")
+  .get(gameController.findUserScoreRogue);
   
 // Matches with "/api/users/:id"
 router
