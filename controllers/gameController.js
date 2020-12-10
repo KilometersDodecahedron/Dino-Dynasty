@@ -15,6 +15,20 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    findUserScoreDino: function(req, res){
+        db.User
+            .find(req.query)
+            sort({ dinoScore: -1 })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+    findUserScoreRogue: function(req, res){
+        db.User
+            .find(req.query)
+            sort({ rogueScore: -1 })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
     //get them by user name when they log in
     findUserInfoByName: function(req, res){
         db.User

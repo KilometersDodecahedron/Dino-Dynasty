@@ -46,10 +46,14 @@ export default class GameOverScreen extends Phaser.Scene {
         var newHighScore = false;
         var newScoreObject = {dinoScore: this.score};
 
-        for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
-            if(this.score > this.highScoreArray[i].score){
-                newHighScore = true;
-                break;
+        if(this.highScoreArray.length < 10){
+            newHighScore = true;
+        }else{
+            for(let i = 0; i < this.highScoreArray.length && i < 10; i++){
+                if(this.score > this.highScoreArray[i].score){
+                    newHighScore = true;
+                    break;
+                }
             }
         }
 
@@ -63,17 +67,20 @@ export default class GameOverScreen extends Phaser.Scene {
                     type: "PUT",
                     data: newScoreObject,
                     context: this
-                }).then(function(){
+                }).then(function(response){
+                    console.log(response)
                     const newHighScoreText = this.add.text(400, 280, "New Personal Best!", this.textConfig).setOrigin(0.5);
                 });
+            }
 
+            if(this.score > user[0].dinoScore || newHighScore){
                 //update score array
                 $.ajax("/api/scores/method/" + userID, {
                     type: "PUT",
                     data: newScoreObject,
                     context: this
                 }).then(function(obj){
-                    
+                    console.log(obj)
                 });
             }
         });
